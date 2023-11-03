@@ -1,0 +1,16 @@
+{
+  "name": "@mangrovedao/mangrove-deployments",
+  "version": "0.0.1",
+  "description": "Collection of Mangrove deployments",
+  "main": "dist/index.js",
+  "repository": "https://github.com/mangrovedao/mangrove-deployments.git",
+  "author": "Mangrove DAO",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc --build"
+  }
+}
