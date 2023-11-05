@@ -11,6 +11,13 @@
     "src"
   ],
   "scripts": {
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "prepack": "yarn run build"
+  },
+  "dependencies": {
+    "semver": "^7.5.4"
+  },
+  "devDependencies": {
+    "@types/semver": "^7.5.4"
   }
 }
