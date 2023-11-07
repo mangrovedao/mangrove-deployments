@@ -60,3 +60,16 @@ export const getMangroveOrderVersionDeployments = (
 ): VersionDeployments | undefined => {
   return findDeployment(filter, _mangroveOrderDeployments);
 };
+
+// This is a temporary utility function to get deployments for all the contracts in one go
+export const getStratsContractsVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments[] => {
+  return [
+    getAaveKandelSeederVersionDeployments(filter),
+    getAavePooledRouterVersionDeployments(filter),
+    getKandelSeederVersionDeployments(filter),
+    getMangroveOrderRouterVersionDeployments(filter),
+    getMangroveOrderVersionDeployments(filter),
+  ].filter((x): x is VersionDeployments => x !== undefined);
+};

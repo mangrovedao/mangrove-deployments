@@ -30,3 +30,14 @@ export const getMgvReaderVersionDeployments = (
 ): VersionDeployments | undefined => {
   return findDeployment(filter, _mgvReaderDeployments);
 };
+
+// This is a temporary utility function to get deployments for all the contracts in one go
+export const getCoreContractsVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments[] => {
+  return [
+    getMangroveVersionDeployments(filter),
+    getMgvOracleVersionDeployments(filter),
+    getMgvReaderVersionDeployments(filter),
+  ].filter((x): x is VersionDeployments => x !== undefined);
+};
