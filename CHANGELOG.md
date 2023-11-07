@@ -1,5 +1,7 @@
 # Next version
 
+# 0.0.2-1
+
 - Add functions to get core and strats deployments for all contracts
 
 # 0.0.2-0
