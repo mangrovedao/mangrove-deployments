@@ -7,18 +7,34 @@
   "author": "Mangrove DAO",
   "license": "MIT",
   "files": [
-    "dist",
-    "src"
+    "dist/",
+    "src/",
+    "LICENSE",
+    "README.md",
+    "tsconfig.json"
   ],
   "scripts": {
-    "build": "tsc --build",
-    "prepack": "yarn run build"
+    "precommit": "lint-staged",
+    "prepack": "yarn run build",
+    "postinstall": "husky install",
+    "lint": "npx eslint ./src/*.ts",
+    "build": "tsc --build"
+  },
+  "lint-staged": {
+    "*.{js,ts,css,md,json,mjs}": "prettier --write"
   },
   "dependencies": {
     "semver": "^7.5.4"
   },
   "devDependencies": {
-    "@types/semver": "^7.5.4"
+    "@types/semver": "^7.5.4",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3"
   },
   "packageManager": "yarn@3.5.0"
 }
