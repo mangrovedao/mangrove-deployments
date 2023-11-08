@@ -13,23 +13,27 @@ function createFilterFunction(criteria: DeploymentFilter) {
     if (
       typeof criteriaWithDefaults.version !== "undefined" &&
       !semverSatisfies(deployment.version, criteriaWithDefaults.version)
-    )
+    ) {
       return false;
+    }
     if (
       typeof criteriaWithDefaults.released === "boolean" &&
       deployment.released != criteriaWithDefaults.released
-    )
+    ) {
       return false;
+    }
     if (
       criteriaWithDefaults.network &&
       !deployment.networkAddresses[criteriaWithDefaults.network]
-    )
+    ) {
       return false;
+    }
     if (
       criteriaWithDefaults.deploymentName &&
       deployment.deploymentName != criteriaWithDefaults.deploymentName
-    )
+    ) {
       return false;
+    }
 
     return true;
   };
