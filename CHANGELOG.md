@@ -1,5 +1,7 @@
 # Next version
 
+- Fix KandelLib address and ABI
+
 # 1.0.0
 
 - Initial version containing:
