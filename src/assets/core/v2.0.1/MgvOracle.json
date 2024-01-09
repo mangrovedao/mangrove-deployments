@@ -6,6 +6,10 @@
     "80001": {
       "primaryAddress": "0xC0fB136768e4b7725d674B8Bcd366A5dc2b5F976",
       "allAddresses": ["0xC0fB136768e4b7725d674B8Bcd366A5dc2b5F976"]
+    },
+    "11155111": {
+      "primaryAddress": "0xF15A2ada64A9C3C14ca11359c8F1d22B063DB2AD",
+      "allAddresses": ["0xF15A2ada64A9C3C14ca11359c8F1d22B063DB2AD"]
     }
   },
   "abi": [
