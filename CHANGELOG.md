@@ -2,7 +2,7 @@
 
 # 1.0.3
 
--Consolidate core testnet deployments in the v2.0.1 assets files. This is a workaround until a better querying mechanism is implemented which allows easy querying of the latest addresses for all networks.
+- Consolidate core testnet deployments in the v2.0.1 assets files. This is a workaround until a better querying mechanism is implemented which allows easy querying of the latest addresses for all networks.
 
 # 1.0.2
 
