@@ -1,7 +1,21 @@
-import { DeploymentFilter, VersionDeployments } from "./types";
+import { DeploymentFilter, VersionDeployments, Dependency } from "./types";
 import semverSatisfies from "semver/functions/satisfies";
 
 const DEFAULT_FILTER: DeploymentFilter = { released: true };
+
+function doDependenciesMatch(
+  dependencies: Dependency[] | undefined,
+  dependencyCriteria: Dependency[] | undefined,
+): boolean {
+  return (
+    !dependencyCriteria ||
+    dependencyCriteria.every(
+      (c) =>
+        dependencies &&
+        dependencies.some((d) => d.name == c.name && d.address == c.address),
+    )
+  );
+}
 
 function createFilterFunction(criteria: DeploymentFilter) {
   return (deployment: VersionDeployments) => {
@@ -31,6 +45,16 @@ function createFilterFunction(criteria: DeploymentFilter) {
     if (
       criteriaWithDefaults.deploymentName &&
       deployment.deploymentName != criteriaWithDefaults.deploymentName
+    ) {
+      return false;
+    }
+    if (
+      criteriaWithDefaults.dependencies &&
+      Object.values(deployment.networkAddresses)
+        .flatMap((n) => n.allAddresses.map((a) => a.dependencies))
+        .every(
+          (d) => !doDependenciesMatch(d, criteriaWithDefaults.dependencies),
+        )
     ) {
       return false;
     }

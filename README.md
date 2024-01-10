@@ -25,25 +25,42 @@ type DeploymentFilter {
   version?: string;
   released?: boolean;      // Defaults to true.
   network?: string;        // Chain ID of the network
-  deploymentName?: string; // An optional deployment name which may be used to differentiate between multiple deployments of the same contract version.
-                           // Used for test token deployments to distinguish between tokens based on the same contract.
+  deploymentName?: string; // An optional deployment name which may be used to differentiate
+                           // between multiple deployments of the same contract version.
+                           // Used eg for test token deployments to distinguish between tokens
+                           // based on the same contract.
+  dependencies?: {name: string, address: string};
+                           // An optional list of dependencies in the form of a deployment or
+                           // contract name and an address.
+                           // Can eg be used to get deployments tied to a specific Mangrove instance.
 }
 ```
 
 The method will return a `VersionDeployments` object or `undefined` if no deployment was found for the specified filter.
 
 ```ts
+type Dependency = {
+  name: string;
+  address: string;
+};
+
+type AddressAndDependencies = {
+  address: string;
+  dependencies?: Dependency[];
+};
+
 type VersionDeployments {
   contractName: string;
   deploymentName?: string;
   version: string;
-  released: boolean;          // The deployment is of a released contract version;
+  released: boolean;           // The deployment is of a released contract version;
   abi: any[];
-  networkAddresses: Record<   // Addresses of the contract by network
+  networkAddresses: Record<    // Addresses of the contract by network
     string,
     {
-      primaryAddress: string; // The primary deployment on the network which should normally be used
-      allAddresses: string[]; // All deployments on the network of this contract version.
+      primaryAddress?: string; // An optional primary deployment on the network which should normally be used
+      allAddresses: AddressAndDependencies[];
+                               // All deployments on the network of this contract version.
     }
   >;
 }
@@ -67,21 +84,36 @@ const mangroveGörli = getMangroveVersionDeployments({ network: "5" });
 const mangrove200 = getMangroveVersionDeployments({ version: "2.0.0" });
 
 // Similar methods exist for the MgvReader and MgvOracle contracts
-const mgvReader = getMgvReaderVersionDeployments();
-const mgvOracle = getMgvOracleVersionDeployments();
+// For these, one will often want to match a specific Mangrove instance
+const mgvReader = getMgvReaderVersionDeployments({
+  dependencies: [{ name: "Mangrove", address: "0x..." }],
+});
+const mgvOracle = getMgvOracleVersionDeployments({
+  dependencies: [{ name: "Mangrove", address: "0x..." }],
+});
 ```
 
 - Strats
 
 ```ts
 // MangroveOrder contract
-const mangroveOrder = getMangroveOrderVersionDeployments();
-const mangroveOrderRouter = getMangroveOrderRouterVersionDeployments();
+const mangroveOrder = getMangroveOrderVersionDeployments({
+  dependencies: [{ name: "Mangrove", address: "0x..." }],
+});
+const mangroveOrderRouter = getMangroveOrderRouterVersionDeployments({
+  dependencies: [{ name: "Mangrove", address: "0x..." }],
+});
 
 // Kandel
-const kandelSeeder = getKandelSeederVersionDeployments();
-const aaveKandelSeeder = getAaveKandelSeederVersionDeployments();
-const aavePooledRouter = getAavePooledRouterVersionDeployments();
+const kandelSeeder = getKandelSeederVersionDeployments({
+  dependencies: [{ name: "Mangrove", address: "0x..." }],
+});
+const aaveKandelSeeder = getAaveKandelSeederVersionDeployments({
+  dependencies: [{ name: "Mangrove", address: "0x..." }],
+});
+const aavePooledRouter = getAavePooledRouterVersionDeployments({
+  dependencies: [{ name: "Mangrove", address: "0x..." }],
+});
 ```
 
 - Test ERC20 tokens
