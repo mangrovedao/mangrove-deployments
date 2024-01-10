@@ -1,0 +1,45 @@
+{
+  "title": "Definition of a contract",
+  "description": "Schema to define a contract deployed by mangrove",
+  "type": "object",
+  "properties": {
+    "released": {
+      "type": "boolean",
+      "description": "Whether the contract is released or not"
+    },
+    "contractName": {
+      "type": "string",
+      "description": "Name of the contract"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the contract"
+    },
+    "networkAddresses": {
+      "type": "object",
+      "patternProperties": {
+        "^[0-9]+$": {
+          "type": "object",
+          "description": "Address of the contract on a given network",
+          "properties": {
+            "primaryAddress": {
+              "type": "string",
+              "description": "Address of the contract on a given network"
+            },
+            "allAddresses": {
+              "type": "array",
+              "description": "All addresses of the contract on a given network",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "abi": {
+      "type": "array",
+      "description": "ABI of the contract"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 {
+  "$schema": "../../contract.schema.json",
   "released": true,
   "contractName": "AaveKandelSeeder",
   "version": "1.0.0",
