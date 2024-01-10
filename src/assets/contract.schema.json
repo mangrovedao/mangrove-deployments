@@ -2,6 +2,13 @@
   "title": "Definition of a contract",
   "description": "Schema to define a contract deployed by mangrove",
   "type": "object",
+  "required": [
+    "released",
+    "contractName",
+    "version",
+    "networkAddresses",
+    "abi"
+  ],
   "properties": {
     "released": {
       "type": "boolean",
