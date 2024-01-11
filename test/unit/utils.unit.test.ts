@@ -14,7 +14,10 @@ describe("utils.ts", () => {
         released: false,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment: VersionDeployments = {
@@ -24,7 +27,10 @@ describe("utils.ts", () => {
         released: true, // Default filter value
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
 
@@ -52,7 +58,10 @@ describe("utils.ts", () => {
         released: true, // Default filter value
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment2: VersionDeployments = {
@@ -62,7 +71,10 @@ describe("utils.ts", () => {
         released: true, // Default filter value
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
 
@@ -89,7 +101,10 @@ describe("utils.ts", () => {
         released: false,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testUnreleasedDeployment2: VersionDeployments = {
@@ -99,7 +114,10 @@ describe("utils.ts", () => {
         released: false,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment1: VersionDeployments = {
@@ -109,7 +127,10 @@ describe("utils.ts", () => {
         released: true, // Default filter value
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment2: VersionDeployments = {
@@ -119,7 +140,10 @@ describe("utils.ts", () => {
         released: true, // Default filter value
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
 
@@ -155,7 +179,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment2: VersionDeployments = {
@@ -165,7 +192,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "73799": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "73799": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment3: VersionDeployments = {
@@ -175,7 +205,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "11297108109": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "11297108109": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment4: VersionDeployments = {
@@ -185,7 +218,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
 
@@ -213,6 +249,87 @@ describe("utils.ts", () => {
         .undefined;
     });
 
+    it("should return the correct deployment (filtered by dependencies)", () => {
+      const testReleasedDeployment1: VersionDeployments = {
+        contractName: "",
+        deploymentName: "1",
+        version: "1.2.3",
+        released: true, // Default filter value
+        abi: [],
+        networkAddresses: {
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [
+              {
+                address: "0xbeef",
+                dependencies: [
+                  { name: "dep1", address: "0xcode" },
+                  { name: "dep2", address: "0xbaaf" },
+                ],
+              },
+            ],
+          },
+        },
+      };
+      const testReleasedDeployment2: VersionDeployments = {
+        contractName: "",
+        deploymentName: "2",
+        version: "2.0.0",
+        released: true, // Default filter value
+        abi: [],
+        networkAddresses: {
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [
+              {
+                address: "0xbeef",
+                dependencies: [{ name: "dep1", address: "0xcode" }],
+              },
+            ],
+          },
+        },
+      };
+
+      const testDeployments = [
+        testReleasedDeployment2,
+        testReleasedDeployment1,
+      ];
+
+      // No dependencies required
+      expect(findDeployment({ dependencies: [] }, testDeployments)).to.equal(
+        testReleasedDeployment2,
+      );
+
+      // Chronological deployments
+      expect(
+        findDeployment(
+          { dependencies: [{ name: "dep1", address: "0xcode" }] },
+          testDeployments,
+        ),
+      ).to.equal(testReleasedDeployment2);
+
+      // Multiple dependencies
+      expect(
+        findDeployment(
+          {
+            dependencies: [
+              { name: "dep1", address: "0xcode" },
+              { name: "dep2", address: "0xbaaf" },
+            ],
+          },
+          testDeployments,
+        ),
+      ).to.equal(testReleasedDeployment1);
+
+      // Incorrect filter:
+      expect(
+        findDeployment(
+          { dependencies: [{ name: "nonDep", address: "0xcode" }] },
+          testDeployments,
+        ),
+      ).to.be.undefined;
+    });
+
     it("should return the correct deployment (filtered by version and released)", () => {
       const testReleasedDeployment1: VersionDeployments = {
         contractName: "1",
@@ -221,7 +338,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment2: VersionDeployments = {
@@ -231,7 +351,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment3: VersionDeployments = {
@@ -241,7 +364,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment4: VersionDeployments = {
@@ -251,7 +377,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
 
@@ -289,7 +418,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment2: VersionDeployments = {
@@ -299,7 +431,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment3: VersionDeployments = {
@@ -309,7 +444,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment4: VersionDeployments = {
@@ -319,7 +457,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
 
@@ -357,7 +498,10 @@ describe("utils.ts", () => {
         released: false,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testUnreleasedDeployment2: VersionDeployments = {
@@ -367,7 +511,10 @@ describe("utils.ts", () => {
         released: false,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment1: VersionDeployments = {
@@ -377,7 +524,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment2: VersionDeployments = {
@@ -387,7 +537,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "246": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "246": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment3: VersionDeployments = {
@@ -397,7 +550,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "11297108109": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "11297108109": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
       const testReleasedDeployment4: VersionDeployments = {
@@ -407,7 +563,10 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef" }],
+          },
         },
       };
 
@@ -453,7 +612,7 @@ describe("utils.ts", () => {
       ).to.equal(testUnreleasedDeployment2);
     });
 
-    it("should return the correct deployment (filtered by version, released and network)", () => {
+    it("should return the correct deployment (filtered by version, released, network, and dependencies)", () => {
       const testReleasedDeployment1: VersionDeployments = {
         contractName: "",
         deploymentName: "3",
@@ -461,7 +620,15 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "1": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [
+              {
+                address: "0xbeef",
+                dependencies: [{ name: "dep", address: "0xcode1" }],
+              },
+            ],
+          },
         },
       };
       const testReleasedDeployment2: VersionDeployments = {
@@ -471,7 +638,15 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "246": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "246": {
+            primaryAddress: "0xbeef",
+            allAddresses: [
+              {
+                address: "0xbeef",
+                dependencies: [{ name: "dep", address: "0xcode2" }],
+              },
+            ],
+          },
         },
       };
       const testReleasedDeployment3: VersionDeployments = {
@@ -481,7 +656,15 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "73799": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "73799": {
+            primaryAddress: "0xbeef",
+            allAddresses: [
+              {
+                address: "0xbeef",
+                dependencies: [{ name: "dep", address: "0xcode3" }],
+              },
+            ],
+          },
         },
       };
       const testReleasedDeployment4: VersionDeployments = {
@@ -491,7 +674,15 @@ describe("utils.ts", () => {
         released: true,
         abi: [],
         networkAddresses: {
-          "11297108109": { primaryAddress: "0xbeef", allAddresses: ["0xbeef"] },
+          "11297108109": {
+            primaryAddress: "0xbeef",
+            allAddresses: [
+              {
+                address: "0xbeef",
+                dependencies: [{ name: "dep", address: "0xcode4" }],
+              },
+            ],
+          },
         },
       };
 
@@ -506,44 +697,91 @@ describe("utils.ts", () => {
       // Reverse chronological deployments
       expect(
         findDeployment(
-          { version: "1.0.0", released: true, network: "1" },
+          {
+            version: "1.0.0",
+            released: true,
+            network: "1",
+            dependencies: [{ name: "dep", address: "0xcode1" }],
+          },
           testDeploymentsReverse,
         ),
       ).to.equal(testReleasedDeployment1);
       expect(
         findDeployment(
-          { version: "1.1.1", released: true, network: "246" },
+          {
+            version: "1.1.1",
+            released: true,
+            network: "246",
+            dependencies: [{ name: "dep", address: "0xcode2" }],
+          },
           testDeploymentsReverse,
         ),
       ).to.equal(testReleasedDeployment2);
       expect(
         findDeployment(
-          { version: "1.2.0", released: true, network: "73799" },
+          {
+            version: "1.2.0",
+            released: true,
+            network: "73799",
+            dependencies: [{ name: "dep", address: "0xcode3" }],
+          },
           testDeploymentsReverse,
         ),
       ).to.equal(testReleasedDeployment3);
       expect(
         findDeployment(
-          { version: "1.3.0", released: true, network: "11297108109" },
+          {
+            version: "1.3.0",
+            released: true,
+            network: "11297108109",
+            dependencies: [{ name: "dep", address: "0xcode4" }],
+          },
           testDeploymentsReverse,
         ),
       ).to.equal(testReleasedDeployment4);
+
       // Incorrect filter:
       expect(
         findDeployment(
-          { version: "1.3.0", released: false, network: "11297108109" },
+          {
+            version: "1.3.0",
+            released: false,
+            network: "11297108109",
+            dependencies: [{ name: "dep", address: "0xcode4" }],
+          },
           testDeploymentsReverse,
         ),
       ).to.be.undefined;
       expect(
         findDeployment(
-          { version: "1.3.0", released: true, network: "0" },
+          {
+            version: "1.3.0",
+            released: true,
+            network: "0",
+            dependencies: [{ name: "dep", address: "0xcode4" }],
+          },
           testDeploymentsReverse,
         ),
       ).to.be.undefined;
       expect(
         findDeployment(
-          { version: "2.0.0", released: true, network: "11297108109" },
+          {
+            version: "2.0.0",
+            released: true,
+            network: "11297108109",
+            dependencies: [{ name: "dep", address: "0xcode4" }],
+          },
+          testDeploymentsReverse,
+        ),
+      ).to.be.undefined;
+      expect(
+        findDeployment(
+          {
+            version: "1.3.0",
+            released: true,
+            network: "11297108109",
+            dependencies: [{ name: "dep", address: "0xcode1" }],
+          },
           testDeploymentsReverse,
         ),
       ).to.be.undefined;
