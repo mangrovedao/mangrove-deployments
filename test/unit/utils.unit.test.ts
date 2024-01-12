@@ -1,7 +1,7 @@
 import { describe, it } from "mocha";
 import { expect } from "chai";
 
-import { findDeployment } from "../../src/utils";
+import { findAllDeployments, findDeployment } from "../../src/utils";
 import { VersionDeployments } from "../../src/types";
 
 describe("utils.ts", () => {
@@ -821,6 +821,75 @@ describe("utils.ts", () => {
           testDeploymentsReverse,
         ),
       ).to.be.undefined;
+    });
+  });
+
+  describe("findAllDeployments", () => {
+    it("should handle empty deployments", () => {
+      expect(findAllDeployments(undefined, [])).to.deep.equal([]);
+    });
+
+    it("should return all matching the filter", () => {
+      // Filter variants are assumed covered by findDeployment tests, so only filtering on released here
+
+      const testUnreleasedDeployment: VersionDeployments = {
+        contractName: "",
+        deploymentName: "",
+        version: "",
+        released: false,
+        abi: [],
+        networkAddresses: {
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef", dependencies: [] }],
+          },
+        },
+      };
+      const testReleasedDeployment1: VersionDeployments = {
+        contractName: "",
+        deploymentName: "",
+        version: "",
+        released: true,
+        abi: [],
+        networkAddresses: {
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef", dependencies: [] }],
+          },
+        },
+      };
+      const testReleasedDeployment2: VersionDeployments = {
+        contractName: "",
+        deploymentName: "",
+        version: "",
+        released: true,
+        abi: [],
+        networkAddresses: {
+          "2": {
+            primaryAddress: "0xbeef",
+            allAddresses: [{ address: "0xbeef", dependencies: [] }],
+          },
+        },
+      };
+
+      const testDeployments = [
+        testUnreleasedDeployment,
+        testReleasedDeployment1,
+        testUnreleasedDeployment,
+        testReleasedDeployment2,
+      ];
+
+      expect(
+        findAllDeployments({ released: true }, testDeployments),
+      ).to.deep.equal([testReleasedDeployment1, testReleasedDeployment2]);
+
+      expect(
+        findAllDeployments({ network: "1" }, testDeployments),
+      ).to.deep.equal([testReleasedDeployment1]);
+
+      expect(
+        findAllDeployments({ network: "31337" }, testDeployments),
+      ).to.deep.equal([]);
     });
   });
 });
