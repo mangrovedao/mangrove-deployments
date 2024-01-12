@@ -1,4 +1,10 @@
-import { DeploymentFilter, VersionDeployments, Dependency } from "./types";
+import {
+  DeploymentFilter,
+  VersionDeployments,
+  Dependency,
+  VersionNetworkDeployment,
+  VersionDeploymentBaseInfo,
+} from "./types";
 import semverSatisfies from "semver/functions/satisfies";
 
 const DEFAULT_FILTER: DeploymentFilter = { released: true };
@@ -82,4 +88,60 @@ export const findAllDeployments = (
   deployments: VersionDeployments[],
 ): VersionDeployments[] => {
   return deployments.filter(createFilterFunction(criteria));
+};
+
+export const findAllDeploymentsPerNetwork = (
+  criteria: DeploymentFilter = DEFAULT_FILTER,
+  deployments: VersionDeployments[],
+): Record<string, VersionDeployments[]> => {
+  const deploymentsByNetwork: Record<string, VersionDeployments[]> = {};
+  for (const deployment of findAllDeployments(criteria, deployments)) {
+    for (const network of Object.keys(deployment.networkAddresses)) {
+      if (!createFilterFunction({ ...criteria, network })(deployment)) {
+        continue;
+      }
+      if (!deploymentsByNetwork[network]) {
+        deploymentsByNetwork[network] = [];
+      }
+      deploymentsByNetwork[network].push(deployment);
+    }
+  }
+  return deploymentsByNetwork;
+};
+
+export const getVersionDeploymentBaseInfo = (
+  versionDeployments: VersionDeployments,
+): VersionDeploymentBaseInfo => {
+  return {
+    contractName: versionDeployments.contractName,
+    deploymentName: versionDeployments.deploymentName,
+    version: versionDeployments.version,
+    released: versionDeployments.released,
+    abi: versionDeployments.abi,
+  };
+};
+
+export const findLatestDeploymentPerNetwork = (
+  criteria: DeploymentFilter = DEFAULT_FILTER,
+  deployments: VersionDeployments[],
+): Record<string, VersionNetworkDeployment> => {
+  const deploymentsByNetwork: Record<string, VersionNetworkDeployment> = {};
+  for (const [network, networkDeployments] of Object.entries(
+    findAllDeploymentsPerNetwork(criteria, deployments),
+  )) {
+    const latestVersionDeployments = networkDeployments[0];
+    const allNetworkAddresses =
+      latestVersionDeployments.networkAddresses[network].allAddresses;
+    const latestMatchingNetworkAddress = allNetworkAddresses.find((a) =>
+      doDependenciesMatch(a.dependencies, criteria.dependencies),
+    )!; // We know at least one matches
+    const latestVersionDeployment: VersionNetworkDeployment = {
+      ...getVersionDeploymentBaseInfo(latestVersionDeployments),
+      network: network,
+      address: latestMatchingNetworkAddress.address,
+      dependencies: latestMatchingNetworkAddress.dependencies,
+    };
+    deploymentsByNetwork[network] = latestVersionDeployment;
+  }
+  return deploymentsByNetwork;
 };
