@@ -254,7 +254,7 @@ describe("utils.ts", () => {
         contractName: "",
         deploymentName: "1",
         version: "1.2.3",
-        released: true, // Default filter value
+        released: true,
         abi: [],
         networkAddresses: {
           "1": {
@@ -275,7 +275,7 @@ describe("utils.ts", () => {
         contractName: "",
         deploymentName: "2",
         version: "2.0.0",
-        released: true, // Default filter value
+        released: true,
         abi: [],
         networkAddresses: {
           "1": {
@@ -289,21 +289,57 @@ describe("utils.ts", () => {
           },
         },
       };
+      const testReleasedDeployment3: VersionDeployments = {
+        contractName: "",
+        deploymentName: "2",
+        version: "2.0.0",
+        released: true,
+        abi: [],
+        networkAddresses: {
+          "1": {
+            primaryAddress: "0xbeef",
+            allAddresses: [
+              {
+                address: "0xbeef",
+                dependencies: [{ name: "dep1", address: "0xodec" }],
+              },
+            ],
+          },
+          "2": {
+            primaryAddress: "0xbeef",
+            allAddresses: [
+              {
+                address: "0xbeef",
+                dependencies: [{ name: "dep1", address: "0xcode" }],
+              },
+            ],
+          },
+        },
+      };
 
       const testDeployments = [
+        testReleasedDeployment3,
         testReleasedDeployment2,
         testReleasedDeployment1,
       ];
 
       // No dependencies required
       expect(findDeployment({ dependencies: [] }, testDeployments)).to.equal(
-        testReleasedDeployment2,
+        testReleasedDeployment3,
       );
 
       // Chronological deployments
       expect(
         findDeployment(
           { dependencies: [{ name: "dep1", address: "0xcode" }] },
+          testDeployments,
+        ),
+      ).to.equal(testReleasedDeployment3);
+
+      // Dependencies respects network
+      expect(
+        findDeployment(
+          { network: "1", dependencies: [{ name: "dep1", address: "0xcode" }] },
           testDeployments,
         ),
       ).to.equal(testReleasedDeployment2);

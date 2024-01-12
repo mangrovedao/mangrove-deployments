@@ -50,8 +50,15 @@ function createFilterFunction(criteria: DeploymentFilter) {
     }
     if (
       criteriaWithDefaults.dependencies &&
-      Object.values(deployment.networkAddresses)
-        .flatMap((n) => n.allAddresses.map((a) => a.dependencies))
+      Object.entries(deployment.networkAddresses)
+        .filter(
+          ([network]) =>
+            !criteriaWithDefaults.network ||
+            network == criteriaWithDefaults.network,
+        )
+        .flatMap(([, deployments]) =>
+          deployments.allAddresses.map((a) => a.dependencies),
+        )
         .every(
           (d) => !doDependenciesMatch(d, criteriaWithDefaults.dependencies),
         )
