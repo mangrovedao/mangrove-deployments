@@ -12,12 +12,15 @@ export type AddressAndDependencies = {
   dependencies?: Dependency[];
 };
 
-export type VersionDeployments = {
+export type VersionDeploymentBaseInfo = {
   contractName: string;
   deploymentName?: string;
   version: string;
   released: boolean;
   abi: any[];
+};
+
+export type VersionDeployments = VersionDeploymentBaseInfo & {
   networkAddresses: Record<
     string,
     {
@@ -25,6 +28,30 @@ export type VersionDeployments = {
       allAddresses: AddressAndDependencies[];
     }
   >;
+};
+
+export type VersionNetworkDeployment = VersionDeploymentBaseInfo & {
+  network: string;
+  address: string;
+  dependencies?: Dependency[];
+};
+
+/** A deployment of the core contracts on a network. */
+export type CoreContractsNetworkDeployment = {
+  mangrove: VersionNetworkDeployment;
+  mgvOracle?: VersionNetworkDeployment;
+  mgvReader?: VersionNetworkDeployment;
+};
+
+/** A deployment of the strat contracts on a network for a specific Mangrove deployment. */
+export type StratContractsNetworkDeployment = {
+  mangrove: VersionNetworkDeployment;
+  aaveKandelSeeder?: VersionNetworkDeployment;
+  aavePooledRouter?: VersionNetworkDeployment;
+  kandelLib?: VersionNetworkDeployment;
+  kandelSeeder?: VersionNetworkDeployment;
+  mangroveOrderRouter?: VersionNetworkDeployment;
+  mangroveOrder?: VersionNetworkDeployment;
 };
 
 export type DeploymentFilter = {

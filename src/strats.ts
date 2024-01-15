@@ -4,11 +4,24 @@ import KandelLib_v1_0_0 from "./assets/strats/v1.0.0/KandelLib.json";
 import KandelSeeder_v1_0_0 from "./assets/strats/v1.0.0/KandelSeeder.json";
 import MangroveOrderRouter_v1_0_0 from "./assets/strats/v1.0.0/MangroveOrder-Router.json";
 import MangroveOrder_v1_0_0 from "./assets/strats/v1.0.0/MangroveOrder.json";
+import { getLatestMangrovePerNetwork } from "./core";
 
-import { DeploymentFilter, VersionDeployments } from "./types";
-import { findDeployment } from "./utils";
+import {
+  DeploymentFilter,
+  StratContractsNetworkDeployment,
+  VersionDeployments,
+  VersionNetworkDeployment,
+} from "./types";
+import {
+  findAllDeploymentsPerNetwork,
+  findDeployment,
+  findLatestDeploymentPerNetwork,
+} from "./utils";
 
-// This is a sorted array (newest to oldest), exported for tests
+//////////////////////////
+// AaveKandelSeeder
+
+/** This is a sorted array (newest to oldest), exported for tests */
 export const _aaveKandelSeederDeployments: VersionDeployments[] = [
   AaveKandelSeeder_v1_0_0,
 ];
@@ -19,7 +32,24 @@ export const getAaveKandelSeederVersionDeployments = (
   return findDeployment(filter, _aaveKandelSeederDeployments);
 };
 
-// This is a sorted array (newest to oldest), exported for tests
+/** Returns all AaveKandelSeeder deployments matching the filter, grouped by network. */
+export const getAllAaveKandelSeederVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _aaveKandelSeederDeployments);
+};
+
+/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+export const getLatestAaveKandelSeederPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _aaveKandelSeederDeployments);
+};
+
+//////////////////////////
+// AavePooledRouter
+
+/** This is a sorted array (newest to oldest), exported for tests */
 export const _aavePooledRouterDeployments: VersionDeployments[] = [
   AavePooledRouter_v1_0_0,
 ];
@@ -30,7 +60,24 @@ export const getAavePooledRouterVersionDeployments = (
   return findDeployment(filter, _aavePooledRouterDeployments);
 };
 
-// This is a sorted array (newest to oldest), exported for tests
+/** Returns all AavePooledRouter deployments matching the filter, grouped by network. */
+export const getAllAavePooledRouterVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _aavePooledRouterDeployments);
+};
+
+/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+export const getLatestAavePooledRouterPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _aavePooledRouterDeployments);
+};
+
+//////////////////////////
+// KandelLib
+
+/** This is a sorted array (newest to oldest), exported for tests */
 export const _kandelLibDeployments: VersionDeployments[] = [KandelLib_v1_0_0];
 
 export const getKandelLibVersionDeployments = (
@@ -39,7 +86,24 @@ export const getKandelLibVersionDeployments = (
   return findDeployment(filter, _kandelLibDeployments);
 };
 
-// This is a sorted array (newest to oldest), exported for tests
+/** Returns all KandelLib deployments matching the filter, grouped by network. */
+export const getAllKandelLibVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _kandelLibDeployments);
+};
+
+/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+export const getLatestKandelLibPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _kandelLibDeployments);
+};
+
+//////////////////////////
+// KandelSeeder
+
+/** This is a sorted array (newest to oldest), exported for tests */
 export const _kandelSeederDeployments: VersionDeployments[] = [
   KandelSeeder_v1_0_0,
 ];
@@ -50,7 +114,24 @@ export const getKandelSeederVersionDeployments = (
   return findDeployment(filter, _kandelSeederDeployments);
 };
 
-// This is a sorted array (newest to oldest), exported for tests
+/** Returns all KandelSeeder deployments matching the filter, grouped by network. */
+export const getAllKandelSeederVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _kandelSeederDeployments);
+};
+
+/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+export const getLatestKandelSeederPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _kandelSeederDeployments);
+};
+
+//////////////////////////
+// MangroveOrderRouter
+
+/** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderRouterDeployments: VersionDeployments[] = [
   MangroveOrderRouter_v1_0_0,
 ];
@@ -61,7 +142,27 @@ export const getMangroveOrderRouterVersionDeployments = (
   return findDeployment(filter, _mangroveOrderRouterDeployments);
 };
 
-// This is a sorted array (newest to oldest), exported for tests
+/** Returns all MangroveOrderRouter deployments matching the filter, grouped by network. */
+export const getAllMangroveOrderRouterVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _mangroveOrderRouterDeployments);
+};
+
+/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+export const getLatestMangroveOrderRouterPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(
+    filter,
+    _mangroveOrderRouterDeployments,
+  );
+};
+
+//////////////////////////
+// MangroveOrder
+
+/** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderDeployments: VersionDeployments[] = [
   MangroveOrder_v1_0_0,
 ];
@@ -72,16 +173,59 @@ export const getMangroveOrderVersionDeployments = (
   return findDeployment(filter, _mangroveOrderDeployments);
 };
 
-// This is a temporary utility function to get deployments for all the contracts in one go
-export const getStratsContractsVersionDeployments = (
+/** Returns all MangroveOrder deployments matching the filter, grouped by network. */
+export const getAllMangroveOrderVersionDeploymentsPerNetwork = (
   filter?: DeploymentFilter,
-): VersionDeployments[] => {
-  return [
-    getAaveKandelSeederVersionDeployments(filter),
-    getAavePooledRouterVersionDeployments(filter),
-    getKandelLibVersionDeployments(filter),
-    getKandelSeederVersionDeployments(filter),
-    getMangroveOrderRouterVersionDeployments(filter),
-    getMangroveOrderVersionDeployments(filter),
-  ].filter((x): x is VersionDeployments => x !== undefined);
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _mangroveOrderDeployments);
+};
+
+/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+export const getLatestMangroveOrderPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _mangroveOrderDeployments);
+};
+
+//////////////////////////
+// Cross-cutting
+
+/** Get the latest latest strat contract deployments for the latest Mangrove deployment for each network.
+ */
+export const getLatestStratContractsPerNetwork = (
+  filter?: DeploymentFilter,
+  mangroveFilter?: DeploymentFilter,
+): Record<string, StratContractsNetworkDeployment> => {
+  const latestMangrovePerNetwork = getLatestMangrovePerNetwork(mangroveFilter);
+  const latestStratContractsPerNetwork: Record<
+    string,
+    StratContractsNetworkDeployment
+  > = {};
+  const filterDependenciesWithoutMangrove =
+    filter?.dependencies?.filter((d) => d.name !== "Mangrove") ?? [];
+  for (const [network, mangroveDeployment] of Object.entries(
+    latestMangrovePerNetwork,
+  )) {
+    const stratFilter = {
+      ...filter,
+      network,
+      dependencies: [
+        ...filterDependenciesWithoutMangrove,
+        { name: "Mangrove", address: mangroveDeployment.address },
+      ],
+    };
+    latestStratContractsPerNetwork[network] = {
+      mangrove: mangroveDeployment,
+      aaveKandelSeeder:
+        getLatestAaveKandelSeederPerNetwork(stratFilter)[network],
+      aavePooledRouter:
+        getLatestAavePooledRouterPerNetwork(stratFilter)[network],
+      kandelLib: getLatestKandelLibPerNetwork(stratFilter)[network],
+      kandelSeeder: getLatestKandelSeederPerNetwork(stratFilter)[network],
+      mangroveOrderRouter:
+        getLatestMangroveOrderRouterPerNetwork(stratFilter)[network],
+      mangroveOrder: getLatestMangroveOrderPerNetwork(stratFilter)[network],
+    };
+  }
+  return latestStratContractsPerNetwork;
 };
