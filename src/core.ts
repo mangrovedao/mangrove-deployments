@@ -11,7 +11,7 @@ import {
   findAllDeploymentsPerNetwork,
   findLatestDeploymentPerNetwork,
   findDeployment,
-} from "./utils";
+} from "./internalUtils";
 
 //////////////////////////
 // Mangrove

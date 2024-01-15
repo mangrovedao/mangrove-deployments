@@ -7,10 +7,10 @@ import {
   findDeployment,
   findLatestDeploymentPerNetwork,
   getVersionDeploymentBaseInfo,
-} from "../../src/utils";
+} from "../../src/internalUtils";
 import { VersionDeployments } from "../../src/types";
 
-describe("utils.ts", () => {
+describe("internalUtils.ts", () => {
   describe("findDeployment", () => {
     it("should filter by released by default", () => {
       const testUnreleasedDeployment: VersionDeployments = {
