@@ -2,7 +2,7 @@
 
 - Add functions to get all or latest deployments matching a filter.
 - Add function 'getLatestCoreContractsPerNetwork' to get the latest Mangrove deployments for each network along with the corresponding MgvOracle and MgvReader deployments.
-- Add function 'getLatestStratContractsPerNetwork' to get the latest latest strat contract deployments for the latest Mangrove deployment for each network..
+- Add function 'getLatestStratContractsPerNetwork' to get the latest latest strat contract deployments for the latest Mangrove deployment for each network.
 - Add dependencies to deployments. This allows querying for e.g. periphery or strat contracts that are tied to a specific Mangrove instance.
 
 # 1.0.3
