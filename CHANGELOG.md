@@ -1,5 +1,7 @@
 # Next version
 
+# 2.0.0
+
 - Add dependencies to deployments. This allows querying for e.g. periphery or strat contracts that are tied to a specific Mangrove instance.
 - Add functions to get all or latest deployments matching a filter.
 - Add function 'getLatestCoreContractsPerNetwork' to get the latest Mangrove deployments for each network along with the corresponding MgvOracle and MgvReader deployments.
