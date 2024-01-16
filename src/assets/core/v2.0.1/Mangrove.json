@@ -6,11 +6,19 @@
   "networkAddresses": {
     "80001": {
       "primaryAddress": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39",
-      "allAddresses": ["0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"]
+      "allAddresses": [
+        {
+          "address": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"
+        }
+      ]
     },
     "11155111": {
       "primaryAddress": "0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C",
-      "allAddresses": ["0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C"]
+      "allAddresses": [
+        {
+          "address": "0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C"
+        }
+      ]
     }
   },
   "abi": [

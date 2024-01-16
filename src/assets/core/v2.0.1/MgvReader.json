@@ -6,11 +6,31 @@
   "networkAddresses": {
     "80001": {
       "primaryAddress": "0x26d24Dd4aFcB9D1cD30baf804Fa22aFa643327CD",
-      "allAddresses": ["0x26d24Dd4aFcB9D1cD30baf804Fa22aFa643327CD"]
+      "allAddresses": [
+        {
+          "address": "0x26d24Dd4aFcB9D1cD30baf804Fa22aFa643327CD",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"
+            }
+          ]
+        }
+      ]
     },
     "11155111": {
       "primaryAddress": "0xE9F139F4D31477E71e746a6744e5314F9d6DB382",
-      "allAddresses": ["0xE9F139F4D31477E71e746a6744e5314F9d6DB382"]
+      "allAddresses": [
+        {
+          "address": "0xE9F139F4D31477E71e746a6744e5314F9d6DB382",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C"
+            }
+          ]
+        }
+      ]
     }
   },
   "abi": [

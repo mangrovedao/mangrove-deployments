@@ -5,8 +5,17 @@
   "version": "1.0.0",
   "networkAddresses": {
     "80001": {
-      "primaryAddress": "0x6469064C68B1Bd06861dabD20dF835Fa71Dff695",
-      "allAddresses": ["0x6469064C68B1Bd06861dabD20dF835Fa71Dff695"]
+      "allAddresses": [
+        {
+          "address": "0x6469064C68B1Bd06861dabD20dF835Fa71Dff695",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"
+            }
+          ]
+        }
+      ]
     }
   },
   "abi": [
