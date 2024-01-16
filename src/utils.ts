@@ -116,7 +116,7 @@ export function toNamedAddressesPerNamedNetwork<
  *
  * For pre-release versions of contract packages, any deployment of the same major.minor version,
  * _including_ prereleases, is considered compatible.
- * This is achieved by replacing the last prelease component by 0 and using the caret '^' pattern.
+ * This is achieved by replacing the last prerelease component by 0 and using the caret '^' pattern.
  * This pattern is equivalent to '>= x.y.z-0 < x+1.0.0'.
  *
  * Examples:
@@ -130,18 +130,18 @@ export function toNamedAddressesPerNamedNetwork<
 export function createContractVersionPattern(
   contractPackageVersion: string,
 ): string {
-  const preleaseComponents = semver.prerelease(contractPackageVersion);
-  if (preleaseComponents === null) {
+  const prereleaseComponents = semver.prerelease(contractPackageVersion);
+  if (prereleaseComponents === null) {
     return `^${semver.major(contractPackageVersion)}.${semver.minor(
       contractPackageVersion,
     )}.0`;
   } else {
-    const patternPreleaseComponents = [...preleaseComponents];
-    patternPreleaseComponents[patternPreleaseComponents.length - 1] = "0";
+    const patternprereleaseComponents = [...prereleaseComponents];
+    patternprereleaseComponents[patternprereleaseComponents.length - 1] = "0";
     return `^${semver.major(contractPackageVersion)}.${semver.minor(
       contractPackageVersion,
-    )}.${semver.patch(contractPackageVersion)}-${patternPreleaseComponents.join(
-      ".",
-    )}`;
+    )}.${semver.patch(
+      contractPackageVersion,
+    )}-${patternprereleaseComponents.join(".")}`;
   }
 }
