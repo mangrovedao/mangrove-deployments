@@ -1,6 +1,6 @@
 {
   "name": "@mangrovedao/mangrove-deployments",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Collection of Mangrove deployments",
   "main": "dist/index.js",
   "repository": "https://github.com/mangrovedao/mangrove-deployments.git",
