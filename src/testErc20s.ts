@@ -8,7 +8,7 @@ import USDC_v1_5_6 from "./assets/testErc20s/v1.5.6/USDC.json";
 import WETH_v1_5_6 from "./assets/testErc20s/v1.5.6/WETH.json";
 
 import { DeploymentFilter, VersionDeployments } from "./types";
-import { findDeployment, findAllDeployments } from "./utils";
+import { findDeployment, findAllDeployments } from "./internalUtils";
 
 // This is a sorted array (newest to oldest) or all test ERC20 deployments
 export const _testErc20Deployments: VersionDeployments[] = [

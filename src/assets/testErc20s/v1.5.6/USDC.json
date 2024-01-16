@@ -5,8 +5,12 @@
   "version": "1.5.6",
   "networkAddresses": {
     "80001": {
-      "primaryAddress": "0xe9259C5B6936Ee6439654171AFd674b31a533985",
-      "allAddresses": ["0xe9259C5B6936Ee6439654171AFd674b31a533985"]
+      "allAddresses": [
+        {
+          "address": "0xe9259C5B6936Ee6439654171AFd674b31a533985",
+          "dependencies": []
+        }
+      ]
     }
   },
   "abi": [
