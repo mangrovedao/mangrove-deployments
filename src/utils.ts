@@ -136,12 +136,12 @@ export function createContractVersionPattern(
       contractPackageVersion,
     )}.0`;
   } else {
-    const patternprereleaseComponents = [...prereleaseComponents];
-    patternprereleaseComponents[patternprereleaseComponents.length - 1] = "0";
+    const patternPrereleaseComponents = [...prereleaseComponents];
+    patternPrereleaseComponents[patternPrereleaseComponents.length - 1] = "0";
     return `^${semver.major(contractPackageVersion)}.${semver.minor(
       contractPackageVersion,
     )}.${semver.patch(
       contractPackageVersion,
-    )}-${patternprereleaseComponents.join(".")}`;
+    )}-${patternPrereleaseComponents.join(".")}`;
   }
 }
