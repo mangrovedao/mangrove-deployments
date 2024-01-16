@@ -6,6 +6,7 @@
 - Add dependencies to deployments. This allows querying for e.g. periphery or strat contracts that are tied to a specific Mangrove instance.
 - Add function 'createContractVersionPattern' to create an appropriate SemVer pattern for use when querying for deployments that are compatible with a given contract package version.
 - Add function 'toNamedAddressesPerNamedNetwork' for transforming a query result to a structure that can be easily serialized the JSON format used by the Mangrove smart contract repos.
+- Add JSON schema for assets
 
 # 1.0.3
 
