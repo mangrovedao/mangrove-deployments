@@ -2,13 +2,20 @@
   "$schema": "../../../../contract.schema.json",
   "released": false,
   "contractName": "SmartRouter",
+  "deploymentName": "MangroveOrder-Router",
   "version": "2.0.0-b1.0",
   "networkAddresses": {
     "80001": {
       "primaryAddress": "0x16f320bb556CbA9D3E6f592765192F35eb64a78a",
       "allAddresses": [
         {
-          "address": "0x16f320bb556CbA9D3E6f592765192F35eb64a78a"
+          "address": "0x16f320bb556CbA9D3E6f592765192F35eb64a78a",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"
+            }
+          ]
         }
       ]
     }
