@@ -1,4 +1,5 @@
 {
+  "$schema": "../../../../contract.schema.json",
   "released": true,
   "contractName": "Mangrove",
   "version": "2.0.1",
