@@ -16,7 +16,7 @@ import {
   findAllDeploymentsPerNetwork,
   findDeployment,
   findLatestDeploymentPerNetwork,
-} from "./utils";
+} from "./internalUtils";
 
 //////////////////////////
 // AaveKandelSeeder

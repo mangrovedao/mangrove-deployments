@@ -1,5 +1,5 @@
 import { VersionDeployments, VersionNetworkDeployment } from "../../src/types";
-import { getVersionDeploymentBaseInfo } from "../../src/utils";
+import { getVersionDeploymentBaseInfo } from "../../src/internalUtils";
 
 export function firstVersionDeploymentsToVersionNetworkDeployment(
   versionDeployments: VersionDeployments,
