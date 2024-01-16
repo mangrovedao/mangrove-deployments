@@ -31,22 +31,34 @@
           "properties": {
             "primaryAddress": {
               "type": "string",
-              "description": "Address of the contract on a given network"
+              "description": "Primary address of the contract on a given network"
             },
             "allAddresses": {
               "type": "array",
               "description": "All addresses of the contract on a given network",
               "items": {
-                "type": "string"
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "description": "Address of the contract on a given network"
+                  },
+                  "dependencies": {
+                    "type": "array"
+                  }
+                }
               }
             }
-          }
+          },
+          "required": ["allAddresses"],
+          "additionalProperties": false
         }
       }
     },
     "abi": {
       "type": "array",
       "description": "ABI of the contract"
-    }
+    },
+    "additionalProperties": false
   }
 }

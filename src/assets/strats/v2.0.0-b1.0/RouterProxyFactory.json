@@ -2,11 +2,13 @@
   "$schema": "../../contract.schema.json",
   "released": false,
   "contractName": "RouterProxyFactory",
-  "version": "2.0.0",
+  "version": "2.0.0-b1.0",
   "networkAddresses": {
     "80001": {
       "primaryAddress": "0x2593BdD850EA25E87f3A1C83dcB8B49DAeddF0d1",
-      "allAddresses": ["0x2593BdD850EA25E87f3A1C83dcB8B49DAeddF0d1"]
+      "allAddresses": [
+        { "address": "0x2593BdD850EA25E87f3A1C83dcB8B49DAeddF0d1" }
+      ]
     }
   },
   "abi": [
