@@ -1,5 +1,7 @@
 # Next version
 
+# 2.0.1-0
+
 - Add JSON schema for assets
 - Add support for RouterProxyFactory contract
 - Add deployments of MangroveOrder, MangroveOrder-Router, and RouterProxyFactory v2.0.0-b1.0
