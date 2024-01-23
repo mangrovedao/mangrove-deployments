@@ -6,6 +6,10 @@ import KandelSeeder_v1_0_0 from "./assets/strats/v1.0.0/KandelSeeder.json";
 import MangroveOrderRouter_v1_0_0 from "./assets/strats/v1.0.0/MangroveOrder-Router.json";
 import MangroveOrder_v1_0_0 from "./assets/strats/v1.0.0/MangroveOrder.json";
 // v2.0.0-b1.0
+import AaveKandelSeeder_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/AaveKandelSeeder.json";
+import AavePooledRouter_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/AavePooledRouter.json";
+import KandelLib_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/KandelLib.json";
+import KandelSeeder_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/KandelSeeder.json";
 import MangroveOrderRouter_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveOrder-Router.json";
 import MangroveOrder_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveOrder.json";
 import RouterProxyFactory_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/RouterProxyFactory.json";
@@ -30,6 +34,7 @@ import {
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _aaveKandelSeederDeployments: VersionDeployments[] = [
+  AaveKandelSeeder_v2_0_0_b1_0,
   AaveKandelSeeder_v1_0_0,
 ];
 
@@ -58,6 +63,7 @@ export const getLatestAaveKandelSeederPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _aavePooledRouterDeployments: VersionDeployments[] = [
+  AavePooledRouter_v2_0_0_b1_0,
   AavePooledRouter_v1_0_0,
 ];
 
@@ -85,7 +91,10 @@ export const getLatestAavePooledRouterPerNetwork = (
 // KandelLib
 
 /** This is a sorted array (newest to oldest), exported for tests */
-export const _kandelLibDeployments: VersionDeployments[] = [KandelLib_v1_0_0];
+export const _kandelLibDeployments: VersionDeployments[] = [
+  KandelLib_v2_0_0_b1_0,
+  KandelLib_v1_0_0,
+];
 
 export const getKandelLibVersionDeployments = (
   filter?: DeploymentFilter,
@@ -112,6 +121,7 @@ export const getLatestKandelLibPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _kandelSeederDeployments: VersionDeployments[] = [
+  KandelSeeder_v2_0_0_b1_0,
   KandelSeeder_v1_0_0,
 ];
 

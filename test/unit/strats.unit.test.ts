@@ -10,6 +10,10 @@ import KandelSeeder_v1_0_0 from "../../src/assets/strats/v1.0.0/KandelSeeder.jso
 import MangroveOrderRouter_v1_0_0 from "../../src/assets/strats/v1.0.0/MangroveOrder-Router.json";
 import MangroveOrder_v1_0_0 from "../../src/assets/strats/v1.0.0/MangroveOrder.json";
 // v2.0.0-b1.0
+import AaveKandelSeeder_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/AaveKandelSeeder.json";
+import AavePooledRouter_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/AavePooledRouter.json";
+import KandelLib_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/KandelLib.json";
+import KandelSeeder_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/KandelSeeder.json";
 import MangroveOrderRouter_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/MangroveOrder-Router.json";
 import MangroveOrder_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/MangroveOrder.json";
 import RouterProxyFactory_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/RouterProxyFactory.json";
@@ -52,9 +56,9 @@ describe("strats.ts", () => {
         const result = getAaveKandelSeederVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, AaveKandelSeeder_v1_0_0);
+        assert.equal(result, AaveKandelSeeder_v2_0_0_b1_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [AaveKandelSeeder_v1_0_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -67,7 +71,7 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [AaveKandelSeeder_v1_0_0],
+          "80001": [AaveKandelSeeder_v2_0_0_b1_0, AaveKandelSeeder_v1_0_0],
         });
       });
     });
@@ -78,7 +82,7 @@ describe("strats.ts", () => {
           getLatestAaveKandelSeederPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            AaveKandelSeeder_v1_0_0,
+            AaveKandelSeeder_v2_0_0_b1_0,
             "80001",
           ),
         });
@@ -92,9 +96,9 @@ describe("strats.ts", () => {
         const result = getAavePooledRouterVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, AavePooledRouter_v1_0_0);
+        assert.equal(result, AavePooledRouter_v2_0_0_b1_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [AavePooledRouter_v1_0_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -107,7 +111,7 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [AavePooledRouter_v1_0_0],
+          "80001": [AavePooledRouter_v2_0_0_b1_0, AavePooledRouter_v1_0_0],
         });
       });
     });
@@ -118,7 +122,7 @@ describe("strats.ts", () => {
           getLatestAavePooledRouterPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            AavePooledRouter_v1_0_0,
+            AavePooledRouter_v2_0_0_b1_0,
             "80001",
           ),
         });
@@ -130,9 +134,9 @@ describe("strats.ts", () => {
     describe("getKandelLibVersionDeployments", () => {
       it("should find the latest deployment first", () => {
         const result = getKandelLibVersionDeployments({ released: undefined });
-        assert.equal(result, KandelLib_v1_0_0);
+        assert.equal(result, KandelLib_v2_0_0_b1_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [KandelLib_v1_0_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -143,7 +147,7 @@ describe("strats.ts", () => {
         expect(
           getAllKandelLibVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
-          "80001": [KandelLib_v1_0_0],
+          "80001": [KandelLib_v2_0_0_b1_0, KandelLib_v1_0_0],
         });
       });
     });
@@ -154,7 +158,7 @@ describe("strats.ts", () => {
           getLatestKandelLibPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            KandelLib_v1_0_0,
+            KandelLib_v2_0_0_b1_0,
             "80001",
           ),
         });
@@ -168,9 +172,9 @@ describe("strats.ts", () => {
         const result = getKandelSeederVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, KandelSeeder_v1_0_0);
+        assert.equal(result, KandelSeeder_v2_0_0_b1_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [KandelSeeder_v1_0_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -183,7 +187,7 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [KandelSeeder_v1_0_0],
+          "80001": [KandelSeeder_v2_0_0_b1_0, KandelSeeder_v1_0_0],
         });
       });
     });
@@ -194,7 +198,7 @@ describe("strats.ts", () => {
           getLatestKandelSeederPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            KandelSeeder_v1_0_0,
+            KandelSeeder_v2_0_0_b1_0,
             "80001",
           ),
         });
@@ -376,19 +380,19 @@ describe("strats.ts", () => {
             "80001",
           ),
           aaveKandelSeeder: firstVersionDeploymentsToVersionNetworkDeployment(
-            AaveKandelSeeder_v1_0_0,
+            AaveKandelSeeder_v2_0_0_b1_0,
             "80001",
           ),
           aavePooledRouter: firstVersionDeploymentsToVersionNetworkDeployment(
-            AavePooledRouter_v1_0_0,
+            AavePooledRouter_v2_0_0_b1_0,
             "80001",
           ),
           kandelLib: firstVersionDeploymentsToVersionNetworkDeployment(
-            KandelLib_v1_0_0,
+            KandelLib_v2_0_0_b1_0,
             "80001",
           ),
           kandelSeeder: firstVersionDeploymentsToVersionNetworkDeployment(
-            KandelSeeder_v1_0_0,
+            KandelSeeder_v2_0_0_b1_0,
             "80001",
           ),
           mangroveOrderRouter:
