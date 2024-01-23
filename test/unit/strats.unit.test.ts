@@ -13,6 +13,7 @@ import MangroveOrder_v1_0_0 from "../../src/assets/strats/v1.0.0/MangroveOrder.j
 import MangroveOrderRouter_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/MangroveOrder-Router.json";
 import MangroveOrder_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/MangroveOrder.json";
 import RouterProxyFactory_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/RouterProxyFactory.json";
+import SimpleAaveLogic_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/SimpleAaveLogic.json";
 
 import {
   getAaveKandelSeederVersionDeployments,
@@ -24,6 +25,7 @@ import {
   getAllMangroveOrderRouterVersionDeploymentsPerNetwork,
   getAllMangroveOrderVersionDeploymentsPerNetwork,
   getAllRouterProxyFactoryVersionDeploymentsPerNetwork,
+  getAllSimpleAaveLogicVersionDeploymentsPerNetwork,
   getKandelLibVersionDeployments,
   getKandelSeederVersionDeployments,
   getLatestAaveKandelSeederPerNetwork,
@@ -33,10 +35,12 @@ import {
   getLatestMangroveOrderPerNetwork,
   getLatestMangroveOrderRouterPerNetwork,
   getLatestRouterProxyFactoryPerNetwork,
+  getLatestSimpleAaveLogicPerNetwork,
   getLatestStratContractsPerNetwork,
   getMangroveOrderRouterVersionDeployments,
   getMangroveOrderVersionDeployments,
   getRouterProxyFactoryVersionDeployments,
+  getSimpleAaveLogicVersionDeployments,
 } from "../../src/strats";
 import { expect } from "chai";
 import { firstVersionDeploymentsToVersionNetworkDeployment } from "./unitTestUtil";
@@ -321,6 +325,46 @@ describe("strats.ts", () => {
     });
   });
 
+  describe("SimpleAaveLogic contract", () => {
+    describe("getSimpleAaveLogicVersionDeployments", () => {
+      it("should find the latest deployment first", () => {
+        const result = getSimpleAaveLogicVersionDeployments({
+          released: undefined,
+        });
+        assert.equal(result, SimpleAaveLogic_v2_0_0_b1_0);
+        // NB: Add older old versions here
+        [].forEach((version) => {
+          assert.notEqual(result, version);
+        });
+      });
+    });
+
+    describe("getAllSimpleAaveLogicVersionDeploymentsPerNetwork", () => {
+      it("should return all deployments grouped by network", () => {
+        expect(
+          getAllSimpleAaveLogicVersionDeploymentsPerNetwork({
+            released: undefined,
+          }),
+        ).to.deep.equal({
+          "80001": [SimpleAaveLogic_v2_0_0_b1_0],
+        });
+      });
+    });
+
+    describe("getLatestSimpleAaveLogicPerNetwork", () => {
+      it("should return the latest deployment for each network", () => {
+        expect(
+          getLatestSimpleAaveLogicPerNetwork({ released: undefined }),
+        ).to.deep.equal({
+          "80001": firstVersionDeploymentsToVersionNetworkDeployment(
+            SimpleAaveLogic_v2_0_0_b1_0,
+            "80001",
+          ),
+        });
+      });
+    });
+  });
+
   describe("getLatestStratContractsPerNetwork", () => {
     it("should return the latest deployments for each network", () => {
       expect(
@@ -360,6 +404,10 @@ describe("strats.ts", () => {
             RouterProxyFactory_v2_0_0_b1_0,
             "80001",
           ),
+          simpleAaveLogic: firstVersionDeploymentsToVersionNetworkDeployment(
+            SimpleAaveLogic_v2_0_0_b1_0,
+            "80001",
+          ),
         },
         "11155111": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -373,6 +421,7 @@ describe("strats.ts", () => {
           mangroveOrderRouter: undefined,
           mangroveOrder: undefined,
           routerProxyFactory: undefined,
+          simpleAaveLogic: undefined,
         },
       });
     });
