@@ -1,5 +1,8 @@
 # Next version
 
+- Add support for SimpleAaveLogic contract
+- Add deployment of SimpleAaveLogic v2.0.0-b1.0 to Mumbai
+
 # 2.0.1-0
 
 - Add JSON schema for assets
