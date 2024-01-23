@@ -1,5 +1,7 @@
 # Next version
 
+# 2.0.1-1
+
 - Add support for SimpleAaveLogic contract
 - Add deployment of SimpleAaveLogic v2.0.0-b1.0 to Mumbai
 
