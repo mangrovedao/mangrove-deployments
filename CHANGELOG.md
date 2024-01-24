@@ -1,5 +1,7 @@
 # Next version
 
+- Add support for MangroveAmplifier contract
+
 # 2.0.1-2
 
 - Add deployments of AaveKandelSeeder, AavePooledRouter, KandelLib, and KandelSeeder v2.0.0-b1.0 to Mumbai

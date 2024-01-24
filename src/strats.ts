@@ -14,6 +14,7 @@ import MangroveOrderRouter_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/Mangrov
 import MangroveOrder_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveOrder.json";
 import RouterProxyFactory_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/RouterProxyFactory.json";
 import SimpleAaveLogic_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/SimpleAaveLogic.json";
+import MangroveAmplifier_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveAmplifier.json";
 
 import { getLatestMangrovePerNetwork } from "./core";
 
@@ -263,6 +264,34 @@ export const getLatestSimpleAaveLogicPerNetwork = (
 };
 
 //////////////////////////
+// MangroveAmplifier
+
+/** This is a sorted array (newest to oldest), exported for tests */
+export const _mangroveAmplifierDeployments: VersionDeployments[] = [
+  MangroveAmplifier_v2_0_0_b1_0,
+];
+
+export const getMangroveAmplifierVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _mangroveAmplifierDeployments);
+};
+
+/** Returns all MangroveAmplifier deployments matching the filter, grouped by network. */
+export const getAllMangroveAmplifierVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _mangroveAmplifierDeployments);
+};
+
+/** Returns the latest MangroveAmplifier deployment matching the filter for each network. */
+export const getLatestMangroveAmplifierPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _mangroveAmplifierDeployments);
+};
+
+//////////////////////////
 // Cross-cutting
 
 /** Get the latest latest strat contract deployments for the latest Mangrove deployment for each network.
@@ -303,6 +332,8 @@ export const getLatestStratContractsPerNetwork = (
       routerProxyFactory:
         getLatestRouterProxyFactoryPerNetwork(stratFilter)[network],
       simpleAaveLogic: getLatestSimpleAaveLogicPerNetwork(stratFilter)[network],
+      mangroveAmplifier:
+        getLatestMangroveAmplifierPerNetwork(stratFilter)[network],
     };
   }
   return latestStratContractsPerNetwork;
