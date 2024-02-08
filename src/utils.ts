@@ -6,40 +6,7 @@
 
 import { VersionNetworkDeployment } from "./types";
 import semver from "semver";
-
-/** Network names used in Mangrove smart contract repos.
- *
- * Taken from ethers.js 5.7 which is used by the Mangrove smart contract repos.
- *
- * Differences:
- * - "homestead" -> "mainnet"
- * - "local" for 31337
- */
-export const mangroveNetworkNames = {
-  "1": "mainnet",
-  "2": "morden",
-  "3": "ropsten",
-  "4": "rinkeby",
-  "5": "goerli",
-  "6": "classicKotti",
-  "10": "optimism",
-  "56": "bnb",
-  "42": "kovan",
-  "61": "classic",
-  "63": "classicMordor",
-  "69": "optimism-kovan",
-  "97": "bnbt",
-  "100": "xdai",
-  "137": "matic",
-  "420": "optimism-goerli",
-  "42161": "arbitrum",
-  "80001": "maticmum",
-  "31337": "local",
-  "421611": "arbitrum-rinkeby",
-  "421613": "arbitrum-goerli",
-  "1337702": "kintsugi",
-  "11155111": "sepolia",
-} as Record<string, string>;
+import { mangroveNetworkNames } from "@mangrovedao/context-addresses";
 
 /**
  * Transform {@link CoreContractsNetworkDeployment} and {@link StratContractsNetworkDeployment} (possibly both)
