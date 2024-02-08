@@ -1,5 +1,7 @@
 # Next version
 
+# 2.0.1
+
 - Use Mangrove network names from the [@mangrovedao/context-addresses](https://github.com/mangrovedao/context-addresses) package.
 
 # 2.0.0
