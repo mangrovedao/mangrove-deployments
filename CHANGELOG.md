@@ -1,5 +1,7 @@
 # Next version
 
+- Add Blast Sepolia deployment of mangrove-core v2.0.1
+
 # 2.0.1
 
 - Use Mangrove network names from the [@mangrovedao/context-addresses](https://github.com/mangrovedao/context-addresses) package.
