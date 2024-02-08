@@ -1,27 +1,16 @@
 # Next version
 
-# 2.0.1
-
-- Use Mangrove network names from the [@mangrovedao/context-addresses](https://github.com/mangrovedao/context-addresses) package.
-
-# 2.0.1-3
-
 - Add support for MangroveAmplifier contract
-
-# 2.0.1-2
-
 - Add deployments of AaveKandelSeeder, AavePooledRouter, KandelLib, and KandelSeeder v2.0.0-b1.0 to Mumbai
-
-# 2.0.1-1
-
 - Add support for SimpleAaveLogic contract
 - Add deployment of SimpleAaveLogic v2.0.0-b1.0 to Mumbai
-
-# 2.0.1-0
-
 - Add JSON schema for assets
 - Add support for RouterProxyFactory contract
 - Add deployments of MangroveOrder, MangroveOrder-Router, and RouterProxyFactory v2.0.0-b1.0
+
+# 2.0.1
+
+- Use Mangrove network names from the [@mangrovedao/context-addresses](https://github.com/mangrovedao/context-addresses) package.
 
 # 2.0.0
 
