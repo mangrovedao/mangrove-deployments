@@ -1,4 +1,5 @@
 {
+  "$schema": "../../../../contract.schema.json",
   "released": true,
   "contractName": "TestToken",
   "deploymentName": "DAI",

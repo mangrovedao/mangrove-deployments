@@ -1,13 +1,14 @@
 {
   "$schema": "../../../../contract.schema.json",
-  "released": true,
+  "released": false,
   "contractName": "AavePooledRouter",
-  "version": "1.0.0",
+  "version": "2.0.0-b1.0",
   "networkAddresses": {
     "80001": {
+      "primaryAddress": "0x111ad246979350ACCa951DFF283f15eb016059e1",
       "allAddresses": [
         {
-          "address": "0xF147995331B1511D5fA7c196fA3466d647142C5e",
+          "address": "0x111ad246979350ACCa951DFF283f15eb016059e1",
           "dependencies": [
             {
               "name": "Mangrove",
@@ -25,7 +26,7 @@
         {
           "name": "addressesProvider",
           "type": "address",
-          "internalType": "address"
+          "internalType": "contract IPoolAddressesProvider"
         }
       ],
       "stateMutability": "nonpayable"
@@ -47,7 +48,13 @@
       "type": "function",
       "name": "OFFSET",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
       "stateMutability": "view"
     },
     {
@@ -55,7 +62,11 @@
       "name": "POOL",
       "inputs": [],
       "outputs": [
-        { "name": "", "type": "address", "internalType": "contract IPool" }
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "contract IPool"
+        }
       ],
       "stateMutability": "view"
     },
@@ -63,43 +74,26 @@
       "type": "function",
       "name": "aaveManager",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "activate",
-      "inputs": [
+      "outputs": [
         {
-          "name": "token",
+          "name": "",
           "type": "address",
-          "internalType": "contract IERC20"
+          "internalType": "address"
         }
       ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
+      "stateMutability": "view"
     },
     {
       "type": "function",
       "name": "admin",
       "inputs": [],
       "outputs": [
-        { "name": "current", "type": "address", "internalType": "address" }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "balanceOfReserve",
-      "inputs": [
         {
-          "name": "token",
+          "name": "current",
           "type": "address",
-          "internalType": "contract IERC20"
-        },
-        { "name": "reserveId", "type": "address", "internalType": "address" }
+          "internalType": "address"
+        }
       ],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
       "stateMutability": "view"
     },
     {
@@ -125,28 +119,24 @@
           "internalType": "contract IERC20"
         }
       ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "checkList",
-      "inputs": [
+      "outputs": [
         {
-          "name": "token",
-          "type": "address",
-          "internalType": "contract IERC20"
-        },
-        { "name": "reserveId", "type": "address", "internalType": "address" }
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
       ],
-      "outputs": [],
       "stateMutability": "view"
     },
     {
       "type": "function",
       "name": "claimRewards",
       "inputs": [
-        { "name": "assets", "type": "address[]", "internalType": "address[]" }
+        {
+          "name": "assets",
+          "type": "address[]",
+          "internalType": "address[]"
+        }
       ],
       "outputs": [
         {
@@ -193,11 +183,32 @@
       "name": "flush",
       "inputs": [
         {
-          "name": "tokens",
-          "type": "address[]",
-          "internalType": "contract IERC20[]"
-        },
-        { "name": "reserveId", "type": "address", "internalType": "address" }
+          "name": "routingOrders",
+          "type": "tuple[]",
+          "internalType": "struct RoutingOrderLib.RoutingOrder[]",
+          "components": [
+            {
+              "name": "token",
+              "type": "address",
+              "internalType": "contract IERC20"
+            },
+            {
+              "name": "olKeyHash",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "offerId",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "fundOwner",
+              "type": "address",
+              "internalType": "address"
+            }
+          ]
+        }
       ],
       "outputs": [],
       "stateMutability": "nonpayable"
@@ -211,10 +222,18 @@
           "type": "address",
           "internalType": "contract IERC20"
         },
-        { "name": "noRevert", "type": "bool", "internalType": "bool" }
+        {
+          "name": "noRevert",
+          "type": "bool",
+          "internalType": "bool"
+        }
       ],
       "outputs": [
-        { "name": "reason", "type": "bytes32", "internalType": "bytes32" }
+        {
+          "name": "reason",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
       ],
       "stateMutability": "nonpayable"
     },
@@ -222,9 +241,19 @@
       "type": "function",
       "name": "isBound",
       "inputs": [
-        { "name": "mkr", "type": "address", "internalType": "address" }
+        {
+          "name": "mkr",
+          "type": "address",
+          "internalType": "address"
+        }
       ],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
       "stateMutability": "view"
     },
     {
@@ -251,16 +280,49 @@
       "name": "pull",
       "inputs": [
         {
-          "name": "token",
-          "type": "address",
-          "internalType": "contract IERC20"
+          "name": "routingOrder",
+          "type": "tuple",
+          "internalType": "struct RoutingOrderLib.RoutingOrder",
+          "components": [
+            {
+              "name": "token",
+              "type": "address",
+              "internalType": "contract IERC20"
+            },
+            {
+              "name": "olKeyHash",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "offerId",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "fundOwner",
+              "type": "address",
+              "internalType": "address"
+            }
+          ]
         },
-        { "name": "reserveId", "type": "address", "internalType": "address" },
-        { "name": "amount", "type": "uint256", "internalType": "uint256" },
-        { "name": "strict", "type": "bool", "internalType": "bool" }
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "strict",
+          "type": "bool",
+          "internalType": "bool"
+        }
       ],
       "outputs": [
-        { "name": "pulled", "type": "uint256", "internalType": "uint256" }
+        {
+          "name": "pulled",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
       ],
       "stateMutability": "nonpayable"
     },
@@ -269,15 +331,44 @@
       "name": "push",
       "inputs": [
         {
-          "name": "token",
-          "type": "address",
-          "internalType": "contract IERC20"
+          "name": "routingOrder",
+          "type": "tuple",
+          "internalType": "struct RoutingOrderLib.RoutingOrder",
+          "components": [
+            {
+              "name": "token",
+              "type": "address",
+              "internalType": "contract IERC20"
+            },
+            {
+              "name": "olKeyHash",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "offerId",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "fundOwner",
+              "type": "address",
+              "internalType": "address"
+            }
+          ]
         },
-        { "name": "reserveId", "type": "address", "internalType": "address" },
-        { "name": "amount", "type": "uint256", "internalType": "uint256" }
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
       ],
       "outputs": [
-        { "name": "pushed", "type": "uint256", "internalType": "uint256" }
+        {
+          "name": "pushed",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
       ],
       "stateMutability": "nonpayable"
     },
@@ -290,39 +381,50 @@
           "type": "address",
           "internalType": "contract IERC20"
         },
-        { "name": "amount0", "type": "uint256", "internalType": "uint256" },
+        {
+          "name": "amount0",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
         {
           "name": "token1",
           "type": "address",
           "internalType": "contract IERC20"
         },
-        { "name": "amount1", "type": "uint256", "internalType": "uint256" },
-        { "name": "reserveId", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [
-        { "name": "pushed0", "type": "uint256", "internalType": "uint256" },
-        { "name": "pushed1", "type": "uint256", "internalType": "uint256" }
-      ],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "revokeLenderApproval",
-      "inputs": [
         {
-          "name": "token",
+          "name": "amount1",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "fundOwner",
           "type": "address",
-          "internalType": "contract IERC20"
+          "internalType": "address"
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "pushed0",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "pushed1",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
       "stateMutability": "nonpayable"
     },
     {
       "type": "function",
       "name": "setAaveManager",
       "inputs": [
-        { "name": "aaveManager_", "type": "address", "internalType": "address" }
+        {
+          "name": "aaveManager_",
+          "type": "address",
+          "internalType": "address"
+        }
       ],
       "outputs": [],
       "stateMutability": "nonpayable"
@@ -331,7 +433,11 @@
       "type": "function",
       "name": "setAdmin",
       "inputs": [
-        { "name": "admin_", "type": "address", "internalType": "address" }
+        {
+          "name": "admin_",
+          "type": "address",
+          "internalType": "address"
+        }
       ],
       "outputs": [],
       "stateMutability": "nonpayable"
@@ -345,10 +451,59 @@
           "type": "address",
           "internalType": "contract IERC20"
         },
-        { "name": "reserveId", "type": "address", "internalType": "address" }
+        {
+          "name": "reserveId",
+          "type": "address",
+          "internalType": "address"
+        }
       ],
       "outputs": [
-        { "name": "shares", "type": "uint256", "internalType": "uint256" }
+        {
+          "name": "shares",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "tokenBalanceOf",
+      "inputs": [
+        {
+          "name": "routingOrder",
+          "type": "tuple",
+          "internalType": "struct RoutingOrderLib.RoutingOrder",
+          "components": [
+            {
+              "name": "token",
+              "type": "address",
+              "internalType": "contract IERC20"
+            },
+            {
+              "name": "olKeyHash",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "offerId",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "fundOwner",
+              "type": "address",
+              "internalType": "address"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
       ],
       "stateMutability": "view"
     },
@@ -363,7 +518,11 @@
         }
       ],
       "outputs": [
-        { "name": "balance", "type": "uint256", "internalType": "uint256" }
+        {
+          "name": "balance",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
       ],
       "stateMutability": "view"
     },
@@ -378,7 +537,11 @@
         }
       ],
       "outputs": [
-        { "name": "total", "type": "uint256", "internalType": "uint256" }
+        {
+          "name": "total",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
       ],
       "stateMutability": "view"
     },
@@ -411,8 +574,16 @@
           "type": "address",
           "internalType": "contract IERC20"
         },
-        { "name": "reserveId", "type": "address", "internalType": "address" },
-        { "name": "amount", "type": "uint256", "internalType": "uint256" }
+        {
+          "name": "reserveId",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
       ],
       "outputs": [],
       "stateMutability": "nonpayable"

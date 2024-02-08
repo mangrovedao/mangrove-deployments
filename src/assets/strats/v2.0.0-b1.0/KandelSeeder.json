@@ -1,13 +1,14 @@
 {
   "$schema": "../../../../contract.schema.json",
-  "released": true,
-  "contractName": "AaveKandelSeeder",
-  "version": "1.0.0",
+  "released": false,
+  "contractName": "KandelSeeder",
+  "version": "2.0.0-b1.0",
   "networkAddresses": {
     "80001": {
+      "primaryAddress": "0x878f8820cd99a96381074548a1B72d27A77fadA2",
       "allAddresses": [
         {
-          "address": "0xC56CEc2A5912B49AAacEc0F391471Aeb4eb8D9D2",
+          "address": "0x878f8820cd99a96381074548a1B72d27A77fadA2",
           "dependencies": [
             {
               "name": "Mangrove",
@@ -28,12 +29,7 @@
           "internalType": "contract IMangrove"
         },
         {
-          "name": "addressesProvider",
-          "type": "address",
-          "internalType": "address"
-        },
-        {
-          "name": "aaveKandelGasreq",
+          "name": "kandelGasreq",
           "type": "uint256",
           "internalType": "uint256"
         }
@@ -42,22 +38,15 @@
     },
     {
       "type": "function",
-      "name": "AAVE_ROUTER",
+      "name": "KANDEL_GASREQ",
       "inputs": [],
       "outputs": [
         {
           "name": "",
-          "type": "address",
-          "internalType": "contract AavePooledRouter"
+          "type": "uint256",
+          "internalType": "uint256"
         }
       ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "KANDEL_GASREQ",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
       "stateMutability": "view"
     },
     {
@@ -65,7 +54,11 @@
       "name": "MGV",
       "inputs": [],
       "outputs": [
-        { "name": "", "type": "address", "internalType": "contract IMangrove" }
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "contract IMangrove"
+        }
       ],
       "stateMutability": "view"
     },
@@ -95,7 +88,11 @@
             }
           ]
         },
-        { "name": "liquiditySharing", "type": "bool", "internalType": "bool" }
+        {
+          "name": "liquiditySharing",
+          "type": "bool",
+          "internalType": "bool"
+        }
       ],
       "outputs": [
         {
@@ -108,7 +105,7 @@
     },
     {
       "type": "event",
-      "name": "NewAaveKandel",
+      "name": "NewKandel",
       "inputs": [
         {
           "name": "owner",
@@ -129,13 +126,7 @@
           "internalType": "bytes32"
         },
         {
-          "name": "aaveKandel",
-          "type": "address",
-          "indexed": false,
-          "internalType": "address"
-        },
-        {
-          "name": "reserveId",
+          "name": "kandel",
           "type": "address",
           "indexed": false,
           "internalType": "address"

@@ -52,6 +52,9 @@ export type StratContractsNetworkDeployment = {
   kandelSeeder?: VersionNetworkDeployment;
   mangroveOrderRouter?: VersionNetworkDeployment;
   mangroveOrder?: VersionNetworkDeployment;
+  routerProxyFactory?: VersionNetworkDeployment;
+  simpleAaveLogic?: VersionNetworkDeployment;
+  mangroveAmplifier?: VersionNetworkDeployment;
 };
 
 export type DeploymentFilter = {
