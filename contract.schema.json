@@ -1,0 +1,90 @@
+{
+  "title": "Definition of a set of contract version deployments",
+  "description": "Schema to define contract deployments by Mangrove",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Schema version of the contract deployment"
+    },
+    "released": {
+      "type": "boolean",
+      "description": "Whether the contract is released or not"
+    },
+    "contractName": {
+      "type": "string",
+      "description": "Name of the contract"
+    },
+    "deploymentName": {
+      "type": "string",
+      "description": "Optional name of the deployment"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the contract"
+    },
+    "networkAddresses": {
+      "type": "object",
+      "patternProperties": {
+        "^[0-9]+$": {
+          "type": "object",
+          "description": "Information about deployments on the chain ID defined by the property key",
+          "properties": {
+            "primaryAddress": {
+              "type": "string",
+              "description": "Optional primary address of the contract on the given chain"
+            },
+            "allAddresses": {
+              "type": "array",
+              "description": "All addresses of the contract on the given chain",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "description": "Address of the contract on the given chain"
+                  },
+                  "dependencies": {
+                    "type": "array",
+                    "description": "Dependencies of the contract on the given chain",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Deployment or contract name of the dependency"
+                        },
+                        "address": {
+                          "type": "string",
+                          "description": "Address of the dependency contract"
+                        }
+                      },
+                      "required": ["name", "address"],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": ["address"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["allAddresses"],
+          "additionalProperties": false
+        }
+      }
+    },
+    "abi": {
+      "type": "array",
+      "description": "ABI of the contract version"
+    }
+  },
+  "required": [
+    "released",
+    "contractName",
+    "version",
+    "networkAddresses",
+    "abi"
+  ],
+  "additionalProperties": false
+}
