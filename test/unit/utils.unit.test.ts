@@ -1,9 +1,10 @@
 import { describe, it } from "mocha";
 import { expect } from "chai";
 
+import { mangroveNetworkNames } from "@mangrovedao/context-addresses";
+
 import {
   createContractVersionPattern,
-  mangroveNetworkNames,
   toNamedAddressesPerNamedNetwork,
 } from "../../src/utils";
 
