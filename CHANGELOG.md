@@ -1,5 +1,7 @@
 # Next version
 
+- Use Mangrove network names from the [@mangrovedao/context-addresses](https://github.com/mangrovedao/context-addresses) package.
+
 # 2.0.0
 
 - Add dependencies to deployments. This allows querying for e.g. periphery or strat contracts that are tied to a specific Mangrove instance.

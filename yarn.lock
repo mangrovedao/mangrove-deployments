@@ -418,11 +418,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mangrovedao/context-addresses@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@mangrovedao/context-addresses@npm:1.1.0"
+  dependencies:
+    semver: ^7.5.4
+  checksum: fcab478000a25a9aa9d1c594fe4284fcae2eca6a67a5d6d7a5af753a989fd9ce30928d023e669d9bed6cba609b99cc953b9f6ede567274ae9d00c74828bfb790
+  languageName: node
+  linkType: hard
+
 "@mangrovedao/mangrove-deployments@workspace:.":
   version: 0.0.0-use.local
   resolution: "@mangrovedao/mangrove-deployments@workspace:."
   dependencies:
     "@espendk/json-file-reporter": ^1.4.2
+    "@mangrovedao/context-addresses": ^1.1.0
     "@types/chai": ^4.3.10
     "@types/mocha": ^10.0.4
     "@types/node": ^20.9.0
