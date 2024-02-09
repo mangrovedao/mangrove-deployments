@@ -318,6 +318,18 @@ describe("strats.ts", () => {
           mangroveOrderRouter: undefined,
           mangroveOrder: undefined,
         },
+        "168587773": {
+          mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
+            Mangrove_v2_0_1,
+            "168587773",
+          ),
+          aaveKandelSeeder: undefined,
+          aavePooledRouter: undefined,
+          kandelLib: undefined,
+          kandelSeeder: undefined,
+          mangroveOrderRouter: undefined,
+          mangroveOrder: undefined,
+        },
       });
     });
   });

@@ -40,6 +40,7 @@ describe("core.ts", () => {
         ).to.deep.equal({
           "80001": [Mangrove_v2_0_1],
           "11155111": [Mangrove_v2_0_1],
+          "168587773": [Mangrove_v2_0_1],
         });
       });
     });
@@ -56,6 +57,10 @@ describe("core.ts", () => {
           "11155111": firstVersionDeploymentsToVersionNetworkDeployment(
             Mangrove_v2_0_1,
             "11155111",
+          ),
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            Mangrove_v2_0_1,
+            "168587773",
           ),
         });
       });
@@ -81,6 +86,7 @@ describe("core.ts", () => {
         ).to.deep.equal({
           "80001": [MgvReader_v2_0_1],
           "11155111": [MgvReader_v2_0_1],
+          "168587773": [MgvReader_v2_0_1],
         });
       });
     });
@@ -97,6 +103,10 @@ describe("core.ts", () => {
           "11155111": firstVersionDeploymentsToVersionNetworkDeployment(
             MgvReader_v2_0_1,
             "11155111",
+          ),
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvReader_v2_0_1,
+            "168587773",
           ),
         });
       });
@@ -122,6 +132,7 @@ describe("core.ts", () => {
         ).to.deep.equal({
           "80001": [MgvOracle_v2_0_1],
           "11155111": [MgvOracle_v2_0_1],
+          "168587773": [MgvOracle_v2_0_1],
         });
       });
     });
@@ -138,6 +149,10 @@ describe("core.ts", () => {
           "11155111": firstVersionDeploymentsToVersionNetworkDeployment(
             MgvOracle_v2_0_1,
             "11155111",
+          ),
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvOracle_v2_0_1,
+            "168587773",
           ),
         });
       });
@@ -175,6 +190,20 @@ describe("core.ts", () => {
           mgvReader: firstVersionDeploymentsToVersionNetworkDeployment(
             MgvReader_v2_0_1,
             "11155111",
+          ),
+        },
+        "168587773": {
+          mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
+            Mangrove_v2_0_1,
+            "168587773",
+          ),
+          mgvOracle: firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvOracle_v2_0_1,
+            "168587773",
+          ),
+          mgvReader: firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvReader_v2_0_1,
+            "168587773",
           ),
         },
       });
