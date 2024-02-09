@@ -1,5 +1,7 @@
 # Next version
 
+- Fix test error
+
 # 2.0.3-0
 
 - Add support for MangroveAmplifier contract

@@ -487,6 +487,9 @@ describe("strats.ts", () => {
           kandelSeeder: undefined,
           mangroveOrderRouter: undefined,
           mangroveOrder: undefined,
+          routerProxyFactory: undefined,
+          simpleAaveLogic: undefined,
+          mangroveAmplifier: undefined,
         },
       });
     });
