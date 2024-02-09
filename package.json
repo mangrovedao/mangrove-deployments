@@ -19,7 +19,8 @@
     "postpack": "pinst --enable",
     "postinstall": "husky install",
     "lint": "npx eslint ./src/*.ts",
-    "build": "tsc --build",
+    "build": "yarn validateJSON && tsc --build",
+    "validateJSON": "ajv test -s ./contract.schema.json -d 'src/assets/**/*.json' --valid",
     "test": "mocha --parallel --config test/mocha/config/unit-tests.json --exit",
     "test:coverage": "nyc --reporter=lcov mocha --config test/mocha/config/coverage-tests.json --exit"
   },
@@ -43,6 +44,7 @@
     "@types/semver": "^7.5.4",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
+    "ajv-cli": "^5.0.0",
     "chai": "^4.3.10",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",

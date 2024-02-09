@@ -1,5 +1,13 @@
 # Next version
 
+- Add support for MangroveAmplifier contract
+- Add deployments of AaveKandelSeeder, AavePooledRouter, KandelLib, and KandelSeeder v2.0.0-b1.0 to Mumbai
+- Add support for SimpleAaveLogic contract
+- Add deployment of SimpleAaveLogic v2.0.0-b1.0 to Mumbai
+- Add JSON schema for assets
+- Add support for RouterProxyFactory contract
+- Add deployments of MangroveOrder, MangroveOrder-Router, and RouterProxyFactory v2.0.0-b1.0
+
 # 2.0.2
 
 - Add Blast Sepolia deployment of mangrove-core v2.0.1
