@@ -1,5 +1,7 @@
 # Next version
 
+# 2.0.2
+
 - Add Blast Sepolia deployment of mangrove-core v2.0.1
 
 # 2.0.1
