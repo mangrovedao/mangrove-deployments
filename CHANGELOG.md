@@ -1,5 +1,7 @@
 # Next version
 
+- Add WBTC deployment to Blast Sepolia
+
 # 2.0.3-1
 
 - Fix test error
