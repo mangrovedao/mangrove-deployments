@@ -21,8 +21,15 @@ import RouterProxyFactory_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/
 import SimpleAaveLogic_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/SimpleAaveLogic.json";
 import MangroveAmplifier_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/MangroveAmplifier.json";
 // v2.0.1-0
+import AaveKandelSeeder_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/AaveKandelSeeder.json";
+import AavePooledRouter_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/AavePooledRouter.json";
 import KandelLib_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/KandelLib.json";
 import KandelSeeder_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/KandelSeeder.json";
+import MangroveAmplifier_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/MangroveAmplifier.json";
+import MangroveOrderRouter_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/MangroveOrder-Router.json";
+import MangroveOrder_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/MangroveOrder.json";
+import RouterProxyFactory_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/RouterProxyFactory.json";
+import SimpleAaveLogic_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/SimpleAaveLogic.json";
 // v2.1.0-0
 import BlastMangroveAmplifier_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastMangroveAmplifier.json";
 import BlastMangroveOrderRouter_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastMangroveOrder-Router.json";
@@ -69,11 +76,13 @@ describe("strats.ts", () => {
         const result = getAaveKandelSeederVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, AaveKandelSeeder_v2_0_0_b1_0);
+        assert.equal(result, AaveKandelSeeder_v2_0_1_0);
         // NB: Add older old versions here
-        [AaveKandelSeeder_v1_0_0].forEach((version) => {
-          assert.notEqual(result, version);
-        });
+        [AaveKandelSeeder_v2_0_0_b1_0, AaveKandelSeeder_v1_0_0].forEach(
+          (version) => {
+            assert.notEqual(result, version);
+          },
+        );
       });
     });
 
@@ -84,7 +93,11 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [AaveKandelSeeder_v2_0_0_b1_0, AaveKandelSeeder_v1_0_0],
+          "80001": [
+            AaveKandelSeeder_v2_0_1_0,
+            AaveKandelSeeder_v2_0_0_b1_0,
+            AaveKandelSeeder_v1_0_0,
+          ],
         });
       });
     });
@@ -95,7 +108,7 @@ describe("strats.ts", () => {
           getLatestAaveKandelSeederPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            AaveKandelSeeder_v2_0_0_b1_0,
+            AaveKandelSeeder_v2_0_1_0,
             "80001",
           ),
         });
@@ -109,11 +122,13 @@ describe("strats.ts", () => {
         const result = getAavePooledRouterVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, AavePooledRouter_v2_0_0_b1_0);
+        assert.equal(result, AavePooledRouter_v2_0_1_0);
         // NB: Add older old versions here
-        [AavePooledRouter_v1_0_0].forEach((version) => {
-          assert.notEqual(result, version);
-        });
+        [AavePooledRouter_v2_0_0_b1_0, AavePooledRouter_v1_0_0].forEach(
+          (version) => {
+            assert.notEqual(result, version);
+          },
+        );
       });
     });
 
@@ -124,7 +139,11 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [AavePooledRouter_v2_0_0_b1_0, AavePooledRouter_v1_0_0],
+          "80001": [
+            AavePooledRouter_v2_0_1_0,
+            AavePooledRouter_v2_0_0_b1_0,
+            AavePooledRouter_v1_0_0,
+          ],
         });
       });
     });
@@ -135,7 +154,7 @@ describe("strats.ts", () => {
           getLatestAavePooledRouterPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            AavePooledRouter_v2_0_0_b1_0,
+            AavePooledRouter_v2_0_1_0,
             "80001",
           ),
         });
@@ -160,7 +179,11 @@ describe("strats.ts", () => {
         expect(
           getAllKandelLibVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
-          "80001": [KandelLib_v2_0_0_b1_0, KandelLib_v1_0_0],
+          "80001": [
+            KandelLib_v2_0_1_0,
+            KandelLib_v2_0_0_b1_0,
+            KandelLib_v1_0_0,
+          ],
           "168587773": [KandelLib_v2_0_1_0],
         });
       });
@@ -172,7 +195,7 @@ describe("strats.ts", () => {
           getLatestKandelLibPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            KandelLib_v2_0_0_b1_0,
+            KandelLib_v2_0_1_0,
             "80001",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
@@ -205,7 +228,11 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [KandelSeeder_v2_0_0_b1_0, KandelSeeder_v1_0_0],
+          "80001": [
+            KandelSeeder_v2_0_1_0,
+            KandelSeeder_v2_0_0_b1_0,
+            KandelSeeder_v1_0_0,
+          ],
           "168587773": [KandelSeeder_v2_0_1_0],
         });
       });
@@ -217,7 +244,7 @@ describe("strats.ts", () => {
           getLatestKandelSeederPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            KandelSeeder_v2_0_0_b1_0,
+            KandelSeeder_v2_0_1_0,
             "80001",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
@@ -237,11 +264,13 @@ describe("strats.ts", () => {
         });
         assert.equal(result, BlastMangroveOrderRouter_v2_1_0_0);
         // NB: Add older old versions here
-        [MangroveOrderRouter_v2_0_0_b1_0, MangroveOrderRouter_v1_0_0].forEach(
-          (version) => {
-            assert.notEqual(result, version);
-          },
-        );
+        [
+          MangroveOrderRouter_v2_0_1_0,
+          MangroveOrderRouter_v2_0_0_b1_0,
+          MangroveOrderRouter_v1_0_0,
+        ].forEach((version) => {
+          assert.notEqual(result, version);
+        });
       });
     });
 
@@ -253,6 +282,7 @@ describe("strats.ts", () => {
           }),
         ).to.deep.equal({
           "80001": [
+            MangroveOrderRouter_v2_0_1_0,
             MangroveOrderRouter_v2_0_0_b1_0,
             MangroveOrderRouter_v1_0_0,
           ],
@@ -267,7 +297,7 @@ describe("strats.ts", () => {
           getLatestMangroveOrderRouterPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            MangroveOrderRouter_v2_0_0_b1_0,
+            MangroveOrderRouter_v2_0_1_0,
             "80001",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
@@ -287,7 +317,11 @@ describe("strats.ts", () => {
         });
         assert.equal(result, BlastMangroveOrder_v2_1_0_0);
         // NB: Add older old versions here
-        [MangroveOrder_v2_0_0_b1_0, MangroveOrder_v1_0_0].forEach((version) => {
+        [
+          MangroveOrder_v2_0_1_0,
+          MangroveOrder_v2_0_0_b1_0,
+          MangroveOrder_v1_0_0,
+        ].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -300,7 +334,11 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [MangroveOrder_v2_0_0_b1_0, MangroveOrder_v1_0_0],
+          "80001": [
+            MangroveOrder_v2_0_1_0,
+            MangroveOrder_v2_0_0_b1_0,
+            MangroveOrder_v1_0_0,
+          ],
           "168587773": [BlastMangroveOrder_v2_1_0_0],
         });
       });
@@ -312,7 +350,7 @@ describe("strats.ts", () => {
           getLatestMangroveOrderPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            MangroveOrder_v2_0_0_b1_0,
+            MangroveOrder_v2_0_1_0,
             "80001",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
@@ -332,9 +370,11 @@ describe("strats.ts", () => {
         });
         assert.equal(result, BlastRouterProxyFactory_v2_1_0_0);
         // NB: Add older old versions here
-        [RouterProxyFactory_v2_0_0_b1_0].forEach((version) => {
-          assert.notEqual(result, version);
-        });
+        [RouterProxyFactory_v2_0_1_0, RouterProxyFactory_v2_0_0_b1_0].forEach(
+          (version) => {
+            assert.notEqual(result, version);
+          },
+        );
       });
     });
 
@@ -345,7 +385,10 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [RouterProxyFactory_v2_0_0_b1_0],
+          "80001": [
+            RouterProxyFactory_v2_0_1_0,
+            RouterProxyFactory_v2_0_0_b1_0,
+          ],
           "168587773": [BlastRouterProxyFactory_v2_1_0_0],
         });
       });
@@ -357,7 +400,7 @@ describe("strats.ts", () => {
           getLatestRouterProxyFactoryPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            RouterProxyFactory_v2_0_0_b1_0,
+            RouterProxyFactory_v2_0_1_0,
             "80001",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
@@ -375,9 +418,9 @@ describe("strats.ts", () => {
         const result = getSimpleAaveLogicVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, SimpleAaveLogic_v2_0_0_b1_0);
+        assert.equal(result, SimpleAaveLogic_v2_0_1_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [SimpleAaveLogic_v2_0_0_b1_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -390,7 +433,7 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [SimpleAaveLogic_v2_0_0_b1_0],
+          "80001": [SimpleAaveLogic_v2_0_1_0, SimpleAaveLogic_v2_0_0_b1_0],
         });
       });
     });
@@ -401,7 +444,7 @@ describe("strats.ts", () => {
           getLatestSimpleAaveLogicPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            SimpleAaveLogic_v2_0_0_b1_0,
+            SimpleAaveLogic_v2_0_1_0,
             "80001",
           ),
         });
@@ -417,9 +460,11 @@ describe("strats.ts", () => {
         });
         assert.equal(result, BlastMangroveAmplifier_v2_1_0_0);
         // NB: Add older old versions here
-        [MangroveAmplifier_v2_0_0_b1_0].forEach((version) => {
-          assert.notEqual(result, version);
-        });
+        [MangroveAmplifier_v2_0_1_0, MangroveAmplifier_v2_0_0_b1_0].forEach(
+          (version) => {
+            assert.notEqual(result, version);
+          },
+        );
       });
     });
 
@@ -430,7 +475,7 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
-          "80001": [MangroveAmplifier_v2_0_0_b1_0],
+          "80001": [MangroveAmplifier_v2_0_1_0, MangroveAmplifier_v2_0_0_b1_0],
           "168587773": [BlastMangroveAmplifier_v2_1_0_0],
         });
       });
@@ -442,7 +487,7 @@ describe("strats.ts", () => {
           getLatestMangroveAmplifierPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
-            MangroveAmplifier_v2_0_0_b1_0,
+            MangroveAmplifier_v2_0_1_0,
             "80001",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
@@ -465,40 +510,40 @@ describe("strats.ts", () => {
             "80001",
           ),
           aaveKandelSeeder: firstVersionDeploymentsToVersionNetworkDeployment(
-            AaveKandelSeeder_v2_0_0_b1_0,
+            AaveKandelSeeder_v2_0_1_0,
             "80001",
           ),
           aavePooledRouter: firstVersionDeploymentsToVersionNetworkDeployment(
-            AavePooledRouter_v2_0_0_b1_0,
+            AavePooledRouter_v2_0_1_0,
             "80001",
           ),
           kandelLib: firstVersionDeploymentsToVersionNetworkDeployment(
-            KandelLib_v2_0_0_b1_0,
+            KandelLib_v2_0_1_0,
             "80001",
           ),
           kandelSeeder: firstVersionDeploymentsToVersionNetworkDeployment(
-            KandelSeeder_v2_0_0_b1_0,
+            KandelSeeder_v2_0_1_0,
             "80001",
           ),
           mangroveOrderRouter:
             firstVersionDeploymentsToVersionNetworkDeployment(
-              MangroveOrderRouter_v2_0_0_b1_0,
+              MangroveOrderRouter_v2_0_1_0,
               "80001",
             ),
           mangroveOrder: firstVersionDeploymentsToVersionNetworkDeployment(
-            MangroveOrder_v2_0_0_b1_0,
+            MangroveOrder_v2_0_1_0,
             "80001",
           ),
           routerProxyFactory: firstVersionDeploymentsToVersionNetworkDeployment(
-            RouterProxyFactory_v2_0_0_b1_0,
+            RouterProxyFactory_v2_0_1_0,
             "80001",
           ),
           simpleAaveLogic: firstVersionDeploymentsToVersionNetworkDeployment(
-            SimpleAaveLogic_v2_0_0_b1_0,
+            SimpleAaveLogic_v2_0_1_0,
             "80001",
           ),
           mangroveAmplifier: firstVersionDeploymentsToVersionNetworkDeployment(
-            MangroveAmplifier_v2_0_0_b1_0,
+            MangroveAmplifier_v2_0_1_0,
             "80001",
           ),
         },

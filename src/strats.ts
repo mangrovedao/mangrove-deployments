@@ -16,8 +16,15 @@ import RouterProxyFactory_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/RouterPr
 import SimpleAaveLogic_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/SimpleAaveLogic.json";
 import MangroveAmplifier_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveAmplifier.json";
 // v2.0.1-0
+import AaveKandelSeeder_v2_0_1_0 from "./assets/strats/v2.0.1-0/AaveKandelSeeder.json";
+import AavePooledRouter_v2_0_1_0 from "./assets/strats/v2.0.1-0/AavePooledRouter.json";
 import KandelLib_v2_0_1_0 from "./assets/strats/v2.0.1-0/KandelLib.json";
 import KandelSeeder_v2_0_1_0 from "./assets/strats/v2.0.1-0/KandelSeeder.json";
+import MangroveAmplifier_v2_0_1_0 from "./assets/strats/v2.0.1-0/MangroveAmplifier.json";
+import MangroveOrderRouter_v2_0_1_0 from "./assets/strats/v2.0.1-0/MangroveOrder-Router.json";
+import MangroveOrder_v2_0_1_0 from "./assets/strats/v2.0.1-0/MangroveOrder.json";
+import RouterProxyFactory_v2_0_1_0 from "./assets/strats/v2.0.1-0/RouterProxyFactory.json";
+import SimpleAaveLogic_v2_0_1_0 from "./assets/strats/v2.0.1-0/SimpleAaveLogic.json";
 // v2.1.0-0
 import BlastMangroveAmplifier_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveAmplifier.json";
 import BlastMangroveOrderRouter_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveOrder-Router.json";
@@ -43,6 +50,7 @@ import {
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _aaveKandelSeederDeployments: VersionDeployments[] = [
+  AaveKandelSeeder_v2_0_1_0,
   AaveKandelSeeder_v2_0_0_b1_0,
   AaveKandelSeeder_v1_0_0,
 ];
@@ -72,6 +80,7 @@ export const getLatestAaveKandelSeederPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _aavePooledRouterDeployments: VersionDeployments[] = [
+  AavePooledRouter_v2_0_1_0,
   AavePooledRouter_v2_0_0_b1_0,
   AavePooledRouter_v1_0_0,
 ];
@@ -162,6 +171,7 @@ export const getLatestKandelSeederPerNetwork = (
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderRouterDeployments: VersionDeployments[] = [
   BlastMangroveOrderRouter_v2_1_0_0,
+  MangroveOrderRouter_v2_0_1_0,
   MangroveOrderRouter_v2_0_0_b1_0,
   MangroveOrderRouter_v1_0_0,
 ];
@@ -195,6 +205,7 @@ export const getLatestMangroveOrderRouterPerNetwork = (
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderDeployments: VersionDeployments[] = [
   BlastMangroveOrder_v2_1_0_0,
+  MangroveOrder_v2_0_1_0,
   MangroveOrder_v2_0_0_b1_0,
   MangroveOrder_v1_0_0,
 ];
@@ -225,6 +236,7 @@ export const getLatestMangroveOrderPerNetwork = (
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _routerProxyFactoryDeployments: VersionDeployments[] = [
   BlastRouterProxyFactory_v2_1_0_0,
+  RouterProxyFactory_v2_0_1_0,
   RouterProxyFactory_v2_0_0_b1_0,
 ];
 
@@ -253,6 +265,7 @@ export const getLatestRouterProxyFactoryPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _simpleAaveLogicDeployments: VersionDeployments[] = [
+  SimpleAaveLogic_v2_0_1_0,
   SimpleAaveLogic_v2_0_0_b1_0,
 ];
 
@@ -282,6 +295,7 @@ export const getLatestSimpleAaveLogicPerNetwork = (
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveAmplifierDeployments: VersionDeployments[] = [
   BlastMangroveAmplifier_v2_1_0_0,
+  MangroveAmplifier_v2_0_1_0,
   MangroveAmplifier_v2_0_0_b1_0,
 ];
 

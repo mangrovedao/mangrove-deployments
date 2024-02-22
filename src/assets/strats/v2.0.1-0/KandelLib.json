@@ -5,6 +5,20 @@
   "deploymentName": "KandelLib",
   "version": "2.0.1-0",
   "networkAddresses": {
+    "80001": {
+      "primaryAddress": "0xC383eeBF80B7372e7D5a761c7551D7B920D05bBD",
+      "allAddresses": [
+        {
+          "address": "0xC383eeBF80B7372e7D5a761c7551D7B920D05bBD",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"
+            }
+          ]
+        }
+      ]
+    },
     "168587773": {
       "primaryAddress": "0x00Bf28e29C398C168AAe0532373631fc41a2F77a",
       "allAddresses": [
