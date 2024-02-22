@@ -2,6 +2,7 @@ import assert from "assert";
 import { describe, it } from "mocha";
 
 import Mangrove_v2_0_1 from "../../src/assets/core/v2.0.1/Mangrove.json";
+import BlastMangrove_v2_1_0_0 from "../../src/assets/core/v2.1.0-0/BlastMangrove.json";
 // v1.0.0
 import AaveKandelSeeder_v1_0_0 from "../../src/assets/strats/v1.0.0/AaveKandelSeeder.json";
 import AavePooledRouter_v1_0_0 from "../../src/assets/strats/v1.0.0/AavePooledRouter.json";
@@ -19,6 +20,14 @@ import MangroveOrder_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/Mangr
 import RouterProxyFactory_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/RouterProxyFactory.json";
 import SimpleAaveLogic_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/SimpleAaveLogic.json";
 import MangroveAmplifier_v2_0_0_b1_0 from "../../src/assets/strats/v2.0.0-b1.0/MangroveAmplifier.json";
+// v2.0.1-0
+import KandelLib_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/KandelLib.json";
+import KandelSeeder_v2_0_1_0 from "../../src/assets/strats/v2.0.1-0/KandelSeeder.json";
+// v2.1.0-0
+import BlastMangroveAmplifier_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastMangroveAmplifier.json";
+import BlastMangroveOrderRouter_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastMangroveOrder-Router.json";
+import BlastMangroveOrder_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastMangroveOrder.json";
+import BlastRouterProxyFactory_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
 
 import {
   getAaveKandelSeederVersionDeployments,
@@ -138,9 +147,9 @@ describe("strats.ts", () => {
     describe("getKandelLibVersionDeployments", () => {
       it("should find the latest deployment first", () => {
         const result = getKandelLibVersionDeployments({ released: undefined });
-        assert.equal(result, KandelLib_v2_0_0_b1_0);
+        assert.equal(result, KandelLib_v2_0_1_0);
         // NB: Add older old versions here
-        [KandelLib_v1_0_0].forEach((version) => {
+        [KandelLib_v2_0_0_b1_0, KandelLib_v1_0_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -152,6 +161,7 @@ describe("strats.ts", () => {
           getAllKandelLibVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": [KandelLib_v2_0_0_b1_0, KandelLib_v1_0_0],
+          "168587773": [KandelLib_v2_0_1_0],
         });
       });
     });
@@ -165,6 +175,10 @@ describe("strats.ts", () => {
             KandelLib_v2_0_0_b1_0,
             "80001",
           ),
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            KandelLib_v2_0_1_0,
+            "168587773",
+          ),
         });
       });
     });
@@ -176,9 +190,9 @@ describe("strats.ts", () => {
         const result = getKandelSeederVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, KandelSeeder_v2_0_0_b1_0);
+        assert.equal(result, KandelSeeder_v2_0_1_0);
         // NB: Add older old versions here
-        [KandelSeeder_v1_0_0].forEach((version) => {
+        [KandelSeeder_v2_0_0_b1_0, KandelSeeder_v1_0_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -192,6 +206,7 @@ describe("strats.ts", () => {
           }),
         ).to.deep.equal({
           "80001": [KandelSeeder_v2_0_0_b1_0, KandelSeeder_v1_0_0],
+          "168587773": [KandelSeeder_v2_0_1_0],
         });
       });
     });
@@ -205,6 +220,10 @@ describe("strats.ts", () => {
             KandelSeeder_v2_0_0_b1_0,
             "80001",
           ),
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            KandelSeeder_v2_0_1_0,
+            "168587773",
+          ),
         });
       });
     });
@@ -216,11 +235,13 @@ describe("strats.ts", () => {
         const result = getMangroveOrderRouterVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, MangroveOrderRouter_v2_0_0_b1_0);
+        assert.equal(result, BlastMangroveOrderRouter_v2_1_0_0);
         // NB: Add older old versions here
-        [MangroveOrderRouter_v1_0_0].forEach((version) => {
-          assert.notEqual(result, version);
-        });
+        [MangroveOrderRouter_v2_0_0_b1_0, MangroveOrderRouter_v1_0_0].forEach(
+          (version) => {
+            assert.notEqual(result, version);
+          },
+        );
       });
     });
 
@@ -235,6 +256,7 @@ describe("strats.ts", () => {
             MangroveOrderRouter_v2_0_0_b1_0,
             MangroveOrderRouter_v1_0_0,
           ],
+          "168587773": [BlastMangroveOrderRouter_v2_1_0_0],
         });
       });
     });
@@ -248,6 +270,10 @@ describe("strats.ts", () => {
             MangroveOrderRouter_v2_0_0_b1_0,
             "80001",
           ),
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveOrderRouter_v2_1_0_0,
+            "168587773",
+          ),
         });
       });
     });
@@ -259,9 +285,9 @@ describe("strats.ts", () => {
         const result = getMangroveOrderVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, MangroveOrder_v2_0_0_b1_0);
+        assert.equal(result, BlastMangroveOrder_v2_1_0_0);
         // NB: Add older old versions here
-        [MangroveOrder_v1_0_0].forEach((version) => {
+        [MangroveOrder_v2_0_0_b1_0, MangroveOrder_v1_0_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -275,6 +301,7 @@ describe("strats.ts", () => {
           }),
         ).to.deep.equal({
           "80001": [MangroveOrder_v2_0_0_b1_0, MangroveOrder_v1_0_0],
+          "168587773": [BlastMangroveOrder_v2_1_0_0],
         });
       });
     });
@@ -288,6 +315,10 @@ describe("strats.ts", () => {
             MangroveOrder_v2_0_0_b1_0,
             "80001",
           ),
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveOrder_v2_1_0_0,
+            "168587773",
+          ),
         });
       });
     });
@@ -299,9 +330,9 @@ describe("strats.ts", () => {
         const result = getRouterProxyFactoryVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, RouterProxyFactory_v2_0_0_b1_0);
+        assert.equal(result, BlastRouterProxyFactory_v2_1_0_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [RouterProxyFactory_v2_0_0_b1_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -315,6 +346,7 @@ describe("strats.ts", () => {
           }),
         ).to.deep.equal({
           "80001": [RouterProxyFactory_v2_0_0_b1_0],
+          "168587773": [BlastRouterProxyFactory_v2_1_0_0],
         });
       });
     });
@@ -327,6 +359,10 @@ describe("strats.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             RouterProxyFactory_v2_0_0_b1_0,
             "80001",
+          ),
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastRouterProxyFactory_v2_1_0_0,
+            "168587773",
           ),
         });
       });
@@ -379,9 +415,9 @@ describe("strats.ts", () => {
         const result = getMangroveAmplifierVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, MangroveAmplifier_v2_0_0_b1_0);
+        assert.equal(result, BlastMangroveAmplifier_v2_1_0_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [MangroveAmplifier_v2_0_0_b1_0].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -395,6 +431,7 @@ describe("strats.ts", () => {
           }),
         ).to.deep.equal({
           "80001": [MangroveAmplifier_v2_0_0_b1_0],
+          "168587773": [BlastMangroveAmplifier_v2_1_0_0],
         });
       });
     });
@@ -407,6 +444,10 @@ describe("strats.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MangroveAmplifier_v2_0_0_b1_0,
             "80001",
+          ),
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveAmplifier_v2_1_0_0,
+            "168587773",
           ),
         });
       });
@@ -478,18 +519,37 @@ describe("strats.ts", () => {
         },
         "168587773": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
-            Mangrove_v2_0_1,
+            BlastMangrove_v2_1_0_0,
             "168587773",
           ),
           aaveKandelSeeder: undefined,
           aavePooledRouter: undefined,
-          kandelLib: undefined,
-          kandelSeeder: undefined,
-          mangroveOrderRouter: undefined,
-          mangroveOrder: undefined,
-          routerProxyFactory: undefined,
+          kandelLib: firstVersionDeploymentsToVersionNetworkDeployment(
+            KandelLib_v2_0_1_0,
+            "168587773",
+          ),
+          kandelSeeder: firstVersionDeploymentsToVersionNetworkDeployment(
+            KandelSeeder_v2_0_1_0,
+            "168587773",
+          ),
+          mangroveOrderRouter:
+            firstVersionDeploymentsToVersionNetworkDeployment(
+              BlastMangroveOrderRouter_v2_1_0_0,
+              "168587773",
+            ),
+          mangroveOrder: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveOrder_v2_1_0_0,
+            "168587773",
+          ),
+          routerProxyFactory: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastRouterProxyFactory_v2_1_0_0,
+            "168587773",
+          ),
           simpleAaveLogic: undefined,
-          mangroveAmplifier: undefined,
+          mangroveAmplifier: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveAmplifier_v2_1_0_0,
+            "168587773",
+          ),
         },
       });
     });
