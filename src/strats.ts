@@ -15,6 +15,14 @@ import MangroveOrder_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveOrder
 import RouterProxyFactory_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/RouterProxyFactory.json";
 import SimpleAaveLogic_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/SimpleAaveLogic.json";
 import MangroveAmplifier_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveAmplifier.json";
+// v2.0.1-0
+import KandelLib_v2_0_1_0 from "./assets/strats/v2.0.1-0/KandelLib.json";
+import KandelSeeder_v2_0_1_0 from "./assets/strats/v2.0.1-0/KandelSeeder.json";
+// v2.1.0-0
+import BlastMangroveAmplifier_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveAmplifier.json";
+import BlastMangroveOrderRouter_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveOrder-Router.json";
+import BlastMangroveOrder_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveOrder.json";
+import BlastRouterProxyFactory_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
 
 import { getLatestMangrovePerNetwork } from "./core";
 
@@ -93,6 +101,7 @@ export const getLatestAavePooledRouterPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _kandelLibDeployments: VersionDeployments[] = [
+  KandelLib_v2_0_1_0,
   KandelLib_v2_0_0_b1_0,
   KandelLib_v1_0_0,
 ];
@@ -122,6 +131,7 @@ export const getLatestKandelLibPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _kandelSeederDeployments: VersionDeployments[] = [
+  KandelSeeder_v2_0_1_0,
   KandelSeeder_v2_0_0_b1_0,
   KandelSeeder_v1_0_0,
 ];
@@ -151,6 +161,7 @@ export const getLatestKandelSeederPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderRouterDeployments: VersionDeployments[] = [
+  BlastMangroveOrderRouter_v2_1_0_0,
   MangroveOrderRouter_v2_0_0_b1_0,
   MangroveOrderRouter_v1_0_0,
 ];
@@ -183,6 +194,7 @@ export const getLatestMangroveOrderRouterPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderDeployments: VersionDeployments[] = [
+  BlastMangroveOrder_v2_1_0_0,
   MangroveOrder_v2_0_0_b1_0,
   MangroveOrder_v1_0_0,
 ];
@@ -212,6 +224,7 @@ export const getLatestMangroveOrderPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _routerProxyFactoryDeployments: VersionDeployments[] = [
+  BlastRouterProxyFactory_v2_1_0_0,
   RouterProxyFactory_v2_0_0_b1_0,
 ];
 
@@ -268,6 +281,7 @@ export const getLatestSimpleAaveLogicPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveAmplifierDeployments: VersionDeployments[] = [
+  BlastMangroveAmplifier_v2_1_0_0,
   MangroveAmplifier_v2_0_0_b1_0,
 ];
 
@@ -300,6 +314,9 @@ export const getLatestStratContractsPerNetwork = (
   filter?: DeploymentFilter,
   mangroveFilter?: DeploymentFilter,
 ): Record<string, StratContractsNetworkDeployment> => {
+  if (mangroveFilter === undefined && filter !== undefined) {
+    mangroveFilter = { released: filter.released };
+  }
   const latestMangrovePerNetwork = getLatestMangrovePerNetwork(mangroveFilter);
   const latestStratContractsPerNetwork: Record<
     string,

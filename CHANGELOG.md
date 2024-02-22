@@ -1,6 +1,8 @@
 # Next version
 
 - Add deployments of `BlastMangrove`, `MgvOracle`, and `MgvReader` v2.1.0-0 to Blast Sepolia
+- Add deployments of `KandelLib` and `KandelSeeder` v2.0.1-0 to Blast Sepolia
+- Add deployments of `BlastMangroveAmplifier`, `BlastMangroveOrder-Router.json`, `BlastMangroveOrder`, and `BlastRouterProxyFactory` v2.1.0-0 to Blast Sepolia
 
 # 2.0.3-2
 
