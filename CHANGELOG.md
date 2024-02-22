@@ -1,5 +1,7 @@
 # Next version
 
+- Add deployments of `BlastMangrove`, `MgvOracle`, and `MgvReader` v2.1.0-0 to Blast Sepolia
+
 # 2.0.3-2
 
 - Add WBTC deployment to Blast Sepolia
