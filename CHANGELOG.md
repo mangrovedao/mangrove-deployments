@@ -1,5 +1,7 @@
 # Next version
 
+- Include pre-releases when matching SemVer ranges
+
 # 2.0.3-3
 
 - Add deployments of `BlastMangrove`, `MgvOracle`, and `MgvReader` v2.1.0-0 to Blast Sepolia
