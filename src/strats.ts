@@ -300,6 +300,9 @@ export const getLatestStratContractsPerNetwork = (
   filter?: DeploymentFilter,
   mangroveFilter?: DeploymentFilter,
 ): Record<string, StratContractsNetworkDeployment> => {
+  if (mangroveFilter === undefined && filter !== undefined) {
+    mangroveFilter = { released: filter.released };
+  }
   const latestMangrovePerNetwork = getLatestMangrovePerNetwork(mangroveFilter);
   const latestStratContractsPerNetwork: Record<
     string,
