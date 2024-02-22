@@ -1,32 +1,18 @@
 {
   "$schema": "../../../../contract.schema.json",
   "released": false,
-  "contractName": "KandelSeeder",
+  "contractName": "AaveKandelSeeder",
   "version": "2.0.1-0",
   "networkAddresses": {
     "80001": {
-      "primaryAddress": "0x878f8820cd99a96381074548a1B72d27A77fadA2",
+      "primaryAddress": "0x215A21620Ded0451F4867A5Ffa347351826233a4",
       "allAddresses": [
         {
-          "address": "0x878f8820cd99a96381074548a1B72d27A77fadA2",
+          "address": "0x215A21620Ded0451F4867A5Ffa347351826233a4",
           "dependencies": [
             {
               "name": "Mangrove",
               "address": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"
-            }
-          ]
-        }
-      ]
-    },
-    "168587773": {
-      "primaryAddress": "0x1A839030107167452D69d8f1a673004B2a1b8A3A",
-      "allAddresses": [
-        {
-          "address": "0x1A839030107167452D69d8f1a673004B2a1b8A3A",
-          "dependencies": [
-            {
-              "name": "Mangrove",
-              "address": "0x579ba1708e8E15c9D41143a3da4B8382831E0897"
             }
           ]
         }
@@ -43,12 +29,30 @@
           "internalType": "contract IMangrove"
         },
         {
-          "name": "kandelGasreq",
+          "name": "addressesProvider",
+          "type": "address",
+          "internalType": "contract IPoolAddressesProvider"
+        },
+        {
+          "name": "aaveKandelGasreq",
           "type": "uint256",
           "internalType": "uint256"
         }
       ],
       "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "AAVE_ROUTER",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "contract AavePooledRouter"
+        }
+      ],
+      "stateMutability": "view"
     },
     {
       "type": "function",
@@ -119,7 +123,7 @@
     },
     {
       "type": "event",
-      "name": "NewKandel",
+      "name": "NewAaveKandel",
       "inputs": [
         {
           "name": "owner",
@@ -140,7 +144,13 @@
           "internalType": "bytes32"
         },
         {
-          "name": "kandel",
+          "name": "aaveKandel",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address"
+        },
+        {
+          "name": "reserveId",
           "type": "address",
           "indexed": false,
           "internalType": "address"

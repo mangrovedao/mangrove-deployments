@@ -3,6 +3,7 @@
 - Add deployments of `BlastMangrove`, `MgvOracle`, and `MgvReader` v2.1.0-0 to Blast Sepolia
 - Add deployments of `KandelLib` and `KandelSeeder` v2.0.1-0 to Blast Sepolia
 - Add deployments of `BlastMangroveAmplifier`, `BlastMangroveOrder-Router.json`, `BlastMangroveOrder`, and `BlastRouterProxyFactory` v2.1.0-0 to Blast Sepolia
+- Add deployments of strat contracts v2.0.1-0 to Mumbai. Except for `MangroveAmplifier` these are identical to the v2.0.0-b1.0 deployments, as no code was changed in-between; We duplicate them, so we can later simplify and just delete the v2.0.0-b1.0 deployments.
 
 # 2.0.3-2
 
