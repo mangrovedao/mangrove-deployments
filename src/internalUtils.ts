@@ -32,7 +32,9 @@ function createFilterFunction(criteria: DeploymentFilter) {
 
     if (
       typeof criteriaWithDefaults.version !== "undefined" &&
-      !semverSatisfies(deployment.version, criteriaWithDefaults.version)
+      !semverSatisfies(deployment.version, criteriaWithDefaults.version, {
+        includePrerelease: true,
+      })
     ) {
       return false;
     }

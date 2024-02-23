@@ -1,9 +1,36 @@
+// v1.0.0
 import AaveKandelSeeder_v1_0_0 from "./assets/strats/v1.0.0/AaveKandelSeeder.json";
 import AavePooledRouter_v1_0_0 from "./assets/strats/v1.0.0/AavePooledRouter.json";
 import KandelLib_v1_0_0 from "./assets/strats/v1.0.0/KandelLib.json";
 import KandelSeeder_v1_0_0 from "./assets/strats/v1.0.0/KandelSeeder.json";
 import MangroveOrderRouter_v1_0_0 from "./assets/strats/v1.0.0/MangroveOrder-Router.json";
 import MangroveOrder_v1_0_0 from "./assets/strats/v1.0.0/MangroveOrder.json";
+// v2.0.0-b1.0
+import AaveKandelSeeder_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/AaveKandelSeeder.json";
+import AavePooledRouter_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/AavePooledRouter.json";
+import KandelLib_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/KandelLib.json";
+import KandelSeeder_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/KandelSeeder.json";
+import MangroveOrderRouter_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveOrder-Router.json";
+import MangroveOrder_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveOrder.json";
+import RouterProxyFactory_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/RouterProxyFactory.json";
+import SimpleAaveLogic_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/SimpleAaveLogic.json";
+import MangroveAmplifier_v2_0_0_b1_0 from "./assets/strats/v2.0.0-b1.0/MangroveAmplifier.json";
+// v2.0.1-0
+import AaveKandelSeeder_v2_0_1_0 from "./assets/strats/v2.0.1-0/AaveKandelSeeder.json";
+import AavePooledRouter_v2_0_1_0 from "./assets/strats/v2.0.1-0/AavePooledRouter.json";
+import KandelLib_v2_0_1_0 from "./assets/strats/v2.0.1-0/KandelLib.json";
+import KandelSeeder_v2_0_1_0 from "./assets/strats/v2.0.1-0/KandelSeeder.json";
+import MangroveAmplifier_v2_0_1_0 from "./assets/strats/v2.0.1-0/MangroveAmplifier.json";
+import MangroveOrderRouter_v2_0_1_0 from "./assets/strats/v2.0.1-0/MangroveOrder-Router.json";
+import MangroveOrder_v2_0_1_0 from "./assets/strats/v2.0.1-0/MangroveOrder.json";
+import RouterProxyFactory_v2_0_1_0 from "./assets/strats/v2.0.1-0/RouterProxyFactory.json";
+import SimpleAaveLogic_v2_0_1_0 from "./assets/strats/v2.0.1-0/SimpleAaveLogic.json";
+// v2.1.0-0
+import BlastMangroveAmplifier_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveAmplifier.json";
+import BlastMangroveOrderRouter_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveOrder-Router.json";
+import BlastMangroveOrder_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveOrder.json";
+import BlastRouterProxyFactory_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
+
 import { getLatestMangrovePerNetwork } from "./core";
 
 import {
@@ -23,6 +50,8 @@ import {
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _aaveKandelSeederDeployments: VersionDeployments[] = [
+  AaveKandelSeeder_v2_0_1_0,
+  AaveKandelSeeder_v2_0_0_b1_0,
   AaveKandelSeeder_v1_0_0,
 ];
 
@@ -51,6 +80,8 @@ export const getLatestAaveKandelSeederPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _aavePooledRouterDeployments: VersionDeployments[] = [
+  AavePooledRouter_v2_0_1_0,
+  AavePooledRouter_v2_0_0_b1_0,
   AavePooledRouter_v1_0_0,
 ];
 
@@ -67,7 +98,7 @@ export const getAllAavePooledRouterVersionDeploymentsPerNetwork = (
   return findAllDeploymentsPerNetwork(filter, _aavePooledRouterDeployments);
 };
 
-/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+/** Returns the latest AavePooledRouter deployment matching the filter for each network. */
 export const getLatestAavePooledRouterPerNetwork = (
   filter?: DeploymentFilter,
 ): Record<string, VersionNetworkDeployment> => {
@@ -78,7 +109,11 @@ export const getLatestAavePooledRouterPerNetwork = (
 // KandelLib
 
 /** This is a sorted array (newest to oldest), exported for tests */
-export const _kandelLibDeployments: VersionDeployments[] = [KandelLib_v1_0_0];
+export const _kandelLibDeployments: VersionDeployments[] = [
+  KandelLib_v2_0_1_0,
+  KandelLib_v2_0_0_b1_0,
+  KandelLib_v1_0_0,
+];
 
 export const getKandelLibVersionDeployments = (
   filter?: DeploymentFilter,
@@ -93,7 +128,7 @@ export const getAllKandelLibVersionDeploymentsPerNetwork = (
   return findAllDeploymentsPerNetwork(filter, _kandelLibDeployments);
 };
 
-/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+/** Returns the latest KandelLib deployment matching the filter for each network. */
 export const getLatestKandelLibPerNetwork = (
   filter?: DeploymentFilter,
 ): Record<string, VersionNetworkDeployment> => {
@@ -105,6 +140,8 @@ export const getLatestKandelLibPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _kandelSeederDeployments: VersionDeployments[] = [
+  KandelSeeder_v2_0_1_0,
+  KandelSeeder_v2_0_0_b1_0,
   KandelSeeder_v1_0_0,
 ];
 
@@ -121,7 +158,7 @@ export const getAllKandelSeederVersionDeploymentsPerNetwork = (
   return findAllDeploymentsPerNetwork(filter, _kandelSeederDeployments);
 };
 
-/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+/** Returns the latest KandelSeeder deployment matching the filter for each network. */
 export const getLatestKandelSeederPerNetwork = (
   filter?: DeploymentFilter,
 ): Record<string, VersionNetworkDeployment> => {
@@ -133,6 +170,9 @@ export const getLatestKandelSeederPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderRouterDeployments: VersionDeployments[] = [
+  BlastMangroveOrderRouter_v2_1_0_0,
+  MangroveOrderRouter_v2_0_1_0,
+  MangroveOrderRouter_v2_0_0_b1_0,
   MangroveOrderRouter_v1_0_0,
 ];
 
@@ -149,7 +189,7 @@ export const getAllMangroveOrderRouterVersionDeploymentsPerNetwork = (
   return findAllDeploymentsPerNetwork(filter, _mangroveOrderRouterDeployments);
 };
 
-/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+/** Returns the latest MangroveOrderRouter deployment matching the filter for each network. */
 export const getLatestMangroveOrderRouterPerNetwork = (
   filter?: DeploymentFilter,
 ): Record<string, VersionNetworkDeployment> => {
@@ -164,6 +204,9 @@ export const getLatestMangroveOrderRouterPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderDeployments: VersionDeployments[] = [
+  BlastMangroveOrder_v2_1_0_0,
+  MangroveOrder_v2_0_1_0,
+  MangroveOrder_v2_0_0_b1_0,
   MangroveOrder_v1_0_0,
 ];
 
@@ -180,11 +223,100 @@ export const getAllMangroveOrderVersionDeploymentsPerNetwork = (
   return findAllDeploymentsPerNetwork(filter, _mangroveOrderDeployments);
 };
 
-/** Returns the latest AaveKandelSeeder deployment matching the filter for each network. */
+/** Returns the latest MangroveOrder deployment matching the filter for each network. */
 export const getLatestMangroveOrderPerNetwork = (
   filter?: DeploymentFilter,
 ): Record<string, VersionNetworkDeployment> => {
   return findLatestDeploymentPerNetwork(filter, _mangroveOrderDeployments);
+};
+
+//////////////////////////
+// RouterProxyFactory
+
+/** This is a sorted array (newest to oldest), exported for tests */
+export const _routerProxyFactoryDeployments: VersionDeployments[] = [
+  BlastRouterProxyFactory_v2_1_0_0,
+  RouterProxyFactory_v2_0_1_0,
+  RouterProxyFactory_v2_0_0_b1_0,
+];
+
+export const getRouterProxyFactoryVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _routerProxyFactoryDeployments);
+};
+
+/** Returns all RouterProxyFactory deployments matching the filter, grouped by network. */
+export const getAllRouterProxyFactoryVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _routerProxyFactoryDeployments);
+};
+
+/** Returns the latest RouterProxyFactory deployment matching the filter for each network. */
+export const getLatestRouterProxyFactoryPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _routerProxyFactoryDeployments);
+};
+
+//////////////////////////
+// SimpleAaveLogic
+
+/** This is a sorted array (newest to oldest), exported for tests */
+export const _simpleAaveLogicDeployments: VersionDeployments[] = [
+  SimpleAaveLogic_v2_0_1_0,
+  SimpleAaveLogic_v2_0_0_b1_0,
+];
+
+export const getSimpleAaveLogicVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _simpleAaveLogicDeployments);
+};
+
+/** Returns all SimpleAaveLogic deployments matching the filter, grouped by network. */
+export const getAllSimpleAaveLogicVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _simpleAaveLogicDeployments);
+};
+
+/** Returns the latest SimpleAaveLogic deployment matching the filter for each network. */
+export const getLatestSimpleAaveLogicPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _simpleAaveLogicDeployments);
+};
+
+//////////////////////////
+// MangroveAmplifier
+
+/** This is a sorted array (newest to oldest), exported for tests */
+export const _mangroveAmplifierDeployments: VersionDeployments[] = [
+  BlastMangroveAmplifier_v2_1_0_0,
+  MangroveAmplifier_v2_0_1_0,
+  MangroveAmplifier_v2_0_0_b1_0,
+];
+
+export const getMangroveAmplifierVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _mangroveAmplifierDeployments);
+};
+
+/** Returns all MangroveAmplifier deployments matching the filter, grouped by network. */
+export const getAllMangroveAmplifierVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _mangroveAmplifierDeployments);
+};
+
+/** Returns the latest MangroveAmplifier deployment matching the filter for each network. */
+export const getLatestMangroveAmplifierPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _mangroveAmplifierDeployments);
 };
 
 //////////////////////////
@@ -196,6 +328,9 @@ export const getLatestStratContractsPerNetwork = (
   filter?: DeploymentFilter,
   mangroveFilter?: DeploymentFilter,
 ): Record<string, StratContractsNetworkDeployment> => {
+  if (mangroveFilter === undefined && filter !== undefined) {
+    mangroveFilter = { released: filter.released };
+  }
   const latestMangrovePerNetwork = getLatestMangrovePerNetwork(mangroveFilter);
   const latestStratContractsPerNetwork: Record<
     string,
@@ -225,6 +360,11 @@ export const getLatestStratContractsPerNetwork = (
       mangroveOrderRouter:
         getLatestMangroveOrderRouterPerNetwork(stratFilter)[network],
       mangroveOrder: getLatestMangroveOrderPerNetwork(stratFilter)[network],
+      routerProxyFactory:
+        getLatestRouterProxyFactoryPerNetwork(stratFilter)[network],
+      simpleAaveLogic: getLatestSimpleAaveLogicPerNetwork(stratFilter)[network],
+      mangroveAmplifier:
+        getLatestMangroveAmplifierPerNetwork(stratFilter)[network],
     };
   }
   return latestStratContractsPerNetwork;

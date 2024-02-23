@@ -1,30 +1,15 @@
 {
   "$schema": "../../../../contract.schema.json",
-  "released": true,
-  "contractName": "Mangrove",
-  "version": "2.0.1",
+  "released": false,
+  "contractName": "BlastMangrove",
+  "deploymentName": "Mangrove",
+  "version": "2.1.0-0",
   "networkAddresses": {
-    "80001": {
-      "primaryAddress": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39",
-      "allAddresses": [
-        {
-          "address": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"
-        }
-      ]
-    },
-    "11155111": {
-      "primaryAddress": "0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C",
-      "allAddresses": [
-        {
-          "address": "0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C"
-        }
-      ]
-    },
     "168587773": {
-      "primaryAddress": "0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C",
+      "primaryAddress": "0x579ba1708e8E15c9D41143a3da4B8382831E0897",
       "allAddresses": [
         {
-          "address": "0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C"
+          "address": "0x579ba1708e8E15c9D41143a3da4B8382831E0897"
         }
       ]
     }
@@ -63,6 +48,13 @@
       ],
       "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
       "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "blastPointsAdmin",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
     },
     {
       "type": "function",

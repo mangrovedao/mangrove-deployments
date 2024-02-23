@@ -1,46 +1,18 @@
 {
   "$schema": "../../../../contract.schema.json",
-  "released": true,
+  "released": false,
   "contractName": "MgvReader",
-  "version": "2.0.1",
+  "version": "2.1.0-0",
   "networkAddresses": {
-    "80001": {
-      "primaryAddress": "0x26d24Dd4aFcB9D1cD30baf804Fa22aFa643327CD",
-      "allAddresses": [
-        {
-          "address": "0x26d24Dd4aFcB9D1cD30baf804Fa22aFa643327CD",
-          "dependencies": [
-            {
-              "name": "Mangrove",
-              "address": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"
-            }
-          ]
-        }
-      ]
-    },
-    "11155111": {
-      "primaryAddress": "0xE9F139F4D31477E71e746a6744e5314F9d6DB382",
-      "allAddresses": [
-        {
-          "address": "0xE9F139F4D31477E71e746a6744e5314F9d6DB382",
-          "dependencies": [
-            {
-              "name": "Mangrove",
-              "address": "0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C"
-            }
-          ]
-        }
-      ]
-    },
     "168587773": {
-      "primaryAddress": "0xE9F139F4D31477E71e746a6744e5314F9d6DB382",
+      "primaryAddress": "0xA4B155b7e5b9D73548971c5842D5835fE9C006fb",
       "allAddresses": [
         {
-          "address": "0xE9F139F4D31477E71e746a6744e5314F9d6DB382",
+          "address": "0xA4B155b7e5b9D73548971c5842D5835fE9C006fb",
           "dependencies": [
             {
               "name": "Mangrove",
-              "address": "0x5B2F8058Df0A0b7744FDb4fD0885FbCD2394194C"
+              "address": "0x579ba1708e8E15c9D41143a3da4B8382831E0897"
             }
           ]
         }

@@ -1,13 +1,14 @@
 {
   "$schema": "../../../../contract.schema.json",
-  "released": true,
+  "released": false,
   "contractName": "AaveKandelSeeder",
-  "version": "1.0.0",
+  "version": "2.0.1-0",
   "networkAddresses": {
     "80001": {
+      "primaryAddress": "0x215A21620Ded0451F4867A5Ffa347351826233a4",
       "allAddresses": [
         {
-          "address": "0xC56CEc2A5912B49AAacEc0F391471Aeb4eb8D9D2",
+          "address": "0x215A21620Ded0451F4867A5Ffa347351826233a4",
           "dependencies": [
             {
               "name": "Mangrove",
@@ -30,7 +31,7 @@
         {
           "name": "addressesProvider",
           "type": "address",
-          "internalType": "address"
+          "internalType": "contract IPoolAddressesProvider"
         },
         {
           "name": "aaveKandelGasreq",
@@ -57,7 +58,13 @@
       "type": "function",
       "name": "KANDEL_GASREQ",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
       "stateMutability": "view"
     },
     {
@@ -65,7 +72,11 @@
       "name": "MGV",
       "inputs": [],
       "outputs": [
-        { "name": "", "type": "address", "internalType": "contract IMangrove" }
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "contract IMangrove"
+        }
       ],
       "stateMutability": "view"
     },
@@ -95,7 +106,11 @@
             }
           ]
         },
-        { "name": "liquiditySharing", "type": "bool", "internalType": "bool" }
+        {
+          "name": "liquiditySharing",
+          "type": "bool",
+          "internalType": "bool"
+        }
       ],
       "outputs": [
         {

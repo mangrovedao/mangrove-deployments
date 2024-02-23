@@ -1,13 +1,14 @@
 {
   "$schema": "../../../../contract.schema.json",
-  "released": true,
+  "released": false,
   "contractName": "MangroveOrder",
-  "version": "1.0.0",
+  "version": "2.0.1-0",
   "networkAddresses": {
     "80001": {
+      "primaryAddress": "0x092FC43fe474030387BBa4C657F0ceBc1dC218E7",
       "allAddresses": [
         {
-          "address": "0x6469064C68B1Bd06861dabD20dF835Fa71Dff695",
+          "address": "0x092FC43fe474030387BBa4C657F0ceBc1dC218E7",
           "dependencies": [
             {
               "name": "Mangrove",
@@ -27,6 +28,11 @@
           "type": "address",
           "internalType": "contract IMangrove"
         },
+        {
+          "name": "factory",
+          "type": "address",
+          "internalType": "contract RouterProxyFactory"
+        },
         { "name": "deployer", "type": "address", "internalType": "address" }
       ],
       "stateMutability": "nonpayable"
@@ -43,7 +49,20 @@
     },
     {
       "type": "function",
-      "name": "NO_ROUTER",
+      "name": "ROUTER_FACTORY",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "contract RouterProxyFactory"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "ROUTER_IMPLEMENTATION",
       "inputs": [],
       "outputs": [
         {
@@ -59,9 +78,9 @@
       "name": "activate",
       "inputs": [
         {
-          "name": "tokens",
-          "type": "address[]",
-          "internalType": "contract IERC20[]"
+          "name": "token",
+          "type": "address",
+          "internalType": "contract IERC20"
         }
       ],
       "outputs": [],
@@ -90,31 +109,6 @@
       ],
       "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
       "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "checkList",
-      "inputs": [
-        {
-          "name": "tokens",
-          "type": "address[]",
-          "internalType": "contract IERC20[]"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "expiring",
-      "inputs": [
-        { "name": "olKeyHash", "type": "bytes32", "internalType": "bytes32" },
-        { "name": "offerId", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [
-        { "name": "expiry", "type": "uint256", "internalType": "uint256" }
-      ],
-      "stateMutability": "view"
     },
     {
       "type": "function",
@@ -245,22 +239,6 @@
     },
     {
       "type": "function",
-      "name": "offerOwners",
-      "inputs": [
-        { "name": "olKeyHash", "type": "bytes32", "internalType": "bytes32" },
-        { "name": "offerIds", "type": "uint256[]", "internalType": "uint256[]" }
-      ],
-      "outputs": [
-        {
-          "name": "offerOwners_",
-          "type": "address[]",
-          "internalType": "address[]"
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
       "name": "ownerOf",
       "inputs": [
         { "name": "olKeyHash", "type": "bytes32", "internalType": "bytes32" },
@@ -306,6 +284,26 @@
     },
     {
       "type": "function",
+      "name": "reneging",
+      "inputs": [
+        { "name": "olKeyHash", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "offerId", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "tuple",
+          "internalType": "struct RenegingForwarder.Condition",
+          "components": [
+            { "name": "date", "type": "uint160", "internalType": "uint160" },
+            { "name": "volume", "type": "uint96", "internalType": "uint96" }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
       "name": "retractOffer",
       "inputs": [
         {
@@ -341,7 +339,9 @@
     {
       "type": "function",
       "name": "router",
-      "inputs": [],
+      "inputs": [
+        { "name": "fundOwner", "type": "address", "internalType": "address" }
+      ],
       "outputs": [
         {
           "name": "",
@@ -362,24 +362,12 @@
     },
     {
       "type": "function",
-      "name": "setExpiry",
+      "name": "setReneging",
       "inputs": [
         { "name": "olKeyHash", "type": "bytes32", "internalType": "bytes32" },
         { "name": "offerId", "type": "uint256", "internalType": "uint256" },
-        { "name": "date", "type": "uint256", "internalType": "uint256" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "setRouter",
-      "inputs": [
-        {
-          "name": "router",
-          "type": "address",
-          "internalType": "contract AbstractRouter"
-        }
+        { "name": "expiryDate", "type": "uint256", "internalType": "uint256" },
+        { "name": "volume", "type": "uint256", "internalType": "uint256" }
       ],
       "outputs": [],
       "stateMutability": "nonpayable"
@@ -415,15 +403,18 @@
                 }
               ]
             },
-            { "name": "fillOrKill", "type": "bool", "internalType": "bool" },
             { "name": "tick", "type": "int256", "internalType": "Tick" },
+            {
+              "name": "orderType",
+              "type": "uint8",
+              "internalType": "enum TakerOrderType"
+            },
             {
               "name": "fillVolume",
               "type": "uint256",
               "internalType": "uint256"
             },
             { "name": "fillWants", "type": "bool", "internalType": "bool" },
-            { "name": "restingOrder", "type": "bool", "internalType": "bool" },
             {
               "name": "expiryDate",
               "type": "uint256",
@@ -434,6 +425,16 @@
               "name": "restingOrderGasreq",
               "type": "uint256",
               "internalType": "uint256"
+            },
+            {
+              "name": "takerGivesLogic",
+              "type": "address",
+              "internalType": "contract AbstractRoutingLogic"
+            },
+            {
+              "name": "takerWantsLogic",
+              "type": "address",
+              "internalType": "contract AbstractRoutingLogic"
             }
           ]
         }
@@ -569,16 +570,16 @@
           "internalType": "address"
         },
         {
-          "name": "fillOrKill",
-          "type": "bool",
-          "indexed": false,
-          "internalType": "bool"
-        },
-        {
           "name": "tick",
           "type": "int256",
           "indexed": false,
           "internalType": "Tick"
+        },
+        {
+          "name": "orderType",
+          "type": "uint8",
+          "indexed": false,
+          "internalType": "enum TakerOrderType"
         },
         {
           "name": "fillVolume",
@@ -593,29 +594,22 @@
           "internalType": "bool"
         },
         {
-          "name": "restingOrder",
-          "type": "bool",
-          "indexed": false,
-          "internalType": "bool"
-        },
-        {
           "name": "offerId",
           "type": "uint256",
           "indexed": false,
           "internalType": "uint256"
-        }
-      ],
-      "anonymous": false
-    },
-    {
-      "type": "event",
-      "name": "Mgv",
-      "inputs": [
+        },
         {
-          "name": "mgv",
+          "name": "takerGivesLogic",
           "type": "address",
           "indexed": false,
-          "internalType": "contract IMangrove"
+          "internalType": "contract AbstractRoutingLogic"
+        },
+        {
+          "name": "takerWantsLogic",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract AbstractRoutingLogic"
         }
       ],
       "anonymous": false
@@ -660,7 +654,7 @@
     },
     {
       "type": "event",
-      "name": "SetExpiry",
+      "name": "SetReneging",
       "inputs": [
         {
           "name": "olKeyHash",
@@ -679,19 +673,12 @@
           "type": "uint256",
           "indexed": false,
           "internalType": "uint256"
-        }
-      ],
-      "anonymous": false
-    },
-    {
-      "type": "event",
-      "name": "SetRouter",
-      "inputs": [
+        },
         {
-          "name": "router",
-          "type": "address",
+          "name": "volume",
+          "type": "uint256",
           "indexed": false,
-          "internalType": "contract AbstractRouter"
+          "internalType": "uint256"
         }
       ],
       "anonymous": false

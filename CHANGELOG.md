@@ -1,5 +1,31 @@
 # Next version
 
+## New features
+
+- Add JSON schema for assets
+- Include pre-releases when matching SemVer ranges
+
+## New contracts supported
+
+- `MangroveAmplifier` contract
+- `SimpleAaveLogic` contract
+- `RouterProxyFactory` contract
+
+## New deployments
+
+### Blast Sepolia
+
+- core v2.1.0-0: `BlastMangrove`, `MgvOracle`, and `MgvReader`
+- strats v2.1.0-0: `BlastMangroveAmplifier`, `BlastMangroveOrder-Router.json`, `BlastMangroveOrder`, and `BlastRouterProxyFactory`
+- strats v2.0.1-0: `KandelLib` and `KandelSeeder`
+- test ERC20: WBTC test token
+
+### Polygon Mumbai
+
+- strats v2.0.1-0: All strat contracts.
+  - Except for `MangroveAmplifier` these are identical to the v2.0.0-b1.0 deployments, as no code was changed in-between; We duplicate them, so we can later simplify and just delete the v2.0.0-b1.0 deployments.
+- strats v2.0.0-b1.0: `AaveKandelSeeder`, `AavePooledRouter`, `KandelLib`, `KandelSeeder`, `MangroveOrder`, `MangroveOrder-Router`, `RouterProxyFactory`, `SimpleAaveLogic`
+
 # 2.0.2
 
 - Add Blast Sepolia deployment of mangrove-core v2.0.1

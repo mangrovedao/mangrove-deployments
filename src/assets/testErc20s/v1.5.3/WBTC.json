@@ -1,4 +1,5 @@
 {
+  "$schema": "../../../../contract.schema.json",
   "released": true,
   "contractName": "TestToken",
   "deploymentName": "WBTC",
@@ -8,6 +9,14 @@
       "allAddresses": [
         {
           "address": "0xf402f6197d979F0A4cba61596921a3d762520570",
+          "dependencies": []
+        }
+      ]
+    },
+    "168587773": {
+      "allAddresses": [
+        {
+          "address": "0xE44FfC50ED6673d6A1C385B76152E1551a6c14a3",
           "dependencies": []
         }
       ]

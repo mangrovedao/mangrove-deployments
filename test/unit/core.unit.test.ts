@@ -6,6 +6,10 @@ import Mangrove_v2_0_1 from "../../src/assets/core/v2.0.1/Mangrove.json";
 import MgvReader_v2_0_1 from "../../src/assets/core/v2.0.1/MgvReader.json";
 import MgvOracle_v2_0_1 from "../../src/assets/core/v2.0.1/MgvOracle.json";
 
+import BlastMangrove_v2_1_0_0 from "../../src/assets/core/v2.1.0-0/BlastMangrove.json";
+import MgvOracle_v2_1_0_0 from "../../src/assets/core/v2.1.0-0/MgvOracle.json";
+import MgvReader_v2_1_0_0 from "../../src/assets/core/v2.1.0-0/MgvReader.json";
+
 import {
   getMangroveVersionDeployments,
   getMgvReaderVersionDeployments,
@@ -25,9 +29,9 @@ describe("core.ts", () => {
     describe("getMangroveVersionDeployments", () => {
       it("should find the latest deployment first", () => {
         const result = getMangroveVersionDeployments({ released: undefined });
-        assert.equal(result, Mangrove_v2_0_1);
+        assert.equal(result, BlastMangrove_v2_1_0_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [Mangrove_v2_0_1].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -35,12 +39,17 @@ describe("core.ts", () => {
 
     describe("getAllMangroveVersionDeploymentsPerNetwork", () => {
       it("should return all deployments grouped by network", () => {
+        // console.dir({ actual: getAllMangroveVersionDeploymentsPerNetwork({ released: undefined }), expected: {
+        //   "80001": [Mangrove_v2_0_1],
+        //   "11155111": [Mangrove_v2_0_1],
+        //   "168587773": [BlastMangrove_v2_1_0_0],
+        // }}, { depth: null });
         expect(
           getAllMangroveVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": [Mangrove_v2_0_1],
           "11155111": [Mangrove_v2_0_1],
-          "168587773": [Mangrove_v2_0_1],
+          "168587773": [BlastMangrove_v2_1_0_0, Mangrove_v2_0_1],
         });
       });
     });
@@ -59,7 +68,7 @@ describe("core.ts", () => {
             "11155111",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
-            Mangrove_v2_0_1,
+            BlastMangrove_v2_1_0_0,
             "168587773",
           ),
         });
@@ -71,9 +80,9 @@ describe("core.ts", () => {
     describe("getMgvReaderVersionDeployments", () => {
       it("should find the latest deployment first", () => {
         const result = getMgvReaderVersionDeployments({ released: undefined });
-        assert.equal(result, MgvReader_v2_0_1);
+        assert.equal(result, MgvReader_v2_1_0_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [MgvReader_v2_0_1].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -86,7 +95,7 @@ describe("core.ts", () => {
         ).to.deep.equal({
           "80001": [MgvReader_v2_0_1],
           "11155111": [MgvReader_v2_0_1],
-          "168587773": [MgvReader_v2_0_1],
+          "168587773": [MgvReader_v2_1_0_0, MgvReader_v2_0_1],
         });
       });
     });
@@ -105,7 +114,7 @@ describe("core.ts", () => {
             "11155111",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
-            MgvReader_v2_0_1,
+            MgvReader_v2_1_0_0,
             "168587773",
           ),
         });
@@ -117,9 +126,9 @@ describe("core.ts", () => {
     describe("getMgvOracleVersionDeployments", () => {
       it("should find the latest deployment first", () => {
         const result = getMgvOracleVersionDeployments({ released: undefined });
-        assert.equal(result, MgvOracle_v2_0_1);
+        assert.equal(result, MgvOracle_v2_1_0_0);
         // NB: Add older old versions here
-        [].forEach((version) => {
+        [MgvOracle_v2_0_1].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -132,7 +141,7 @@ describe("core.ts", () => {
         ).to.deep.equal({
           "80001": [MgvOracle_v2_0_1],
           "11155111": [MgvOracle_v2_0_1],
-          "168587773": [MgvOracle_v2_0_1],
+          "168587773": [MgvOracle_v2_1_0_0, MgvOracle_v2_0_1],
         });
       });
     });
@@ -151,7 +160,7 @@ describe("core.ts", () => {
             "11155111",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
-            MgvOracle_v2_0_1,
+            MgvOracle_v2_1_0_0,
             "168587773",
           ),
         });
@@ -194,15 +203,15 @@ describe("core.ts", () => {
         },
         "168587773": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
-            Mangrove_v2_0_1,
+            BlastMangrove_v2_1_0_0,
             "168587773",
           ),
           mgvOracle: firstVersionDeploymentsToVersionNetworkDeployment(
-            MgvOracle_v2_0_1,
+            MgvOracle_v2_1_0_0,
             "168587773",
           ),
           mgvReader: firstVersionDeploymentsToVersionNetworkDeployment(
-            MgvReader_v2_0_1,
+            MgvReader_v2_1_0_0,
             "168587773",
           ),
         },
