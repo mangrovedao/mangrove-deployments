@@ -1,33 +1,30 @@
 # Next version
 
-# 2.0.3-4
+## New features
 
+- Add JSON schema for assets
 - Include pre-releases when matching SemVer ranges
 
-# 2.0.3-3
+## New contracts supported
 
-- Add deployments of `BlastMangrove`, `MgvOracle`, and `MgvReader` v2.1.0-0 to Blast Sepolia
-- Add deployments of `KandelLib` and `KandelSeeder` v2.0.1-0 to Blast Sepolia
-- Add deployments of `BlastMangroveAmplifier`, `BlastMangroveOrder-Router.json`, `BlastMangroveOrder`, and `BlastRouterProxyFactory` v2.1.0-0 to Blast Sepolia
-- Add deployments of strat contracts v2.0.1-0 to Mumbai. Except for `MangroveAmplifier` these are identical to the v2.0.0-b1.0 deployments, as no code was changed in-between; We duplicate them, so we can later simplify and just delete the v2.0.0-b1.0 deployments.
+- `MangroveAmplifier` contract
+- `SimpleAaveLogic` contract
+- `RouterProxyFactory` contract
 
-# 2.0.3-2
+## New deployments
 
-- Add WBTC deployment to Blast Sepolia
+### Blast Sepolia
 
-# 2.0.3-1
+- core v2.1.0-0: `BlastMangrove`, `MgvOracle`, and `MgvReader`
+- strats v2.1.0-0: `BlastMangroveAmplifier`, `BlastMangroveOrder-Router.json`, `BlastMangroveOrder`, and `BlastRouterProxyFactory`
+- strats v2.0.1-0: `KandelLib` and `KandelSeeder`
+- test ERC20: WBTC test token
 
-- Fix test error
+### Polygon Mumbai
 
-# 2.0.3-0
-
-- Add support for MangroveAmplifier contract
-- Add deployments of AaveKandelSeeder, AavePooledRouter, KandelLib, and KandelSeeder v2.0.0-b1.0 to Mumbai
-- Add support for SimpleAaveLogic contract
-- Add deployment of SimpleAaveLogic v2.0.0-b1.0 to Mumbai
-- Add JSON schema for assets
-- Add support for RouterProxyFactory contract
-- Add deployments of MangroveOrder, MangroveOrder-Router, and RouterProxyFactory v2.0.0-b1.0
+- strats v2.0.1-0: All strat contracts.
+  - Except for `MangroveAmplifier` these are identical to the v2.0.0-b1.0 deployments, as no code was changed in-between; We duplicate them, so we can later simplify and just delete the v2.0.0-b1.0 deployments.
+- strats v2.0.0-b1.0: `AaveKandelSeeder`, `AavePooledRouter`, `KandelLib`, `KandelSeeder`, `MangroveOrder`, `MangroveOrder-Router`, `RouterProxyFactory`, `SimpleAaveLogic`
 
 # 2.0.2
 
