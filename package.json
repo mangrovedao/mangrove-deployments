@@ -1,6 +1,6 @@
 {
   "name": "@mangrovedao/mangrove-deployments",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Collection of Mangrove deployments",
   "main": "dist/index.js",
   "repository": "https://github.com/mangrovedao/mangrove-deployments.git",
@@ -33,7 +33,7 @@
     "*.{js,ts,css,md,json,mjs}": "prettier --write"
   },
   "dependencies": {
-    "@mangrovedao/context-addresses": "^1.1.0",
+    "@mangrovedao/context-addresses": "^1.1.4",
     "semver": "^7.5.4"
   },
   "devDependencies": {

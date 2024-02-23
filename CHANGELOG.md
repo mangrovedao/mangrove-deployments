@@ -1,5 +1,9 @@
 # Next version
 
+# 2.1.1
+
+- Bump `context-addresses` to v1.1.4
+
 # 2.1.0
 
 ## New features
