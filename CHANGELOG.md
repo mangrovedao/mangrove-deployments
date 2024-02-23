@@ -1,5 +1,7 @@
 # Next version
 
+# 2.1.0
+
 ## New features
 
 - Add JSON schema for assets
