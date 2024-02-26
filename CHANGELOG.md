@@ -1,5 +1,7 @@
 # Next version
 
+- Change KandelLib to be a geometric Kandel
+
 # 2.1.1
 
 - Bump `context-addresses` to v1.1.4
