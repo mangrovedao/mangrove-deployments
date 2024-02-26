@@ -20,10 +20,10 @@
       ]
     },
     "168587773": {
-      "primaryAddress": "0x00Bf28e29C398C168AAe0532373631fc41a2F77a",
+      "primaryAddress": "0x26dE835E3C270bc8A8c86fe7D931fb5b31A84ffF",
       "allAddresses": [
         {
-          "address": "0x00Bf28e29C398C168AAe0532373631fc41a2F77a",
+          "address": "0x26dE835E3C270bc8A8c86fe7D931fb5b31A84ffF",
           "dependencies": [
             {
               "name": "Mangrove",
