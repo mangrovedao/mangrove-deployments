@@ -30,6 +30,8 @@ import BlastMangroveAmplifier_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangr
 import BlastMangroveOrderRouter_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveOrder-Router.json";
 import BlastMangroveOrder_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveOrder.json";
 import BlastRouterProxyFactory_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
+// v2.1.0-1
+import OrbitLogic_v2_1_0_1 from "./assets/strats/v2.1.0-1/OrbitLogic.json";
 
 import { getLatestMangrovePerNetwork } from "./core";
 
@@ -287,6 +289,18 @@ export const getLatestSimpleAaveLogicPerNetwork = (
   filter?: DeploymentFilter,
 ): Record<string, VersionNetworkDeployment> => {
   return findLatestDeploymentPerNetwork(filter, _simpleAaveLogicDeployments);
+};
+
+//////////////////////////
+// OrbitLogic
+export const _orbitLogicDeployments: VersionDeployments[] = [
+  OrbitLogic_v2_1_0_1,
+];
+
+export const getOrbitLogicVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _orbitLogicDeployments);
 };
 
 //////////////////////////
