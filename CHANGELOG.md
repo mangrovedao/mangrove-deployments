@@ -2,9 +2,7 @@
 
 # 2.1.2
 
-# 2.1.2-0
-
-- Change KandelLib to be a geometric Kandel
+- fix: Blast Sepolia address for `KandelLib` v2.0.1-0 pointed to a wrong contract
 
 # 2.1.1
 
