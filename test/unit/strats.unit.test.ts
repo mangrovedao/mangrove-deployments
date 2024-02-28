@@ -35,6 +35,8 @@ import BlastMangroveAmplifier_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/Bl
 import BlastMangroveOrderRouter_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastMangroveOrder-Router.json";
 import BlastMangroveOrder_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastMangroveOrder.json";
 import BlastRouterProxyFactory_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
+// v2.1.0
+import BlastMangrove_v2_1_0 from "../../src/assets/core/v2.1.0/BlastMangrove.json";
 
 import {
   getAaveKandelSeederVersionDeployments,
@@ -546,6 +548,21 @@ describe("strats.ts", () => {
             MangroveAmplifier_v2_0_1_0,
             "80001",
           ),
+        },
+        "81457": {
+          mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangrove_v2_1_0,
+            "81457",
+          ),
+          aaveKandelSeeder: undefined,
+          aavePooledRouter: undefined,
+          kandelLib: undefined,
+          kandelSeeder: undefined,
+          mangroveOrderRouter: undefined,
+          mangroveOrder: undefined,
+          routerProxyFactory: undefined,
+          simpleAaveLogic: undefined,
+          mangroveAmplifier: undefined,
         },
         "11155111": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
