@@ -33,7 +33,7 @@
     "*.{js,ts,css,md,json,mjs}": "prettier --write"
   },
   "dependencies": {
-    "@mangrovedao/context-addresses": "^1.1.4",
+    "@mangrovedao/context-addresses": "^1.3.2",
     "semver": "^7.5.4"
   },
   "devDependencies": {

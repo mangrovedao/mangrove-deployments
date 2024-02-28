@@ -2,13 +2,18 @@ import assert from "assert";
 import { describe, it } from "mocha";
 import { expect } from "chai";
 
+// v2.0.1
 import Mangrove_v2_0_1 from "../../src/assets/core/v2.0.1/Mangrove.json";
 import MgvReader_v2_0_1 from "../../src/assets/core/v2.0.1/MgvReader.json";
 import MgvOracle_v2_0_1 from "../../src/assets/core/v2.0.1/MgvOracle.json";
-
+// v2.1.0-0
 import BlastMangrove_v2_1_0_0 from "../../src/assets/core/v2.1.0-0/BlastMangrove.json";
 import MgvOracle_v2_1_0_0 from "../../src/assets/core/v2.1.0-0/MgvOracle.json";
 import MgvReader_v2_1_0_0 from "../../src/assets/core/v2.1.0-0/MgvReader.json";
+// v2.1.0
+import BlastMangrove_v2_1_0 from "../../src/assets/core/v2.1.0/BlastMangrove.json";
+import MgvOracle_v2_1_0 from "../../src/assets/core/v2.1.0/MgvOracle.json";
+import MgvReader_v2_1_0 from "../../src/assets/core/v2.1.0/MgvReader.json";
 
 import {
   getMangroveVersionDeployments,
@@ -29,9 +34,9 @@ describe("core.ts", () => {
     describe("getMangroveVersionDeployments", () => {
       it("should find the latest deployment first", () => {
         const result = getMangroveVersionDeployments({ released: undefined });
-        assert.equal(result, BlastMangrove_v2_1_0_0);
+        assert.equal(result, BlastMangrove_v2_1_0);
         // NB: Add older old versions here
-        [Mangrove_v2_0_1].forEach((version) => {
+        [BlastMangrove_v2_1_0_0, Mangrove_v2_0_1].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -39,15 +44,11 @@ describe("core.ts", () => {
 
     describe("getAllMangroveVersionDeploymentsPerNetwork", () => {
       it("should return all deployments grouped by network", () => {
-        // console.dir({ actual: getAllMangroveVersionDeploymentsPerNetwork({ released: undefined }), expected: {
-        //   "80001": [Mangrove_v2_0_1],
-        //   "11155111": [Mangrove_v2_0_1],
-        //   "168587773": [BlastMangrove_v2_1_0_0],
-        // }}, { depth: null });
         expect(
           getAllMangroveVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": [Mangrove_v2_0_1],
+          "81457": [BlastMangrove_v2_1_0],
           "11155111": [Mangrove_v2_0_1],
           "168587773": [BlastMangrove_v2_1_0_0, Mangrove_v2_0_1],
         });
@@ -62,6 +63,10 @@ describe("core.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             Mangrove_v2_0_1,
             "80001",
+          ),
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangrove_v2_1_0,
+            "81457",
           ),
           "11155111": firstVersionDeploymentsToVersionNetworkDeployment(
             Mangrove_v2_0_1,
@@ -80,9 +85,9 @@ describe("core.ts", () => {
     describe("getMgvReaderVersionDeployments", () => {
       it("should find the latest deployment first", () => {
         const result = getMgvReaderVersionDeployments({ released: undefined });
-        assert.equal(result, MgvReader_v2_1_0_0);
+        assert.equal(result, MgvReader_v2_1_0);
         // NB: Add older old versions here
-        [MgvReader_v2_0_1].forEach((version) => {
+        [MgvReader_v2_1_0_0, MgvReader_v2_0_1].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -94,6 +99,7 @@ describe("core.ts", () => {
           getAllMgvReaderVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": [MgvReader_v2_0_1],
+          "81457": [MgvReader_v2_1_0],
           "11155111": [MgvReader_v2_0_1],
           "168587773": [MgvReader_v2_1_0_0, MgvReader_v2_0_1],
         });
@@ -108,6 +114,10 @@ describe("core.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MgvReader_v2_0_1,
             "80001",
+          ),
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvReader_v2_1_0,
+            "81457",
           ),
           "11155111": firstVersionDeploymentsToVersionNetworkDeployment(
             MgvReader_v2_0_1,
@@ -126,9 +136,9 @@ describe("core.ts", () => {
     describe("getMgvOracleVersionDeployments", () => {
       it("should find the latest deployment first", () => {
         const result = getMgvOracleVersionDeployments({ released: undefined });
-        assert.equal(result, MgvOracle_v2_1_0_0);
+        assert.equal(result, MgvOracle_v2_1_0);
         // NB: Add older old versions here
-        [MgvOracle_v2_0_1].forEach((version) => {
+        [MgvOracle_v2_1_0_0, MgvOracle_v2_0_1].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -140,6 +150,7 @@ describe("core.ts", () => {
           getAllMgvOracleVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
           "80001": [MgvOracle_v2_0_1],
+          "81457": [MgvOracle_v2_1_0],
           "11155111": [MgvOracle_v2_0_1],
           "168587773": [MgvOracle_v2_1_0_0, MgvOracle_v2_0_1],
         });
@@ -154,6 +165,10 @@ describe("core.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MgvOracle_v2_0_1,
             "80001",
+          ),
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvOracle_v2_1_0,
+            "81457",
           ),
           "11155111": firstVersionDeploymentsToVersionNetworkDeployment(
             MgvOracle_v2_0_1,
@@ -185,6 +200,20 @@ describe("core.ts", () => {
           mgvReader: firstVersionDeploymentsToVersionNetworkDeployment(
             MgvReader_v2_0_1,
             "80001",
+          ),
+        },
+        "81457": {
+          mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangrove_v2_1_0,
+            "81457",
+          ),
+          mgvOracle: firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvOracle_v2_1_0,
+            "81457",
+          ),
+          mgvReader: firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvReader_v2_1_0,
+            "81457",
           ),
         },
         "11155111": {

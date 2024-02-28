@@ -1,10 +1,15 @@
+// v2.0.1
 import Mangrove_v2_0_1 from "./assets/core/v2.0.1/Mangrove.json";
 import MgvOracle_v2_0_1 from "./assets/core/v2.0.1/MgvOracle.json";
 import MgvReader_v2_0_1 from "./assets/core/v2.0.1/MgvReader.json";
-
+// v2.1.0-0
 import BlastMangrove_v2_1_0_0 from "./assets/core/v2.1.0-0/BlastMangrove.json";
 import MgvOracle_v2_1_0_0 from "./assets/core/v2.1.0-0/MgvOracle.json";
 import MgvReader_v2_1_0_0 from "./assets/core/v2.1.0-0/MgvReader.json";
+// v2.1.0
+import BlastMangrove_v2_1_0 from "./assets/core/v2.1.0/BlastMangrove.json";
+import MgvOracle_v2_1_0 from "./assets/core/v2.1.0/MgvOracle.json";
+import MgvReader_v2_1_0 from "./assets/core/v2.1.0/MgvReader.json";
 
 import {
   CoreContractsNetworkDeployment,
@@ -23,6 +28,7 @@ import {
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveDeployments: VersionDeployments[] = [
+  BlastMangrove_v2_1_0,
   BlastMangrove_v2_1_0_0,
   Mangrove_v2_0_1,
 ];
@@ -52,6 +58,7 @@ export const getLatestMangrovePerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mgvOracleDeployments: VersionDeployments[] = [
+  MgvOracle_v2_1_0,
   MgvOracle_v2_1_0_0,
   MgvOracle_v2_0_1,
 ];
@@ -81,6 +88,7 @@ export const getLatestMgvOraclePerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mgvReaderDeployments: VersionDeployments[] = [
+  MgvReader_v2_1_0,
   MgvReader_v2_1_0_0,
   MgvReader_v2_0_1,
 ];
