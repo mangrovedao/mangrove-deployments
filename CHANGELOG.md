@@ -1,5 +1,7 @@
 # Next version
 
+# 2.1.4
+
 - fix: Change address for WBTC test token to contract with 8 decimals (was 18)
 
 # 2.1.3
