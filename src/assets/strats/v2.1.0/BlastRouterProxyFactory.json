@@ -1,0 +1,165 @@
+{
+  "$schema": "../../../../contract.schema.json",
+  "released": true,
+  "contractName": "BlastRouterProxyFactory",
+  "deploymentName": "RouterProxyFactory",
+  "version": "2.1.0",
+  "networkAddresses": {
+    "81457": {
+      "primaryAddress": "0xcf4ec117bc38d7D0fE8678B511Ff6a212c76d60B",
+      "allAddresses": [
+        {
+          "address": "0xcf4ec117bc38d7D0fE8678B511Ff6a212c76d60B",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0xb1a49C54192Ea59B233200eA38aB56650Dfb448C"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        { "name": "_admin", "type": "address", "internalType": "address" },
+        {
+          "name": "_blastContract",
+          "type": "address",
+          "internalType": "contract IBlast"
+        },
+        {
+          "name": "blastGovernor",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "_blastPointsContract",
+          "type": "address",
+          "internalType": "contract IBlastPoints"
+        },
+        {
+          "name": "_blastPointsOperator",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "admin",
+      "inputs": [],
+      "outputs": [
+        { "name": "current", "type": "address", "internalType": "address" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "computeProxyAddress",
+      "inputs": [
+        { "name": "owner", "type": "address", "internalType": "address" },
+        {
+          "name": "routerImplementation",
+          "type": "address",
+          "internalType": "contract AbstractRouter"
+        }
+      ],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "address payable" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "deployProxy",
+      "inputs": [
+        { "name": "owner", "type": "address", "internalType": "address" },
+        {
+          "name": "routerImplementation",
+          "type": "address",
+          "internalType": "contract AbstractRouter"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "proxy",
+          "type": "address",
+          "internalType": "contract RouterProxy"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "instantiate",
+      "inputs": [
+        { "name": "owner", "type": "address", "internalType": "address" },
+        {
+          "name": "routerImplementation",
+          "type": "address",
+          "internalType": "contract AbstractRouter"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "proxy",
+          "type": "address",
+          "internalType": "contract RouterProxy"
+        },
+        { "name": "created", "type": "bool", "internalType": "bool" }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setAdmin",
+      "inputs": [
+        { "name": "admin_", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "ProxyDeployed",
+      "inputs": [
+        {
+          "name": "proxy",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract RouterProxy"
+        },
+        {
+          "name": "owner",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "implementation",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract AbstractRouter"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SetAdmin",
+      "inputs": [
+        {
+          "name": "admin",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    }
+  ]
+}

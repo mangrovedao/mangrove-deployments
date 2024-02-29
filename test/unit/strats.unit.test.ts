@@ -37,6 +37,10 @@ import BlastMangroveOrder_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastM
 import BlastRouterProxyFactory_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
 // v2.1.0
 import BlastMangrove_v2_1_0 from "../../src/assets/core/v2.1.0/BlastMangrove.json";
+import BlastMangroveAmplifier_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveAmplifier.json";
+import BlastMangroveOrderRouter_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveOrder-Router.json";
+import BlastMangroveOrder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveOrder.json";
+import BlastRouterProxyFactory_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastRouterProxyFactory.json";
 
 import {
   getAaveKandelSeederVersionDeployments,
@@ -264,9 +268,10 @@ describe("strats.ts", () => {
         const result = getMangroveOrderRouterVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, BlastMangroveOrderRouter_v2_1_0_0);
+        assert.equal(result, BlastMangroveOrderRouter_v2_1_0);
         // NB: Add older old versions here
         [
+          BlastMangroveOrderRouter_v2_1_0_0,
           MangroveOrderRouter_v2_0_1_0,
           MangroveOrderRouter_v2_0_0_b1_0,
           MangroveOrderRouter_v1_0_0,
@@ -288,6 +293,7 @@ describe("strats.ts", () => {
             MangroveOrderRouter_v2_0_0_b1_0,
             MangroveOrderRouter_v1_0_0,
           ],
+          "81457": [BlastMangroveOrderRouter_v2_1_0],
           "168587773": [BlastMangroveOrderRouter_v2_1_0_0],
         });
       });
@@ -301,6 +307,10 @@ describe("strats.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MangroveOrderRouter_v2_0_1_0,
             "80001",
+          ),
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveOrderRouter_v2_1_0,
+            "81457",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
             BlastMangroveOrderRouter_v2_1_0_0,
@@ -317,9 +327,10 @@ describe("strats.ts", () => {
         const result = getMangroveOrderVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, BlastMangroveOrder_v2_1_0_0);
+        assert.equal(result, BlastMangroveOrder_v2_1_0);
         // NB: Add older old versions here
         [
+          BlastMangroveOrder_v2_1_0_0,
           MangroveOrder_v2_0_1_0,
           MangroveOrder_v2_0_0_b1_0,
           MangroveOrder_v1_0_0,
@@ -341,6 +352,7 @@ describe("strats.ts", () => {
             MangroveOrder_v2_0_0_b1_0,
             MangroveOrder_v1_0_0,
           ],
+          "81457": [BlastMangroveOrder_v2_1_0],
           "168587773": [BlastMangroveOrder_v2_1_0_0],
         });
       });
@@ -354,6 +366,10 @@ describe("strats.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MangroveOrder_v2_0_1_0,
             "80001",
+          ),
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveOrder_v2_1_0,
+            "81457",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
             BlastMangroveOrder_v2_1_0_0,
@@ -370,13 +386,15 @@ describe("strats.ts", () => {
         const result = getRouterProxyFactoryVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, BlastRouterProxyFactory_v2_1_0_0);
+        assert.equal(result, BlastRouterProxyFactory_v2_1_0);
         // NB: Add older old versions here
-        [RouterProxyFactory_v2_0_1_0, RouterProxyFactory_v2_0_0_b1_0].forEach(
-          (version) => {
-            assert.notEqual(result, version);
-          },
-        );
+        [
+          BlastRouterProxyFactory_v2_1_0_0,
+          RouterProxyFactory_v2_0_1_0,
+          RouterProxyFactory_v2_0_0_b1_0,
+        ].forEach((version) => {
+          assert.notEqual(result, version);
+        });
       });
     });
 
@@ -391,6 +409,7 @@ describe("strats.ts", () => {
             RouterProxyFactory_v2_0_1_0,
             RouterProxyFactory_v2_0_0_b1_0,
           ],
+          "81457": [BlastRouterProxyFactory_v2_1_0],
           "168587773": [BlastRouterProxyFactory_v2_1_0_0],
         });
       });
@@ -404,6 +423,10 @@ describe("strats.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             RouterProxyFactory_v2_0_1_0,
             "80001",
+          ),
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastRouterProxyFactory_v2_1_0,
+            "81457",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
             BlastRouterProxyFactory_v2_1_0_0,
@@ -460,13 +483,15 @@ describe("strats.ts", () => {
         const result = getMangroveAmplifierVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, BlastMangroveAmplifier_v2_1_0_0);
+        assert.equal(result, BlastMangroveAmplifier_v2_1_0);
         // NB: Add older old versions here
-        [MangroveAmplifier_v2_0_1_0, MangroveAmplifier_v2_0_0_b1_0].forEach(
-          (version) => {
-            assert.notEqual(result, version);
-          },
-        );
+        [
+          BlastMangroveAmplifier_v2_1_0_0,
+          MangroveAmplifier_v2_0_1_0,
+          MangroveAmplifier_v2_0_0_b1_0,
+        ].forEach((version) => {
+          assert.notEqual(result, version);
+        });
       });
     });
 
@@ -478,6 +503,7 @@ describe("strats.ts", () => {
           }),
         ).to.deep.equal({
           "80001": [MangroveAmplifier_v2_0_1_0, MangroveAmplifier_v2_0_0_b1_0],
+          "81457": [BlastMangroveAmplifier_v2_1_0],
           "168587773": [BlastMangroveAmplifier_v2_1_0_0],
         });
       });
@@ -491,6 +517,10 @@ describe("strats.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MangroveAmplifier_v2_0_1_0,
             "80001",
+          ),
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveAmplifier_v2_1_0,
+            "81457",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
             BlastMangroveAmplifier_v2_1_0_0,
@@ -558,11 +588,24 @@ describe("strats.ts", () => {
           aavePooledRouter: undefined,
           kandelLib: undefined,
           kandelSeeder: undefined,
-          mangroveOrderRouter: undefined,
-          mangroveOrder: undefined,
-          routerProxyFactory: undefined,
+          mangroveOrderRouter:
+            firstVersionDeploymentsToVersionNetworkDeployment(
+              BlastMangroveOrderRouter_v2_1_0,
+              "81457",
+            ),
+          mangroveOrder: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveOrder_v2_1_0,
+            "81457",
+          ),
+          routerProxyFactory: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastRouterProxyFactory_v2_1_0,
+            "81457",
+          ),
           simpleAaveLogic: undefined,
-          mangroveAmplifier: undefined,
+          mangroveAmplifier: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastMangroveAmplifier_v2_1_0,
+            "81457",
+          ),
         },
         "11155111": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(

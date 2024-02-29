@@ -3,6 +3,7 @@
 ## Blast deployments
 
 - core v2.1.0: `BlastMangrove`, `MgvOracle`, and `MgvReader`
+- strats v2.1.0: `BlastMangroveAmplifier`, `BlastMangroveOrder-Router.json`, `BlastMangroveOrder`, and `BlastRouterProxyFactory`
 
 ## Dependencies
 
