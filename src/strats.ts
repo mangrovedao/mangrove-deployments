@@ -30,6 +30,8 @@ import BlastMangroveAmplifier_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangr
 import BlastMangroveOrderRouter_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveOrder-Router.json";
 import BlastMangroveOrder_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveOrder.json";
 import BlastRouterProxyFactory_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
+// v2.1.0-1
+import OrbitLogic_v2_1_0_1 from "./assets/strats/v2.1.0-1/OrbitLogic.json";
 // v2.1.0
 import BlastMangroveAmplifier_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveAmplifier.json";
 import BlastMangroveOrderRouter_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveOrder-Router.json";
@@ -298,6 +300,33 @@ export const getLatestSimpleAaveLogicPerNetwork = (
 };
 
 //////////////////////////
+// OrbitLogic
+
+export const _orbitLogicDeployments: VersionDeployments[] = [
+  OrbitLogic_v2_1_0_1,
+];
+
+export const getOrbitLogicVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _orbitLogicDeployments);
+};
+
+/** Returns all OrbitLogic deployments matching the filter, grouped by network. */
+export const getAllOrbitLogicVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _orbitLogicDeployments);
+};
+
+/** Returns the latest OrbitLogic deployment matching the filter for each network. */
+export const getLatestOrbitLogicPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _orbitLogicDeployments);
+};
+
+//////////////////////////
 // MangroveAmplifier
 
 /** This is a sorted array (newest to oldest), exported for tests */
@@ -374,6 +403,7 @@ export const getLatestStratContractsPerNetwork = (
       simpleAaveLogic: getLatestSimpleAaveLogicPerNetwork(stratFilter)[network],
       mangroveAmplifier:
         getLatestMangroveAmplifierPerNetwork(stratFilter)[network],
+      orbitLogic: getLatestOrbitLogicPerNetwork(stratFilter)[network],
     };
   }
   return latestStratContractsPerNetwork;

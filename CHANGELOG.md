@@ -1,5 +1,8 @@
 # Next version
 
+- Add `OrbitLogic` contract to strats
+- Add `OrbitLogic` v2.1.0-1 deployment to Blast Sepolia
+
 # 2.1.5
 
 ## Blast deployments
