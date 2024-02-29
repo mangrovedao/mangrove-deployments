@@ -15,6 +15,10 @@
 
 - fix: Change address for WBTC test token to contract with 8 decimals (was 18)
 
+# 2.1.4-0
+
+- Add Orbit Address
+
 # 2.1.3
 
 - Consolidated CHANGELOG
