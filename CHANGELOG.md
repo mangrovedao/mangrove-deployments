@@ -1,5 +1,15 @@
 # Next version
 
+## Blast deployments
+
+- core v2.1.0: `BlastMangrove`, `MgvOracle`, and `MgvReader`
+
+## Dependencies
+
+- Bump `context-addresses` to v1.3.2
+
+# 2.1.4
+
 - fix: Change address for WBTC test token to contract with 8 decimals (was 18)
 
 # 2.1.4-0
