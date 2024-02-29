@@ -5,14 +5,14 @@
   "version": "2.1.0",
   "networkAddresses": {
     "81457": {
-      "primaryAddress": "0xE1c9A6Cd839733F0e9fc5F4e9746d7b61A4b839D",
+      "primaryAddress": "0x815872019C3a84c8BeFC2d0Bd0d1304D10D57f62",
       "allAddresses": [
         {
-          "address": "0xE1c9A6Cd839733F0e9fc5F4e9746d7b61A4b839D",
+          "address": "0x815872019C3a84c8BeFC2d0Bd0d1304D10D57f62",
           "dependencies": [
             {
               "name": "Mangrove",
-              "address": "0x692c15efcA8AABCda9511641F6ed9702d3f4cfb4"
+              "address": "0xb1a49C54192Ea59B233200eA38aB56650Dfb448C"
             }
           ]
         }

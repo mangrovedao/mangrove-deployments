@@ -6,10 +6,10 @@
   "version": "2.1.0",
   "networkAddresses": {
     "81457": {
-      "primaryAddress": "0x692c15efcA8AABCda9511641F6ed9702d3f4cfb4",
+      "primaryAddress": "0xb1a49C54192Ea59B233200eA38aB56650Dfb448C",
       "allAddresses": [
         {
-          "address": "0x692c15efcA8AABCda9511641F6ed9702d3f4cfb4"
+          "address": "0xb1a49C54192Ea59B233200eA38aB56650Dfb448C"
         }
       ]
     }

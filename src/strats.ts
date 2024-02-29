@@ -32,6 +32,11 @@ import BlastMangroveOrder_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveO
 import BlastRouterProxyFactory_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
 // v2.1.0-1
 import OrbitLogic_v2_1_0_1 from "./assets/strats/v2.1.0-1/OrbitLogic.json";
+// v2.1.0
+import BlastMangroveAmplifier_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveAmplifier.json";
+import BlastMangroveOrderRouter_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveOrder-Router.json";
+import BlastMangroveOrder_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveOrder.json";
+import BlastRouterProxyFactory_v2_1_0 from "./assets/strats/v2.1.0/BlastRouterProxyFactory.json";
 
 import { getLatestMangrovePerNetwork } from "./core";
 
@@ -172,6 +177,7 @@ export const getLatestKandelSeederPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderRouterDeployments: VersionDeployments[] = [
+  BlastMangroveOrderRouter_v2_1_0,
   BlastMangroveOrderRouter_v2_1_0_0,
   MangroveOrderRouter_v2_0_1_0,
   MangroveOrderRouter_v2_0_0_b1_0,
@@ -206,6 +212,7 @@ export const getLatestMangroveOrderRouterPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveOrderDeployments: VersionDeployments[] = [
+  BlastMangroveOrder_v2_1_0,
   BlastMangroveOrder_v2_1_0_0,
   MangroveOrder_v2_0_1_0,
   MangroveOrder_v2_0_0_b1_0,
@@ -237,6 +244,7 @@ export const getLatestMangroveOrderPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _routerProxyFactoryDeployments: VersionDeployments[] = [
+  BlastRouterProxyFactory_v2_1_0,
   BlastRouterProxyFactory_v2_1_0_0,
   RouterProxyFactory_v2_0_1_0,
   RouterProxyFactory_v2_0_0_b1_0,
@@ -308,6 +316,7 @@ export const getOrbitLogicVersionDeployments = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _mangroveAmplifierDeployments: VersionDeployments[] = [
+  BlastMangroveAmplifier_v2_1_0,
   BlastMangroveAmplifier_v2_1_0_0,
   MangroveAmplifier_v2_0_1_0,
   MangroveAmplifier_v2_0_0_b1_0,
