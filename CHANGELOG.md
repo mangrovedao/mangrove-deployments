@@ -1,5 +1,7 @@
 # Next version
 
+# 2.2.1-0
+
 - Add blast kandel contract
 
 # 2.2.0
