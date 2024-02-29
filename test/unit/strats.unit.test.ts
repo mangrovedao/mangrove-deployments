@@ -35,6 +35,8 @@ import BlastMangroveAmplifier_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/Bl
 import BlastMangroveOrderRouter_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastMangroveOrder-Router.json";
 import BlastMangroveOrder_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastMangroveOrder.json";
 import BlastRouterProxyFactory_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
+// v2.1.0-1
+import OrbitLogic_v2_1_0_1 from "../../src/assets/strats/v2.1.0-1/OrbitLogic.json";
 // v2.1.0
 import BlastMangrove_v2_1_0 from "../../src/assets/core/v2.1.0/BlastMangrove.json";
 import BlastMangroveAmplifier_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveAmplifier.json";
@@ -71,6 +73,9 @@ import {
   getRouterProxyFactoryVersionDeployments,
   getSimpleAaveLogicVersionDeployments,
   getMangroveAmplifierVersionDeployments,
+  getAllOrbitLogicVersionDeploymentsPerNetwork,
+  getOrbitLogicVersionDeployments,
+  getLatestOrbitLogicPerNetwork,
 } from "../../src/strats";
 import { expect } from "chai";
 import { firstVersionDeploymentsToVersionNetworkDeployment } from "./unitTestUtil";
@@ -477,6 +482,46 @@ describe("strats.ts", () => {
     });
   });
 
+  describe("OrbitLogic contract", () => {
+    describe("getOrbitLogicVersionDeployments", () => {
+      it("should find the latest deployment first", () => {
+        const result = getOrbitLogicVersionDeployments({
+          released: undefined,
+        });
+        assert.equal(result, OrbitLogic_v2_1_0_1);
+        // NB: Add older old versions here
+        [].forEach((version) => {
+          assert.notEqual(result, version);
+        });
+      });
+    });
+
+    describe("getAllOrbitLogicVersionDeploymentsPerNetwork", () => {
+      it("should return all deployments grouped by network", () => {
+        expect(
+          getAllOrbitLogicVersionDeploymentsPerNetwork({
+            released: undefined,
+          }),
+        ).to.deep.equal({
+          "168587773": [OrbitLogic_v2_1_0_1],
+        });
+      });
+    });
+
+    describe("getLatestOrbitLogicPerNetwork", () => {
+      it("should return the latest deployment for each network", () => {
+        expect(
+          getLatestOrbitLogicPerNetwork({ released: undefined }),
+        ).to.deep.equal({
+          "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
+            OrbitLogic_v2_1_0_1,
+            "168587773",
+          ),
+        });
+      });
+    });
+  });
+
   describe("MangroveAmplifier contract", () => {
     describe("getMangroveAmplifierVersionDeployments", () => {
       it("should find the latest deployment first", () => {
@@ -578,6 +623,7 @@ describe("strats.ts", () => {
             MangroveAmplifier_v2_0_1_0,
             "80001",
           ),
+          orbitLogic: undefined,
         },
         "81457": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -606,6 +652,7 @@ describe("strats.ts", () => {
             BlastMangroveAmplifier_v2_1_0,
             "81457",
           ),
+          orbitLogic: undefined,
         },
         "11155111": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -621,6 +668,7 @@ describe("strats.ts", () => {
           routerProxyFactory: undefined,
           simpleAaveLogic: undefined,
           mangroveAmplifier: undefined,
+          orbitLogic: undefined,
         },
         "168587773": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -653,6 +701,10 @@ describe("strats.ts", () => {
           simpleAaveLogic: undefined,
           mangroveAmplifier: firstVersionDeploymentsToVersionNetworkDeployment(
             BlastMangroveAmplifier_v2_1_0_0,
+            "168587773",
+          ),
+          orbitLogic: firstVersionDeploymentsToVersionNetworkDeployment(
+            OrbitLogic_v2_1_0_1,
             "168587773",
           ),
         },

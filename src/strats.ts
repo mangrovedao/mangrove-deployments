@@ -301,6 +301,7 @@ export const getLatestSimpleAaveLogicPerNetwork = (
 
 //////////////////////////
 // OrbitLogic
+
 export const _orbitLogicDeployments: VersionDeployments[] = [
   OrbitLogic_v2_1_0_1,
 ];
@@ -309,6 +310,20 @@ export const getOrbitLogicVersionDeployments = (
   filter?: DeploymentFilter,
 ): VersionDeployments | undefined => {
   return findDeployment(filter, _orbitLogicDeployments);
+};
+
+/** Returns all OrbitLogic deployments matching the filter, grouped by network. */
+export const getAllOrbitLogicVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _orbitLogicDeployments);
+};
+
+/** Returns the latest OrbitLogic deployment matching the filter for each network. */
+export const getLatestOrbitLogicPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _orbitLogicDeployments);
 };
 
 //////////////////////////
@@ -388,6 +403,7 @@ export const getLatestStratContractsPerNetwork = (
       simpleAaveLogic: getLatestSimpleAaveLogicPerNetwork(stratFilter)[network],
       mangroveAmplifier:
         getLatestMangroveAmplifierPerNetwork(stratFilter)[network],
+      orbitLogic: getLatestOrbitLogicPerNetwork(stratFilter)[network],
     };
   }
   return latestStratContractsPerNetwork;
