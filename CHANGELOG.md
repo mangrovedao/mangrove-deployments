@@ -1,5 +1,7 @@
 # Next version
 
+- Finish support for `OrbitLogic`
+
 # 2.1.5
 
 ## Blast deployments

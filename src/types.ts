@@ -55,6 +55,7 @@ export type StratContractsNetworkDeployment = {
   routerProxyFactory?: VersionNetworkDeployment;
   simpleAaveLogic?: VersionNetworkDeployment;
   mangroveAmplifier?: VersionNetworkDeployment;
+  orbitLogic?: VersionNetworkDeployment;
 };
 
 export type DeploymentFilter = {
