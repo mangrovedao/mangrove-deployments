@@ -2,7 +2,6 @@
   "$schema": "../../../../contract.schema.json",
   "released": false,
   "contractName": "OrbitLogic",
-  "deploymentName": "OrbitLogic",
   "version": "2.1.0-1",
   "networkAddresses": {
     "168587773": {

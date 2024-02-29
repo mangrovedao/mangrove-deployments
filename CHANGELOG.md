@@ -1,6 +1,9 @@
 # Next version
 
-- Finish support for `OrbitLogic`
+# 2.2.0
+
+- Add `OrbitLogic` contract to strats
+- Add `OrbitLogic` v2.1.0-1 deployment to Blast Sepolia
 
 # 2.1.5
 
@@ -16,10 +19,6 @@
 # 2.1.4
 
 - fix: Change address for WBTC test token to contract with 8 decimals (was 18)
-
-# 2.1.4-0
-
-- Add Orbit Address
 
 # 2.1.3
 
