@@ -1,5 +1,7 @@
 # Next version
 
+- Add dependencies to Blast Kandel Contracts
+
 # 2.2.1-0
 
 - Add blast kandel contract

@@ -9,7 +9,13 @@
       "primaryAddress": "0x3f5640a926ac59aEB5DfdD2fF985E929b193d606",
       "allAddresses": [
         {
-          "address": "0x3f5640a926ac59aEB5DfdD2fF985E929b193d606"
+          "address": "0x3f5640a926ac59aEB5DfdD2fF985E929b193d606",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0xb1a49C54192Ea59B233200eA38aB56650Dfb448C"
+            }
+          ]
         }
       ]
     }

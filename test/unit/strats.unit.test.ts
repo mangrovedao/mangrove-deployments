@@ -650,8 +650,14 @@ describe("strats.ts", () => {
           ),
           aaveKandelSeeder: undefined,
           aavePooledRouter: undefined,
-          kandelLib: undefined,
-          kandelSeeder: undefined,
+          kandelLib: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastKandelLib_v2_1_0,
+            "81457",
+          ),
+          kandelSeeder: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastKandelSeeder_v2_1_0,
+            "81457",
+          ),
           mangroveOrderRouter:
             firstVersionDeploymentsToVersionNetworkDeployment(
               BlastMangroveOrderRouter_v2_1_0,
