@@ -43,6 +43,8 @@ import BlastMangroveAmplifier_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastM
 import BlastMangroveOrderRouter_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveOrder-Router.json";
 import BlastMangroveOrder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveOrder.json";
 import BlastRouterProxyFactory_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastRouterProxyFactory.json";
+import BlastKandelSeeder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelSeeder.json";
+import BlastKandelLib_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelLib.json";
 
 import {
   getAaveKandelSeederVersionDeployments,
@@ -177,11 +179,13 @@ describe("strats.ts", () => {
     describe("getKandelLibVersionDeployments", () => {
       it("should find the latest deployment first", () => {
         const result = getKandelLibVersionDeployments({ released: undefined });
-        assert.equal(result, KandelLib_v2_0_1_0);
+        assert.equal(result, BlastKandelLib_v2_1_0);
         // NB: Add older old versions here
-        [KandelLib_v2_0_0_b1_0, KandelLib_v1_0_0].forEach((version) => {
-          assert.notEqual(result, version);
-        });
+        [KandelLib_v2_0_1_0, KandelLib_v2_0_0_b1_0, KandelLib_v1_0_0].forEach(
+          (version) => {
+            assert.notEqual(result, version);
+          },
+        );
       });
     });
 
@@ -195,6 +199,7 @@ describe("strats.ts", () => {
             KandelLib_v2_0_0_b1_0,
             KandelLib_v1_0_0,
           ],
+          "81457": [BlastKandelLib_v2_1_0],
           "168587773": [KandelLib_v2_0_1_0],
         });
       });
@@ -208,6 +213,10 @@ describe("strats.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             KandelLib_v2_0_1_0,
             "80001",
+          ),
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastKandelLib_v2_1_0,
+            "81457",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
             KandelLib_v2_0_1_0,
@@ -224,9 +233,13 @@ describe("strats.ts", () => {
         const result = getKandelSeederVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, KandelSeeder_v2_0_1_0);
+        assert.equal(result, BlastKandelSeeder_v2_1_0);
         // NB: Add older old versions here
-        [KandelSeeder_v2_0_0_b1_0, KandelSeeder_v1_0_0].forEach((version) => {
+        [
+          KandelSeeder_v2_0_1_0,
+          KandelSeeder_v2_0_0_b1_0,
+          KandelSeeder_v1_0_0,
+        ].forEach((version) => {
           assert.notEqual(result, version);
         });
       });
@@ -244,6 +257,7 @@ describe("strats.ts", () => {
             KandelSeeder_v2_0_0_b1_0,
             KandelSeeder_v1_0_0,
           ],
+          "81457": [BlastKandelSeeder_v2_1_0],
           "168587773": [KandelSeeder_v2_0_1_0],
         });
       });
@@ -257,6 +271,10 @@ describe("strats.ts", () => {
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             KandelSeeder_v2_0_1_0,
             "80001",
+          ),
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastKandelSeeder_v2_1_0,
+            "81457",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
             KandelSeeder_v2_0_1_0,

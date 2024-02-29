@@ -37,6 +37,8 @@ import BlastMangroveAmplifier_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveA
 import BlastMangroveOrderRouter_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveOrder-Router.json";
 import BlastMangroveOrder_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveOrder.json";
 import BlastRouterProxyFactory_v2_1_0 from "./assets/strats/v2.1.0/BlastRouterProxyFactory.json";
+import BlastKandelSeeder_v2_1_0 from "./assets/strats/v2.1.0/BlastKandelSeeder.json";
+import BlastKandelLib_v2_1_0 from "./assets/strats/v2.1.0/BlastKandelLib.json";
 
 import { getLatestMangrovePerNetwork } from "./core";
 
@@ -117,6 +119,7 @@ export const getLatestAavePooledRouterPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _kandelLibDeployments: VersionDeployments[] = [
+  BlastKandelLib_v2_1_0,
   KandelLib_v2_0_1_0,
   KandelLib_v2_0_0_b1_0,
   KandelLib_v1_0_0,
@@ -147,6 +150,7 @@ export const getLatestKandelLibPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _kandelSeederDeployments: VersionDeployments[] = [
+  BlastKandelSeeder_v2_1_0,
   KandelSeeder_v2_0_1_0,
   KandelSeeder_v2_0_0_b1_0,
   KandelSeeder_v1_0_0,

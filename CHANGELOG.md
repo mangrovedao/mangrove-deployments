@@ -1,5 +1,7 @@
 # Next version
 
+- Add blast kandel contract
+
 # 2.2.0
 
 - Add `OrbitLogic` contract to strats
