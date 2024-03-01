@@ -521,6 +521,7 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
+          "81457": [OrbitLogic_v2_1_0_1],
           "168587773": [OrbitLogic_v2_1_0_1],
         });
       });
@@ -531,6 +532,10 @@ describe("strats.ts", () => {
         expect(
           getLatestOrbitLogicPerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            OrbitLogic_v2_1_0_1,
+            "81457",
+          ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
             OrbitLogic_v2_1_0_1,
             "168587773",
@@ -676,7 +681,10 @@ describe("strats.ts", () => {
             BlastMangroveAmplifier_v2_1_0,
             "81457",
           ),
-          orbitLogic: undefined,
+          orbitLogic: firstVersionDeploymentsToVersionNetworkDeployment(
+            OrbitLogic_v2_1_0_1,
+            "81457",
+          ),
         },
         "11155111": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
