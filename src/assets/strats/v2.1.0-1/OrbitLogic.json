@@ -4,6 +4,20 @@
   "contractName": "OrbitLogic",
   "version": "2.1.0-1",
   "networkAddresses": {
+    "81457": {
+      "primaryAddress": "0x3870DAFB80713cad59Dd999c85b1E46314b41e9c",
+      "allAddresses": [
+        {
+          "address": "0x3870DAFB80713cad59Dd999c85b1E46314b41e9c",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0xb1a49C54192Ea59B233200eA38aB56650Dfb448C"
+            }
+          ]
+        }
+      ]
+    },
     "168587773": {
       "primaryAddress": "0x9F7265122F280C7a15b433177096c9371BA0d583",
       "allAddresses": [
