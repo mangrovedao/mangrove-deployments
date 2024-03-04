@@ -1,5 +1,7 @@
 # Next version
 
+- fix deployment name for zero lend
+
 # 2.2.1
 
 - Add zero lend adress
