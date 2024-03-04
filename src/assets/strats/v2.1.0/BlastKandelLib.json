@@ -1,6 +1,6 @@
 {
   "$schema": "../../../../contract.schema.json",
-  "released": false,
+  "released": true,
   "contractName": "Kandel",
   "deploymentName": "KandelLib",
   "version": "2.1.0",

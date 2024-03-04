@@ -39,6 +39,7 @@ import BlastMangroveOrder_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveOrder
 import BlastRouterProxyFactory_v2_1_0 from "./assets/strats/v2.1.0/BlastRouterProxyFactory.json";
 import BlastKandelSeeder_v2_1_0 from "./assets/strats/v2.1.0/BlastKandelSeeder.json";
 import BlastKandelLib_v2_1_0 from "./assets/strats/v2.1.0/BlastKandelLib.json";
+import ZeroLendLogic_v2_1_0 from "./assets/strats/v2.1.0/ZeroLendLogic.json";
 
 import { getLatestMangrovePerNetwork } from "./core";
 
@@ -275,6 +276,34 @@ export const getLatestRouterProxyFactoryPerNetwork = (
 };
 
 //////////////////////////
+// ZeroLendLogic
+
+/** This is a sorted array (newest to oldest), exported for tests */
+export const _zeroLendLogicDeployments: VersionDeployments[] = [
+  ZeroLendLogic_v2_1_0,
+];
+
+export const getZeroLendLogicVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _zeroLendLogicDeployments);
+};
+
+/** Returns all ZeroLendLogic deployments matching the filter, grouped by network. */
+export const getAllZeroLendLogicVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _zeroLendLogicDeployments);
+};
+
+/** Returns the latest ZeroLendLogic deployment matching the filter for each network. */
+export const getLatestZeroLendLogicPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _zeroLendLogicDeployments);
+};
+
+//////////////////////////
 // SimpleAaveLogic
 
 /** This is a sorted array (newest to oldest), exported for tests */
@@ -408,6 +437,7 @@ export const getLatestStratContractsPerNetwork = (
       mangroveAmplifier:
         getLatestMangroveAmplifierPerNetwork(stratFilter)[network],
       orbitLogic: getLatestOrbitLogicPerNetwork(stratFilter)[network],
+      zeroLendLogic: getLatestZeroLendLogicPerNetwork(stratFilter)[network],
     };
   }
   return latestStratContractsPerNetwork;
