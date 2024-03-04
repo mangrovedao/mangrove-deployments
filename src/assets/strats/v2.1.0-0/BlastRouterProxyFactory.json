@@ -6,10 +6,10 @@
   "version": "2.1.0-0",
   "networkAddresses": {
     "168587773": {
-      "primaryAddress": "0x77CD6977011658019B8aF1b77C6b1310dFA35508",
+      "primaryAddress": "0x79C3F23F210e30F6AA9072F0ddFd2D180C8B7131",
       "allAddresses": [
         {
-          "address": "0x77CD6977011658019B8aF1b77C6b1310dFA35508",
+          "address": "0x79C3F23F210e30F6AA9072F0ddFd2D180C8B7131",
           "dependencies": [
             {
               "name": "Mangrove",

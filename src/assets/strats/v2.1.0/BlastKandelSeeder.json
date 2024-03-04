@@ -1,32 +1,18 @@
 {
   "$schema": "../../../../contract.schema.json",
-  "released": false,
+  "released": true,
   "contractName": "KandelSeeder",
-  "version": "2.0.1-0",
+  "version": "2.1.0",
   "networkAddresses": {
-    "80001": {
-      "primaryAddress": "0x83251E7F36a51c5238C9aa0c6Bb7cc209b32d80e",
+    "81457": {
+      "primaryAddress": "0x4BB7567303C8BDE27a4b490B3e5f1593c891B03d",
       "allAddresses": [
         {
-          "address": "0x83251E7F36a51c5238C9aa0c6Bb7cc209b32d80e",
+          "address": "0x4BB7567303C8BDE27a4b490B3e5f1593c891B03d",
           "dependencies": [
             {
               "name": "Mangrove",
-              "address": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39"
-            }
-          ]
-        }
-      ]
-    },
-    "168587773": {
-      "primaryAddress": "0x1A839030107167452D69d8f1a673004B2a1b8A3A",
-      "allAddresses": [
-        {
-          "address": "0x1A839030107167452D69d8f1a673004B2a1b8A3A",
-          "dependencies": [
-            {
-              "name": "Mangrove",
-              "address": "0x579ba1708e8E15c9D41143a3da4B8382831E0897"
+              "address": "0xb1a49C54192Ea59B233200eA38aB56650Dfb448C"
             }
           ]
         }
