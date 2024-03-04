@@ -45,6 +45,7 @@ import BlastMangroveOrder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangr
 import BlastRouterProxyFactory_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastRouterProxyFactory.json";
 import BlastKandelSeeder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelSeeder.json";
 import BlastKandelLib_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelLib.json";
+import ZeroLendLogic_v2_1_0 from "../../src//assets/strats/v2.1.0/ZeroLendLogic.json";
 
 import {
   getAaveKandelSeederVersionDeployments,
@@ -78,6 +79,9 @@ import {
   getAllOrbitLogicVersionDeploymentsPerNetwork,
   getOrbitLogicVersionDeployments,
   getLatestOrbitLogicPerNetwork,
+  getAllZeroLendLogicVersionDeploymentsPerNetwork,
+  getLatestZeroLendLogicPerNetwork,
+  getZeroLendLogicVersionDeployments,
 } from "../../src/strats";
 import { expect } from "chai";
 import { firstVersionDeploymentsToVersionNetworkDeployment } from "./unitTestUtil";
@@ -500,6 +504,46 @@ describe("strats.ts", () => {
     });
   });
 
+  describe("ZeroLendLogic contract", () => {
+    describe("getZeroLendLogicVersionDeployments", () => {
+      it("should find the latest deployment first", () => {
+        const result = getZeroLendLogicVersionDeployments({
+          released: undefined,
+        });
+        assert.equal(result, ZeroLendLogic_v2_1_0);
+        // NB: Add older old versions here
+        [].forEach((version) => {
+          assert.notEqual(result, version);
+        });
+      });
+    });
+
+    describe("getAllZeroLendLogicVersionDeploymentsPerNetwork", () => {
+      it("should return all deployments grouped by network", () => {
+        expect(
+          getAllZeroLendLogicVersionDeploymentsPerNetwork({
+            released: undefined,
+          }),
+        ).to.deep.equal({
+          "81457": [ZeroLendLogic_v2_1_0],
+        });
+      });
+    });
+
+    describe("getLatestZeroLendLogicPerNetwork", () => {
+      it("should return the latest deployment for each network", () => {
+        expect(
+          getLatestZeroLendLogicPerNetwork({ released: undefined }),
+        ).to.deep.equal({
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            ZeroLendLogic_v2_1_0,
+            "81457",
+          ),
+        });
+      });
+    });
+  });
+
   describe("OrbitLogic contract", () => {
     describe("getOrbitLogicVersionDeployments", () => {
       it("should find the latest deployment first", () => {
@@ -647,6 +691,7 @@ describe("strats.ts", () => {
             "80001",
           ),
           orbitLogic: undefined,
+          zeroLendLogic: undefined,
         },
         "81457": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -685,6 +730,10 @@ describe("strats.ts", () => {
             OrbitLogic_v2_1_0_1,
             "81457",
           ),
+          zeroLendLogic: firstVersionDeploymentsToVersionNetworkDeployment(
+            ZeroLendLogic_v2_1_0,
+            "81457",
+          ),
         },
         "11155111": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -701,6 +750,7 @@ describe("strats.ts", () => {
           simpleAaveLogic: undefined,
           mangroveAmplifier: undefined,
           orbitLogic: undefined,
+          zeroLendLogic: undefined,
         },
         "168587773": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -739,6 +789,7 @@ describe("strats.ts", () => {
             OrbitLogic_v2_1_0_1,
             "168587773",
           ),
+          zeroLendLogic: undefined,
         },
       });
     });
