@@ -1,7 +1,7 @@
 {
   "$schema": "../../../../contract.schema.json",
   "released": true,
-  "contractName": "BlastSmartRouter",
+  "contractName": "SmartRouter",
   "deploymentName": "MangroveOrder-Router",
   "version": "2.1.0",
   "networkAddresses": {
@@ -127,37 +127,6 @@
           "internalType": "contract AbstractRoutingLogic"
         }
       ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "initialize",
-      "inputs": [
-        {
-          "name": "blastContract",
-          "type": "address",
-          "internalType": "contract IBlast"
-        },
-        { "name": "user", "type": "address", "internalType": "address" },
-        {
-          "name": "blastPointsContract",
-          "type": "address",
-          "internalType": "contract IBlastPoints"
-        },
-        {
-          "name": "blastPointsOperator",
-          "type": "address",
-          "internalType": "address"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "initialized",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
       "stateMutability": "view"
     },
     {
