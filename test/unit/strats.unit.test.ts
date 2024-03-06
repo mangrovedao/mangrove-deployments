@@ -42,7 +42,7 @@ import BlastMangrove_v2_1_0 from "../../src/assets/core/v2.1.0/BlastMangrove.jso
 import BlastMangroveAmplifier_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveAmplifier.json";
 import BlastMangroveOrderRouter_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveOrder-Router.json";
 import BlastMangroveOrder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveOrder.json";
-import BlastRouterProxyFactory_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastRouterProxyFactory.json";
+import RouterProxyFactory_v2_1_0 from "../../src/assets/strats/v2.1.0/RouterProxyFactory.json";
 import BlastKandelSeeder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelSeeder.json";
 import BlastKandelLib_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelLib.json";
 import ZeroLendLogic_v2_1_0 from "../../src//assets/strats/v2.1.0/ZeroLendLogic.json";
@@ -413,7 +413,7 @@ describe("strats.ts", () => {
         const result = getRouterProxyFactoryVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, BlastRouterProxyFactory_v2_1_0);
+        assert.equal(result, RouterProxyFactory_v2_1_0);
         // NB: Add older old versions here
         [
           BlastRouterProxyFactory_v2_1_0_0,
@@ -436,7 +436,7 @@ describe("strats.ts", () => {
             RouterProxyFactory_v2_0_1_0,
             RouterProxyFactory_v2_0_0_b1_0,
           ],
-          "81457": [BlastRouterProxyFactory_v2_1_0],
+          "81457": [RouterProxyFactory_v2_1_0],
           "168587773": [BlastRouterProxyFactory_v2_1_0_0],
         });
       });
@@ -452,7 +452,7 @@ describe("strats.ts", () => {
             "80001",
           ),
           "81457": firstVersionDeploymentsToVersionNetworkDeployment(
-            BlastRouterProxyFactory_v2_1_0,
+            RouterProxyFactory_v2_1_0,
             "81457",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
@@ -718,7 +718,7 @@ describe("strats.ts", () => {
             "81457",
           ),
           routerProxyFactory: firstVersionDeploymentsToVersionNetworkDeployment(
-            BlastRouterProxyFactory_v2_1_0,
+            RouterProxyFactory_v2_1_0,
             "81457",
           ),
           simpleAaveLogic: undefined,

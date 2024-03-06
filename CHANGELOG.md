@@ -1,5 +1,7 @@
 # Next version
 
+- fix: `RouterProxyFactory` v2.1.0 was deployed to Blast, not `BlastRouterProxyFactory`
+
 # 2.2.2
 
 - Add deployment name to `ZeroLendLogic`
