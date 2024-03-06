@@ -2,28 +2,12 @@
 
 # 2.2.2
 
-# 2.2.2-0
-
-- fix deployment name for zero lend
+- Add deployment name to `ZeroLendLogic`
 
 # 2.2.1
 
 - Add zero lend adress
-
-# 2.2.1-5
-
-# 2.2.1-4
-
-# 2.2.1-3
-
-# 2.2.1-2
-
-# 2.2.1-1
-
 - Add dependencies to Blast Kandel Contracts
-
-# 2.2.1-0
-
 - Add blast kandel contract
 
 # 2.2.0
