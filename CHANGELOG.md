@@ -1,5 +1,7 @@
 # Next version
 
+# 2.2.2
+
 - Add deployment name to `ZeroLendLogic`
 
 # 2.2.1
