@@ -1,5 +1,7 @@
 # Next version
 
+# 2.2.2
+
 # 2.2.2-0
 
 - fix deployment name for zero lend
