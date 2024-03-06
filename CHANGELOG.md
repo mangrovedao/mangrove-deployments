@@ -1,6 +1,8 @@
 # Next version
 
 - fix: `RouterProxyFactory` v2.1.0 was deployed to Blast, not `BlastRouterProxyFactory`
+- fix: `MangroveOrder` v2.1.0 was deployed to Blast, not `BlastMangroveOrder`
+- fix: `SmartRouter` v2.1.0 was deployed to Blast as `MangroveOrder-Route`, not `BlastSmartOrder`
 
 # 2.2.2
 

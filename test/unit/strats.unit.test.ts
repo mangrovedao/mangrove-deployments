@@ -40,8 +40,8 @@ import OrbitLogic_v2_1_0_1 from "../../src/assets/strats/v2.1.0-1/OrbitLogic.jso
 // v2.1.0
 import BlastMangrove_v2_1_0 from "../../src/assets/core/v2.1.0/BlastMangrove.json";
 import BlastMangroveAmplifier_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveAmplifier.json";
-import BlastMangroveOrderRouter_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveOrder-Router.json";
-import BlastMangroveOrder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveOrder.json";
+import MangroveOrderRouter_v2_1_0 from "../../src/assets/strats/v2.1.0/MangroveOrder-Router.json";
+import MangroveOrder_v2_1_0 from "../../src/assets/strats/v2.1.0/MangroveOrder.json";
 import RouterProxyFactory_v2_1_0 from "../../src/assets/strats/v2.1.0/RouterProxyFactory.json";
 import BlastKandelSeeder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelSeeder.json";
 import BlastKandelLib_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelLib.json";
@@ -295,7 +295,7 @@ describe("strats.ts", () => {
         const result = getMangroveOrderRouterVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, BlastMangroveOrderRouter_v2_1_0);
+        assert.equal(result, MangroveOrderRouter_v2_1_0);
         // NB: Add older old versions here
         [
           BlastMangroveOrderRouter_v2_1_0_0,
@@ -320,7 +320,7 @@ describe("strats.ts", () => {
             MangroveOrderRouter_v2_0_0_b1_0,
             MangroveOrderRouter_v1_0_0,
           ],
-          "81457": [BlastMangroveOrderRouter_v2_1_0],
+          "81457": [MangroveOrderRouter_v2_1_0],
           "168587773": [BlastMangroveOrderRouter_v2_1_0_0],
         });
       });
@@ -336,7 +336,7 @@ describe("strats.ts", () => {
             "80001",
           ),
           "81457": firstVersionDeploymentsToVersionNetworkDeployment(
-            BlastMangroveOrderRouter_v2_1_0,
+            MangroveOrderRouter_v2_1_0,
             "81457",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
@@ -354,7 +354,7 @@ describe("strats.ts", () => {
         const result = getMangroveOrderVersionDeployments({
           released: undefined,
         });
-        assert.equal(result, BlastMangroveOrder_v2_1_0);
+        assert.equal(result, MangroveOrder_v2_1_0);
         // NB: Add older old versions here
         [
           BlastMangroveOrder_v2_1_0_0,
@@ -379,7 +379,7 @@ describe("strats.ts", () => {
             MangroveOrder_v2_0_0_b1_0,
             MangroveOrder_v1_0_0,
           ],
-          "81457": [BlastMangroveOrder_v2_1_0],
+          "81457": [MangroveOrder_v2_1_0],
           "168587773": [BlastMangroveOrder_v2_1_0_0],
         });
       });
@@ -395,7 +395,7 @@ describe("strats.ts", () => {
             "80001",
           ),
           "81457": firstVersionDeploymentsToVersionNetworkDeployment(
-            BlastMangroveOrder_v2_1_0,
+            MangroveOrder_v2_1_0,
             "81457",
           ),
           "168587773": firstVersionDeploymentsToVersionNetworkDeployment(
@@ -710,11 +710,11 @@ describe("strats.ts", () => {
           ),
           mangroveOrderRouter:
             firstVersionDeploymentsToVersionNetworkDeployment(
-              BlastMangroveOrderRouter_v2_1_0,
+              MangroveOrderRouter_v2_1_0,
               "81457",
             ),
           mangroveOrder: firstVersionDeploymentsToVersionNetworkDeployment(
-            BlastMangroveOrder_v2_1_0,
+            MangroveOrder_v2_1_0,
             "81457",
           ),
           routerProxyFactory: firstVersionDeploymentsToVersionNetworkDeployment(

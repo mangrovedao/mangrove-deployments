@@ -1,8 +1,7 @@
 {
   "$schema": "../../../../contract.schema.json",
   "released": true,
-  "contractName": "BlastMangroveOrder",
-  "deploymentName": "MangroveOrder",
+  "contractName": "MangroveOrder",
   "version": "2.1.0",
   "networkAddresses": {
     "81457": {
@@ -34,27 +33,7 @@
           "type": "address",
           "internalType": "contract RouterProxyFactory"
         },
-        { "name": "deployer", "type": "address", "internalType": "address" },
-        {
-          "name": "blastContract",
-          "type": "address",
-          "internalType": "contract IBlast"
-        },
-        {
-          "name": "blastGovernor",
-          "type": "address",
-          "internalType": "address"
-        },
-        {
-          "name": "blastPointsContract",
-          "type": "address",
-          "internalType": "contract IBlastPoints"
-        },
-        {
-          "name": "blastPointsOperator",
-          "type": "address",
-          "internalType": "address"
-        }
+        { "name": "deployer", "type": "address", "internalType": "address" }
       ],
       "stateMutability": "nonpayable"
     },
