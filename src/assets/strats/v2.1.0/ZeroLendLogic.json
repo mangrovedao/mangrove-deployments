@@ -2,6 +2,7 @@
   "$schema": "../../../../contract.schema.json",
   "released": true,
   "contractName": "SimpleAaveLogic",
+  "deploymentName": "ZeroLendLogic",
   "version": "2.1.0",
   "networkAddresses": {
     "81457": {
