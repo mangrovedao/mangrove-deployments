@@ -2,7 +2,7 @@
 
 # 2.2.2
 
-- fix deployment name for zero lend
+- Add deployment name to `ZeroLendLogic`
 
 # 2.2.1
 
