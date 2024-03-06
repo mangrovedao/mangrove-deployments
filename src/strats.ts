@@ -36,7 +36,7 @@ import OrbitLogic_v2_1_0_1 from "./assets/strats/v2.1.0-1/OrbitLogic.json";
 import BlastMangroveAmplifier_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveAmplifier.json";
 import BlastMangroveOrderRouter_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveOrder-Router.json";
 import BlastMangroveOrder_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveOrder.json";
-import BlastRouterProxyFactory_v2_1_0 from "./assets/strats/v2.1.0/BlastRouterProxyFactory.json";
+import RouterProxyFactory_v2_1_0 from "./assets/strats/v2.1.0/RouterProxyFactory.json";
 import BlastKandelSeeder_v2_1_0 from "./assets/strats/v2.1.0/BlastKandelSeeder.json";
 import BlastKandelLib_v2_1_0 from "./assets/strats/v2.1.0/BlastKandelLib.json";
 import ZeroLendLogic_v2_1_0 from "./assets/strats/v2.1.0/ZeroLendLogic.json";
@@ -249,7 +249,7 @@ export const getLatestMangroveOrderPerNetwork = (
 
 /** This is a sorted array (newest to oldest), exported for tests */
 export const _routerProxyFactoryDeployments: VersionDeployments[] = [
-  BlastRouterProxyFactory_v2_1_0,
+  RouterProxyFactory_v2_1_0,
   BlastRouterProxyFactory_v2_1_0_0,
   RouterProxyFactory_v2_0_1_0,
   RouterProxyFactory_v2_0_0_b1_0,

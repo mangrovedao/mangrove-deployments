@@ -1,8 +1,7 @@
 {
   "$schema": "../../../../contract.schema.json",
   "released": true,
-  "contractName": "BlastRouterProxyFactory",
-  "deploymentName": "RouterProxyFactory",
+  "contractName": "RouterProxyFactory",
   "version": "2.1.0",
   "networkAddresses": {
     "81457": {
@@ -21,42 +20,6 @@
     }
   },
   "abi": [
-    {
-      "type": "constructor",
-      "inputs": [
-        { "name": "_admin", "type": "address", "internalType": "address" },
-        {
-          "name": "_blastContract",
-          "type": "address",
-          "internalType": "contract IBlast"
-        },
-        {
-          "name": "blastGovernor",
-          "type": "address",
-          "internalType": "address"
-        },
-        {
-          "name": "_blastPointsContract",
-          "type": "address",
-          "internalType": "contract IBlastPoints"
-        },
-        {
-          "name": "_blastPointsOperator",
-          "type": "address",
-          "internalType": "address"
-        }
-      ],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "admin",
-      "inputs": [],
-      "outputs": [
-        { "name": "current", "type": "address", "internalType": "address" }
-      ],
-      "stateMutability": "view"
-    },
     {
       "type": "function",
       "name": "computeProxyAddress",
@@ -115,15 +78,6 @@
       "stateMutability": "nonpayable"
     },
     {
-      "type": "function",
-      "name": "setAdmin",
-      "inputs": [
-        { "name": "admin_", "type": "address", "internalType": "address" }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
       "type": "event",
       "name": "ProxyDeployed",
       "inputs": [
@@ -144,19 +98,6 @@
           "type": "address",
           "indexed": true,
           "internalType": "contract AbstractRouter"
-        }
-      ],
-      "anonymous": false
-    },
-    {
-      "type": "event",
-      "name": "SetAdmin",
-      "inputs": [
-        {
-          "name": "admin",
-          "type": "address",
-          "indexed": false,
-          "internalType": "address"
         }
       ],
       "anonymous": false
