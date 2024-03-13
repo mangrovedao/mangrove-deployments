@@ -1,5 +1,7 @@
 # Next version
 
+# 2.2.3
+
 - fix: `KandelSeeder` address on Polygon Mumbai reverted (mistakenly changed to a Blast address in v2.2.1)
 - fix: `RouterProxyFactory` v2.1.0 was deployed to Blast, not `BlastRouterProxyFactory`
 - fix: `MangroveOrder` v2.1.0 was deployed to Blast, not `BlastMangroveOrder`
