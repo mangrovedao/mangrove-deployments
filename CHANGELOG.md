@@ -1,5 +1,7 @@
 # Next version
 
+# 2.2.4-0
+
 - Add `SmartKandelSeeder` contract and deployment on Blast
 
 # 2.2.3
