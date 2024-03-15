@@ -57,6 +57,7 @@ export type StratContractsNetworkDeployment = {
   mangroveAmplifier?: VersionNetworkDeployment;
   orbitLogic?: VersionNetworkDeployment;
   zeroLendLogic?: VersionNetworkDeployment;
+  smartKandelSeeder?: VersionNetworkDeployment;
 };
 
 export type DeploymentFilter = {

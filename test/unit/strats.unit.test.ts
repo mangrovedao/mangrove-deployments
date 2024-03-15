@@ -37,6 +37,8 @@ import BlastMangroveOrder_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastM
 import BlastRouterProxyFactory_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
 // v2.1.0-1
 import OrbitLogic_v2_1_0_1 from "../../src/assets/strats/v2.1.0-1/OrbitLogic.json";
+// v2.1.0-5
+import BlastSmartKandelSeeder_v2_1_0_5 from "../../src/assets/strats/v2.1.0-5/BlastSmartKandelSeeder.json";
 // v2.1.0
 import BlastMangrove_v2_1_0 from "../../src/assets/core/v2.1.0/BlastMangrove.json";
 import BlastMangroveAmplifier_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveAmplifier.json";
@@ -692,6 +694,7 @@ describe("strats.ts", () => {
           ),
           orbitLogic: undefined,
           zeroLendLogic: undefined,
+          smartKandelSeeder: undefined,
         },
         "81457": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -734,6 +737,10 @@ describe("strats.ts", () => {
             ZeroLendLogic_v2_1_0,
             "81457",
           ),
+          smartKandelSeeder: firstVersionDeploymentsToVersionNetworkDeployment(
+            BlastSmartKandelSeeder_v2_1_0_5,
+            "81457",
+          ),
         },
         "11155111": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -751,6 +758,7 @@ describe("strats.ts", () => {
           mangroveAmplifier: undefined,
           orbitLogic: undefined,
           zeroLendLogic: undefined,
+          smartKandelSeeder: undefined,
         },
         "168587773": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -790,6 +798,7 @@ describe("strats.ts", () => {
             "168587773",
           ),
           zeroLendLogic: undefined,
+          smartKandelSeeder: undefined,
         },
       });
     });

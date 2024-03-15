@@ -32,6 +32,8 @@ import BlastMangroveOrder_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveO
 import BlastRouterProxyFactory_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
 // v2.1.0-1
 import OrbitLogic_v2_1_0_1 from "./assets/strats/v2.1.0-1/OrbitLogic.json";
+// v2.1.0-5
+import BlastSmartKandelSeeder_v2_1_0_5 from "./assets/strats/v2.1.0-5/BlastSmartKandelSeeder.json";
 // v2.1.0
 import BlastMangroveAmplifier_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveAmplifier.json";
 import MangroveOrderRouter_v2_1_0 from "./assets/strats/v2.1.0/MangroveOrder-Router.json";
@@ -175,6 +177,33 @@ export const getLatestKandelSeederPerNetwork = (
   filter?: DeploymentFilter,
 ): Record<string, VersionNetworkDeployment> => {
   return findLatestDeploymentPerNetwork(filter, _kandelSeederDeployments);
+};
+
+//////////////////////////
+// SmartKandelSeeder
+
+export const _smartKandelSeederDeployments: VersionDeployments[] = [
+  BlastSmartKandelSeeder_v2_1_0_5,
+];
+
+export const getSmartKandelSeederVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _smartKandelSeederDeployments);
+};
+
+/** Returns all SmartKandelSeeder deployments matching the filter, grouped by network. */
+export const getAllSmartKandelSeederVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _smartKandelSeederDeployments);
+};
+
+/** Returns the latest SmartKandelSeeder deployment matching the filter for each network. */
+export const getLatestSmartKandelSeederPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _smartKandelSeederDeployments);
 };
 
 //////////////////////////
@@ -438,6 +467,8 @@ export const getLatestStratContractsPerNetwork = (
         getLatestMangroveAmplifierPerNetwork(stratFilter)[network],
       orbitLogic: getLatestOrbitLogicPerNetwork(stratFilter)[network],
       zeroLendLogic: getLatestZeroLendLogicPerNetwork(stratFilter)[network],
+      smartKandelSeeder:
+        getLatestSmartKandelSeederPerNetwork(stratFilter)[network],
     };
   }
   return latestStratContractsPerNetwork;
