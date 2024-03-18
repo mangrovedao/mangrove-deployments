@@ -1,5 +1,7 @@
 # Next version
 
+# 2.2.4-1
+
 - Change `SmartKandelSeeder` address and ABI
 
 # 2.2.4-0
