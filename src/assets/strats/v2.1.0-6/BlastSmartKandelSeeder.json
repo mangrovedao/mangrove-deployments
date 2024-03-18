@@ -3,13 +3,13 @@
   "released": true,
   "contractName": "BlastSmartKandelSeeder",
   "deploymentName": "SmartKandelSeeder",
-  "version": "2.1.0-5",
+  "version": "2.1.0-6",
   "networkAddresses": {
     "81457": {
-      "primaryAddress": "0x45e5c5bF87cF18C999270e28a61dC2cCA8b65553",
+      "primaryAddress": "0x3cbb6ad1b287748b92d1b4dfc1776af1dd9284b2",
       "allAddresses": [
         {
-          "address": "0x45e5c5bF87cF18C999270e28a61dC2cCA8b65553",
+          "address": "0x3cbb6ad1b287748b92d1b4dfc1776af1dd9284b2",
           "dependencies": [
             {
               "name": "Mangrove",

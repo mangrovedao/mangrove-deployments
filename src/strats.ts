@@ -32,8 +32,8 @@ import BlastMangroveOrder_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastMangroveO
 import BlastRouterProxyFactory_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
 // v2.1.0-1
 import OrbitLogic_v2_1_0_1 from "./assets/strats/v2.1.0-1/OrbitLogic.json";
-// v2.1.0-5
-import BlastSmartKandelSeeder_v2_1_0_5 from "./assets/strats/v2.1.0-5/BlastSmartKandelSeeder.json";
+// v2.1.0-6
+import BlastSmartKandelSeeder_v2_1_0_6 from "./assets/strats/v2.1.0-6/BlastSmartKandelSeeder.json";
 // v2.1.0
 import BlastMangroveAmplifier_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveAmplifier.json";
 import MangroveOrderRouter_v2_1_0 from "./assets/strats/v2.1.0/MangroveOrder-Router.json";
@@ -183,7 +183,7 @@ export const getLatestKandelSeederPerNetwork = (
 // SmartKandelSeeder
 
 export const _smartKandelSeederDeployments: VersionDeployments[] = [
-  BlastSmartKandelSeeder_v2_1_0_5,
+  BlastSmartKandelSeeder_v2_1_0_6,
 ];
 
 export const getSmartKandelSeederVersionDeployments = (

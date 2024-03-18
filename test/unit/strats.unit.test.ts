@@ -37,8 +37,8 @@ import BlastMangroveOrder_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastM
 import BlastRouterProxyFactory_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/BlastRouterProxyFactory.json";
 // v2.1.0-1
 import OrbitLogic_v2_1_0_1 from "../../src/assets/strats/v2.1.0-1/OrbitLogic.json";
-// v2.1.0-5
-import BlastSmartKandelSeeder_v2_1_0_5 from "../../src/assets/strats/v2.1.0-5/BlastSmartKandelSeeder.json";
+// v2.1.0-6
+import BlastSmartKandelSeeder_v2_1_0_6 from "../../src/assets/strats/v2.1.0-6/BlastSmartKandelSeeder.json";
 // v2.1.0
 import BlastMangrove_v2_1_0 from "../../src/assets/core/v2.1.0/BlastMangrove.json";
 import BlastMangroveAmplifier_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveAmplifier.json";
@@ -738,7 +738,7 @@ describe("strats.ts", () => {
             "81457",
           ),
           smartKandelSeeder: firstVersionDeploymentsToVersionNetworkDeployment(
-            BlastSmartKandelSeeder_v2_1_0_5,
+            BlastSmartKandelSeeder_v2_1_0_6,
             "81457",
           ),
         },
