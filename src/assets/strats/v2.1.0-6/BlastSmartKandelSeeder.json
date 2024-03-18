@@ -43,6 +43,26 @@
           "name": "routerImplementation",
           "type": "address",
           "internalType": "contract AbstractRouter"
+        },
+        {
+          "name": "blastContract",
+          "type": "address",
+          "internalType": "contract IBlast"
+        },
+        {
+          "name": "blastGovernor",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "blastPointsContract",
+          "type": "address",
+          "internalType": "contract IBlastPoints"
+        },
+        {
+          "name": "blastPointsOperator",
+          "type": "address",
+          "internalType": "address"
         }
       ],
       "stateMutability": "nonpayable"
