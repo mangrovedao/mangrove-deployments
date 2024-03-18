@@ -1,5 +1,7 @@
 # Next version
 
+- Change `SmartKandelSeeder` address and ABI
+
 # 2.2.4-0
 
 - Add `SmartKandelSeeder` contract and deployment on Blast
