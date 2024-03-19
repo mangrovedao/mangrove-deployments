@@ -1,7 +1,8 @@
 {
   "$schema": "../../../../contract.schema.json",
   "released": true,
-  "contractName": "KandelSeeder",
+  "contractName": "BlastKandelSeeder",
+  "deploymentName": "KandelSeeder",
   "version": "2.1.0",
   "networkAddresses": {
     "81457": {
