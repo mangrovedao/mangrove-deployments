@@ -58,6 +58,10 @@ export type StratContractsNetworkDeployment = {
   orbitLogic?: VersionNetworkDeployment;
   zeroLendLogic?: VersionNetworkDeployment;
   smartKandelSeeder?: VersionNetworkDeployment;
+  uniswapV3ManagerMonoswap?: VersionNetworkDeployment;
+  uniswapV3RoutingLogicMonoswap?: VersionNetworkDeployment;
+  uniswapV3ManagerThruster?: VersionNetworkDeployment;
+  uniswapV3RoutingLogicThruster?: VersionNetworkDeployment;
 };
 
 export type DeploymentFilter = {

@@ -1,5 +1,7 @@
 # Next version
 
+- Add uniswap V3 contracts
+
 # 2.2.4-1
 
 - Change `SmartKandelSeeder` address and ABI

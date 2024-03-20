@@ -39,6 +39,11 @@ import BlastRouterProxyFactory_v2_1_0_0 from "../../src/assets/strats/v2.1.0-0/B
 import OrbitLogic_v2_1_0_1 from "../../src/assets/strats/v2.1.0-1/OrbitLogic.json";
 // v2.1.0-6
 import BlastSmartKandelSeeder_v2_1_0_6 from "../../src/assets/strats/v2.1.0-6/BlastSmartKandelSeeder.json";
+// v2.1.0-7
+import UniswapV3Manager_Monoswap_v2_1_0_7 from "../../src/assets/strats/v2.1.0-7/UniswapV3Manager-Monoswap.json";
+import UniswapV3RoutingLogic_Monoswap_v2_1_0_7 from "../../src/assets/strats/v2.1.0-7/UniswapV3RoutingLogic-Monoswap.json";
+import UniswapV3Manager_Thruster_v2_1_0_7 from "../../src/assets/strats/v2.1.0-7/UniswapV3Manager-Thruster.json";
+import UniswapV3RoutingLogic_Thruster_v2_1_0_7 from "../../src/assets/strats/v2.1.0-7/UniswapV3RoutingLogic-Thruster.json";
 // v2.1.0
 import BlastMangrove_v2_1_0 from "../../src/assets/core/v2.1.0/BlastMangrove.json";
 import BlastMangroveAmplifier_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastMangroveAmplifier.json";
@@ -84,6 +89,18 @@ import {
   getAllZeroLendLogicVersionDeploymentsPerNetwork,
   getLatestZeroLendLogicPerNetwork,
   getZeroLendLogicVersionDeployments,
+  getUniswapV3ManagerThrusterVersionDeployments,
+  getAllUniswapV3ManagerThrusterVersionDeploymentsPerNetwork,
+  getLatestUniswapV3ManagerThrusterPerNetwork,
+  getUniswapV3ManagerMonoswapVersionDeployments,
+  getAllUniswapV3ManagerMonoswapVersionDeploymentsPerNetwork,
+  getLatestUniswapV3ManagerMonoswapPerNetwork,
+  getAllUniswapV3RoutingLogicMonoswapVersionDeploymentsPerNetwork,
+  getAllUniswapV3RoutingLogicThrusterVersionDeploymentsPerNetwork,
+  getLatestUniswapV3RoutingLogicMonoswapPerNetwork,
+  getLatestUniswapV3RoutingLogicThrusterPerNetwork,
+  getUniswapV3RoutingLogicMonoswapVersionDeployments,
+  getUniswapV3RoutingLogicThrusterVersionDeployments,
 } from "../../src/strats";
 import { expect } from "chai";
 import { firstVersionDeploymentsToVersionNetworkDeployment } from "./unitTestUtil";
@@ -591,6 +608,156 @@ describe("strats.ts", () => {
     });
   });
 
+  describe("UniV3 Contracts", () => {
+    describe("UniswapV3Manager", () => {
+      describe("Thruster", () => {
+        it("should find the latest deployment first", () => {
+          const result = getUniswapV3ManagerThrusterVersionDeployments({
+            released: undefined,
+          });
+          assert.equal(result, UniswapV3Manager_Thruster_v2_1_0_7);
+          // NB: Add older old versions here
+          [].forEach((version) => {
+            assert.notEqual(result, version);
+          });
+        });
+
+        it("should return all deployments grouped by network", () => {
+          expect(
+            getAllUniswapV3ManagerThrusterVersionDeploymentsPerNetwork({
+              released: undefined,
+            }),
+          ).to.deep.equal({
+            "81457": [UniswapV3Manager_Thruster_v2_1_0_7],
+          });
+        });
+
+        it("should return the latest deployment for each network", () => {
+          expect(
+            getLatestUniswapV3ManagerThrusterPerNetwork({
+              released: undefined,
+            }),
+          ).to.deep.equal({
+            "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+              UniswapV3Manager_Thruster_v2_1_0_7,
+              "81457",
+            ),
+          });
+        });
+      });
+
+      describe("Monoswap", () => {
+        it("should find the latest deployment first", () => {
+          const result = getUniswapV3ManagerMonoswapVersionDeployments({
+            released: undefined,
+          });
+          assert.equal(result, UniswapV3Manager_Monoswap_v2_1_0_7);
+          // NB: Add older old versions here
+          [].forEach((version) => {
+            assert.notEqual(result, version);
+          });
+        });
+
+        it("should return all deployments grouped by network", () => {
+          expect(
+            getAllUniswapV3ManagerMonoswapVersionDeploymentsPerNetwork({
+              released: undefined,
+            }),
+          ).to.deep.equal({
+            "81457": [UniswapV3Manager_Monoswap_v2_1_0_7],
+          });
+        });
+
+        it("should return the latest deployment for each network", () => {
+          expect(
+            getLatestUniswapV3ManagerMonoswapPerNetwork({
+              released: undefined,
+            }),
+          ).to.deep.equal({
+            "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+              UniswapV3Manager_Monoswap_v2_1_0_7,
+              "81457",
+            ),
+          });
+        });
+      });
+    });
+
+    describe("UniswapV3RoutingLogic", () => {
+      describe("Thruster", () => {
+        it("should find the latest deployment first", () => {
+          const result = getUniswapV3RoutingLogicThrusterVersionDeployments({
+            released: undefined,
+          });
+          assert.equal(result, UniswapV3RoutingLogic_Thruster_v2_1_0_7);
+          // NB: Add older old versions here
+          [].forEach((version) => {
+            assert.notEqual(result, version);
+          });
+        });
+
+        it("should return all deployments grouped by network", () => {
+          expect(
+            getAllUniswapV3RoutingLogicThrusterVersionDeploymentsPerNetwork({
+              released: undefined,
+            }),
+          ).to.deep.equal({
+            "81457": [UniswapV3RoutingLogic_Thruster_v2_1_0_7],
+          });
+        });
+
+        it("should return the latest deployment for each network", () => {
+          expect(
+            getLatestUniswapV3RoutingLogicThrusterPerNetwork({
+              released: undefined,
+            }),
+          ).to.deep.equal({
+            "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+              UniswapV3RoutingLogic_Thruster_v2_1_0_7,
+              "81457",
+            ),
+          });
+        });
+      });
+
+      describe("Monoswap", () => {
+        it("should find the latest deployment first", () => {
+          const result = getUniswapV3RoutingLogicMonoswapVersionDeployments({
+            released: undefined,
+          });
+          assert.equal(result, UniswapV3RoutingLogic_Monoswap_v2_1_0_7);
+          // NB: Add older old versions here
+          [].forEach((version) => {
+            assert.notEqual(result, version);
+          });
+        });
+
+        it("should return all deployments grouped by network", () => {
+          expect(
+            getAllUniswapV3RoutingLogicMonoswapVersionDeploymentsPerNetwork({
+              released: undefined,
+            }),
+          ).to.deep.equal({
+            "81457": [UniswapV3RoutingLogic_Monoswap_v2_1_0_7],
+          });
+        });
+
+        it("should return the latest deployment for each network", () => {
+          expect(
+            getLatestUniswapV3RoutingLogicMonoswapPerNetwork({
+              released: undefined,
+            }),
+          ).to.deep.equal({
+            "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+              UniswapV3RoutingLogic_Monoswap_v2_1_0_7,
+              "81457",
+            ),
+          });
+        });
+      });
+    });
+  });
+
   describe("MangroveAmplifier contract", () => {
     describe("getMangroveAmplifierVersionDeployments", () => {
       it("should find the latest deployment first", () => {
@@ -695,6 +862,10 @@ describe("strats.ts", () => {
           orbitLogic: undefined,
           zeroLendLogic: undefined,
           smartKandelSeeder: undefined,
+          uniswapV3ManagerMonoswap: undefined,
+          uniswapV3ManagerThruster: undefined,
+          uniswapV3RoutingLogicMonoswap: undefined,
+          uniswapV3RoutingLogicThruster: undefined,
         },
         "81457": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -741,6 +912,26 @@ describe("strats.ts", () => {
             BlastSmartKandelSeeder_v2_1_0_6,
             "81457",
           ),
+          uniswapV3ManagerMonoswap:
+            firstVersionDeploymentsToVersionNetworkDeployment(
+              UniswapV3Manager_Monoswap_v2_1_0_7,
+              "81457",
+            ),
+          uniswapV3ManagerThruster:
+            firstVersionDeploymentsToVersionNetworkDeployment(
+              UniswapV3Manager_Thruster_v2_1_0_7,
+              "81457",
+            ),
+          uniswapV3RoutingLogicMonoswap:
+            firstVersionDeploymentsToVersionNetworkDeployment(
+              UniswapV3RoutingLogic_Monoswap_v2_1_0_7,
+              "81457",
+            ),
+          uniswapV3RoutingLogicThruster:
+            firstVersionDeploymentsToVersionNetworkDeployment(
+              UniswapV3RoutingLogic_Thruster_v2_1_0_7,
+              "81457",
+            ),
         },
         "11155111": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -759,6 +950,10 @@ describe("strats.ts", () => {
           orbitLogic: undefined,
           zeroLendLogic: undefined,
           smartKandelSeeder: undefined,
+          uniswapV3ManagerMonoswap: undefined,
+          uniswapV3ManagerThruster: undefined,
+          uniswapV3RoutingLogicMonoswap: undefined,
+          uniswapV3RoutingLogicThruster: undefined,
         },
         "168587773": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -799,6 +994,10 @@ describe("strats.ts", () => {
           ),
           zeroLendLogic: undefined,
           smartKandelSeeder: undefined,
+          uniswapV3ManagerMonoswap: undefined,
+          uniswapV3ManagerThruster: undefined,
+          uniswapV3RoutingLogicMonoswap: undefined,
+          uniswapV3RoutingLogicThruster: undefined,
         },
       });
     });
