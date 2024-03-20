@@ -34,6 +34,11 @@ import BlastRouterProxyFactory_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastRout
 import OrbitLogic_v2_1_0_1 from "./assets/strats/v2.1.0-1/OrbitLogic.json";
 // v2.1.0-6
 import BlastSmartKandelSeeder_v2_1_0_6 from "./assets/strats/v2.1.0-6/BlastSmartKandelSeeder.json";
+// v2.1.0-7
+import UniswapV3Manager_Monoswap_v2_1_0_7 from "./assets/strats/v2.1.0-7/UniswapV3Manager-Monoswap.json";
+import UniswapV3RoutingLogic_Monoswap_v2_1_0_7 from "./assets/strats/v2.1.0-7/UniswapV3RoutingLogic-Monoswap.json";
+import UniswapV3Manager_Thruster_v2_1_0_7 from "./assets/strats/v2.1.0-7/UniswapV3Manager-Thruster.json";
+import UniswapV3RoutingLogic_Thruster_v2_1_0_7 from "./assets/strats/v2.1.0-7/UniswapV3RoutingLogic-Thruster.json";
 // v2.1.0
 import BlastMangroveAmplifier_v2_1_0 from "./assets/strats/v2.1.0/BlastMangroveAmplifier.json";
 import MangroveOrderRouter_v2_1_0 from "./assets/strats/v2.1.0/MangroveOrder-Router.json";
@@ -389,6 +394,138 @@ export const getLatestOrbitLogicPerNetwork = (
 };
 
 //////////////////////////
+// Uniswap V3 Manager (Monoswap)
+
+export const _uniswapV3ManagerMonoswapDeployments: VersionDeployments[] = [
+  UniswapV3Manager_Monoswap_v2_1_0_7,
+];
+
+export const getUniswapV3ManagerMonoswapVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _uniswapV3ManagerMonoswapDeployments);
+};
+
+/** Returns all UniswapV3Manager (Monoswap) deployments matching the filter, grouped by network. */
+export const getAllUniswapV3ManagerMonoswapVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(
+    filter,
+    _uniswapV3ManagerMonoswapDeployments,
+  );
+};
+
+/** Returns the latest UniswapV3Manager (Monoswap) deployment matching the filter for each network. */
+export const getLatestUniswapV3ManagerMonoswapPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(
+    filter,
+    _uniswapV3ManagerMonoswapDeployments,
+  );
+};
+
+//////////////////////////
+// Uniswap V3 Routing Logic (Monoswap)
+
+export const _uniswapV3RoutingLogicMonoswapDeployments: VersionDeployments[] = [
+  UniswapV3RoutingLogic_Monoswap_v2_1_0_7,
+];
+
+export const getUniswapV3RoutingLogicMonoswapVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _uniswapV3RoutingLogicMonoswapDeployments);
+};
+
+/** Returns all UniswapV3RoutingLogic (Monoswap) deployments matching the filter, grouped by network. */
+export const getAllUniswapV3RoutingLogicMonoswapVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(
+    filter,
+    _uniswapV3RoutingLogicMonoswapDeployments,
+  );
+};
+
+/** Returns the latest UniswapV3RoutingLogic (Monoswap) deployment matching the filter for each network. */
+export const getLatestUniswapV3RoutingLogicMonoswapPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(
+    filter,
+    _uniswapV3RoutingLogicMonoswapDeployments,
+  );
+};
+
+//////////////////////////
+// Uniswap V3 Manager (Thruster)
+
+export const _uniswapV3ManagerThrusterDeployments: VersionDeployments[] = [
+  UniswapV3Manager_Thruster_v2_1_0_7,
+];
+
+export const getUniswapV3ManagerThrusterVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _uniswapV3ManagerThrusterDeployments);
+};
+
+/** Returns all UniswapV3Manager (Thruster) deployments matching the filter, grouped by network. */
+export const getAllUniswapV3ManagerThrusterVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(
+    filter,
+    _uniswapV3ManagerThrusterDeployments,
+  );
+};
+
+/** Returns the latest UniswapV3Manager (Thruster) deployment matching the filter for each network. */
+export const getLatestUniswapV3ManagerThrusterPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(
+    filter,
+    _uniswapV3ManagerThrusterDeployments,
+  );
+};
+
+//////////////////////////
+// Uniswap V3 Routing Logic (Thruster)
+
+export const _uniswapV3RoutingLogicThrusterDeployments: VersionDeployments[] = [
+  UniswapV3RoutingLogic_Thruster_v2_1_0_7,
+];
+
+export const getUniswapV3RoutingLogicThrusterVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _uniswapV3RoutingLogicThrusterDeployments);
+};
+
+/** Returns all UniswapV3RoutingLogic (Thruster) deployments matching the filter, grouped by network. */
+export const getAllUniswapV3RoutingLogicThrusterVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(
+    filter,
+    _uniswapV3RoutingLogicThrusterDeployments,
+  );
+};
+
+/** Returns the latest UniswapV3RoutingLogic (Thruster) deployment matching the filter for each network. */
+export const getLatestUniswapV3RoutingLogicThrusterPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(
+    filter,
+    _uniswapV3RoutingLogicThrusterDeployments,
+  );
+};
+
+//////////////////////////
 // MangroveAmplifier
 
 /** This is a sorted array (newest to oldest), exported for tests */
@@ -469,6 +606,14 @@ export const getLatestStratContractsPerNetwork = (
       zeroLendLogic: getLatestZeroLendLogicPerNetwork(stratFilter)[network],
       smartKandelSeeder:
         getLatestSmartKandelSeederPerNetwork(stratFilter)[network],
+      uniswapV3ManagerMonoswap:
+        getLatestUniswapV3ManagerMonoswapPerNetwork(stratFilter)[network],
+      uniswapV3RoutingLogicMonoswap:
+        getLatestUniswapV3RoutingLogicMonoswapPerNetwork(stratFilter)[network],
+      uniswapV3ManagerThruster:
+        getLatestUniswapV3ManagerThrusterPerNetwork(stratFilter)[network],
+      uniswapV3RoutingLogicThruster:
+        getLatestUniswapV3RoutingLogicThrusterPerNetwork(stratFilter)[network],
     };
   }
   return latestStratContractsPerNetwork;
