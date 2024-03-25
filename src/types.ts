@@ -62,6 +62,7 @@ export type StratContractsNetworkDeployment = {
   uniswapV3RoutingLogicMonoswap?: VersionNetworkDeployment;
   uniswapV3ManagerThruster?: VersionNetworkDeployment;
   uniswapV3RoutingLogicThruster?: VersionNetworkDeployment;
+  pacFinanceLogic?: VersionNetworkDeployment;
 };
 
 export type DeploymentFilter = {

@@ -54,6 +54,7 @@ import RouterProxyFactory_v2_1_0 from "../../src/assets/strats/v2.1.0/RouterProx
 import BlastKandelSeeder_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelSeeder.json";
 import BlastKandelLib_v2_1_0 from "../../src/assets/strats/v2.1.0/BlastKandelLib.json";
 import ZeroLendLogic_v2_1_0 from "../../src//assets/strats/v2.1.0/ZeroLendLogic.json";
+import PacFinanceLogic_v2_1_0 from "../../src/assets/strats/v2.1.0/PacFinanceLogic.json";
 
 import {
   getAaveKandelSeederVersionDeployments,
@@ -102,6 +103,9 @@ import {
   getLatestUniswapV3RoutingLogicThrusterPerNetwork,
   getUniswapV3RoutingLogicMonoswapVersionDeployments,
   getUniswapV3RoutingLogicThrusterVersionDeployments,
+  getAllPacFinanceLogicVersionDeploymentsPerNetwork,
+  getLatestPacFinanceLogicPerNetwork,
+  getPacFinanceLogicVersionDeployments,
 } from "../../src/strats";
 import { expect } from "chai";
 import { firstVersionDeploymentsToVersionNetworkDeployment } from "./unitTestUtil";
@@ -564,6 +568,46 @@ describe("strats.ts", () => {
     });
   });
 
+  describe("PacFinanceLogic contract", () => {
+    describe("getPacFinanceLogicVersionDeployments", () => {
+      it("should find the latest deployment first", () => {
+        const result = getPacFinanceLogicVersionDeployments({
+          released: undefined,
+        });
+        assert.equal(result, PacFinanceLogic_v2_1_0);
+        // NB: Add older old versions here
+        [].forEach((version) => {
+          assert.notEqual(result, version);
+        });
+      });
+    });
+
+    describe("getAllPacFinanceLogicVersionDeploymentsPerNetwork", () => {
+      it("should return all deployments grouped by network", () => {
+        expect(
+          getAllPacFinanceLogicVersionDeploymentsPerNetwork({
+            released: undefined,
+          }),
+        ).to.deep.equal({
+          "81457": [PacFinanceLogic_v2_1_0],
+        });
+      });
+    });
+
+    describe("getLatestPacFinanceLogicPerNetwork", () => {
+      it("should return the latest deployment for each network", () => {
+        expect(
+          getLatestPacFinanceLogicPerNetwork({ released: undefined }),
+        ).to.deep.equal({
+          "81457": firstVersionDeploymentsToVersionNetworkDeployment(
+            PacFinanceLogic_v2_1_0,
+            "81457",
+          ),
+        });
+      });
+    });
+  });
+
   describe("OrbitLogic contract", () => {
     describe("getOrbitLogicVersionDeployments", () => {
       it("should find the latest deployment first", () => {
@@ -870,6 +914,7 @@ describe("strats.ts", () => {
           uniswapV3ManagerThruster: undefined,
           uniswapV3RoutingLogicMonoswap: undefined,
           uniswapV3RoutingLogicThruster: undefined,
+          pacFinanceLogic: undefined,
         },
         "81457": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -936,6 +981,10 @@ describe("strats.ts", () => {
               UniswapV3RoutingLogic_Thruster_v2_1_0_7,
               "81457",
             ),
+          pacFinanceLogic: firstVersionDeploymentsToVersionNetworkDeployment(
+            PacFinanceLogic_v2_1_0,
+            "81457",
+          ),
         },
         "11155111": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -958,6 +1007,7 @@ describe("strats.ts", () => {
           uniswapV3ManagerThruster: undefined,
           uniswapV3RoutingLogicMonoswap: undefined,
           uniswapV3RoutingLogicThruster: undefined,
+          pacFinanceLogic: undefined,
         },
         "168587773": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
@@ -1002,6 +1052,7 @@ describe("strats.ts", () => {
           uniswapV3ManagerThruster: undefined,
           uniswapV3RoutingLogicMonoswap: undefined,
           uniswapV3RoutingLogicThruster: undefined,
+          pacFinanceLogic: undefined,
         },
       });
     });
