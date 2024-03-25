@@ -34,6 +34,7 @@ import BlastRouterProxyFactory_v2_1_0_0 from "./assets/strats/v2.1.0-0/BlastRout
 import OrbitLogic_v2_1_0_1 from "./assets/strats/v2.1.0-1/OrbitLogic.json";
 // v2.1.0-6
 import BlastSmartKandelSeeder_v2_1_0_6 from "./assets/strats/v2.1.0-6/BlastSmartKandelSeeder.json";
+import SmartKandelSeeder_v2_1_0_6 from "./assets/strats/v2.1.0-6/SmartKandelSeeder.json";
 // v2.1.0-7
 import UniswapV3Manager_Monoswap_v2_1_0_7 from "./assets/strats/v2.1.0-7/UniswapV3Manager-Monoswap.json";
 import UniswapV3RoutingLogic_Monoswap_v2_1_0_7 from "./assets/strats/v2.1.0-7/UniswapV3RoutingLogic-Monoswap.json";
@@ -189,6 +190,7 @@ export const getLatestKandelSeederPerNetwork = (
 
 export const _smartKandelSeederDeployments: VersionDeployments[] = [
   BlastSmartKandelSeeder_v2_1_0_6,
+  SmartKandelSeeder_v2_1_0_6,
 ];
 
 export const getSmartKandelSeederVersionDeployments = (

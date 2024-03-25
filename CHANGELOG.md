@@ -1,5 +1,7 @@
 # Next version
 
+- Add mumbai deployment of `SmartKandelSeeder`
+
 # 2.2.4-2
 
 - Add uniswap V3 contracts
