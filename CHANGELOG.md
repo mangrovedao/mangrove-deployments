@@ -1,5 +1,7 @@
 # Next version
 
+# 2.2.4-3
+
 - Add mumbai deployment of `SmartKandelSeeder`
 
 # 2.2.4-2
