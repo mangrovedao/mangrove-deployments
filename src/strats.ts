@@ -48,6 +48,7 @@ import RouterProxyFactory_v2_1_0 from "./assets/strats/v2.1.0/RouterProxyFactory
 import BlastKandelSeeder_v2_1_0 from "./assets/strats/v2.1.0/BlastKandelSeeder.json";
 import BlastKandelLib_v2_1_0 from "./assets/strats/v2.1.0/BlastKandelLib.json";
 import ZeroLendLogic_v2_1_0 from "./assets/strats/v2.1.0/ZeroLendLogic.json";
+import PacFinanceLogic_v2_1_0 from "./assets/strats/v2.1.0/PacFinanceLogic.json";
 
 import { getLatestMangrovePerNetwork } from "./core";
 
@@ -340,6 +341,34 @@ export const getLatestZeroLendLogicPerNetwork = (
 };
 
 //////////////////////////
+// PacFinanceLogic
+
+/** This is a sorted array (newest to oldest), exported for tests */
+export const _pacFinanceLogicDeployments: VersionDeployments[] = [
+  PacFinanceLogic_v2_1_0,
+];
+
+export const getPacFinanceLogicVersionDeployments = (
+  filter?: DeploymentFilter,
+): VersionDeployments | undefined => {
+  return findDeployment(filter, _pacFinanceLogicDeployments);
+};
+
+/** Returns all PacFinanceLogic deployments matching the filter, grouped by network. */
+export const getAllPacFinanceLogicVersionDeploymentsPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionDeployments[]> => {
+  return findAllDeploymentsPerNetwork(filter, _pacFinanceLogicDeployments);
+};
+
+/** Returns the latest PacFinanceLogic deployment matching the filter for each network. */
+export const getLatestPacFinanceLogicPerNetwork = (
+  filter?: DeploymentFilter,
+): Record<string, VersionNetworkDeployment> => {
+  return findLatestDeploymentPerNetwork(filter, _pacFinanceLogicDeployments);
+};
+
+//////////////////////////
 // SimpleAaveLogic
 
 /** This is a sorted array (newest to oldest), exported for tests */
@@ -616,6 +645,7 @@ export const getLatestStratContractsPerNetwork = (
         getLatestUniswapV3ManagerThrusterPerNetwork(stratFilter)[network],
       uniswapV3RoutingLogicThruster:
         getLatestUniswapV3RoutingLogicThrusterPerNetwork(stratFilter)[network],
+      pacFinanceLogic: getLatestPacFinanceLogicPerNetwork(stratFilter)[network],
     };
   }
   return latestStratContractsPerNetwork;

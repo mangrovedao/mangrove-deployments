@@ -1,5 +1,7 @@
 # Next version
 
+- Add pac finance logic address
+
 # 2.2.4-3
 
 - Add mumbai deployment of `SmartKandelSeeder`
