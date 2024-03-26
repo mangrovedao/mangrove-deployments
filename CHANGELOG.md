@@ -1,5 +1,7 @@
 # Next version
 
+# 2.2.4-5
+
 - fix mumbai deployments addresses
 
 # 2.2.4-4
