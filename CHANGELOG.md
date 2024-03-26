@@ -1,5 +1,7 @@
 # Next version
 
+- fix mumbai deployments addresses
+
 # 2.2.4-4
 
 - Add pac finance logic address
