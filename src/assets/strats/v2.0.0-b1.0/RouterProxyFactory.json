@@ -5,10 +5,10 @@
   "version": "2.0.0-b1.0",
   "networkAddresses": {
     "80001": {
-      "primaryAddress": "0x2593BdD850EA25E87f3A1C83dcB8B49DAeddF0d1",
+      "primaryAddress": "0xaA1f5A0313D3AE6E1B9AA94229630679a1ffd3f2",
       "allAddresses": [
         {
-          "address": "0x2593BdD850EA25E87f3A1C83dcB8B49DAeddF0d1",
+          "address": "0xaA1f5A0313D3AE6E1B9AA94229630679a1ffd3f2",
           "dependencies": [
             {
               "name": "Mangrove",
