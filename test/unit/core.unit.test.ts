@@ -47,6 +47,7 @@ describe("core.ts", () => {
         expect(
           getAllMangroveVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "42161": [Mangrove_v2_0_1],
           "80001": [Mangrove_v2_0_1],
           "81457": [BlastMangrove_v2_1_0],
           "11155111": [Mangrove_v2_0_1],
@@ -60,6 +61,10 @@ describe("core.ts", () => {
         expect(
           getLatestMangrovePerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "42161": firstVersionDeploymentsToVersionNetworkDeployment(
+            Mangrove_v2_0_1,
+            "42161",
+          ),
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             Mangrove_v2_0_1,
             "80001",
@@ -98,6 +103,7 @@ describe("core.ts", () => {
         expect(
           getAllMgvReaderVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "42161": [MgvReader_v2_1_0],
           "80001": [MgvReader_v2_0_1],
           "81457": [MgvReader_v2_1_0],
           "11155111": [MgvReader_v2_0_1],
@@ -111,6 +117,10 @@ describe("core.ts", () => {
         expect(
           getLatestMgvReaderPerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "42161": firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvReader_v2_1_0,
+            "42161",
+          ),
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MgvReader_v2_0_1,
             "80001",
@@ -149,6 +159,7 @@ describe("core.ts", () => {
         expect(
           getAllMgvOracleVersionDeploymentsPerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "42161": [MgvOracle_v2_1_0],
           "80001": [MgvOracle_v2_0_1],
           "81457": [MgvOracle_v2_1_0],
           "11155111": [MgvOracle_v2_0_1],
@@ -162,6 +173,10 @@ describe("core.ts", () => {
         expect(
           getLatestMgvOraclePerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "42161": firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvOracle_v2_1_0,
+            "42161",
+          ),
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MgvOracle_v2_0_1,
             "80001",
@@ -188,6 +203,20 @@ describe("core.ts", () => {
       expect(
         getLatestCoreContractsPerNetwork({ released: undefined }),
       ).to.deep.equal({
+        "42161": {
+          mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
+            Mangrove_v2_0_1,
+            "42161",
+          ),
+          mgvOracle: firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvOracle_v2_1_0,
+            "42161",
+          ),
+          mgvReader: firstVersionDeploymentsToVersionNetworkDeployment(
+            MgvReader_v2_1_0,
+            "42161",
+          ),
+        },
         "80001": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
             Mangrove_v2_0_1,

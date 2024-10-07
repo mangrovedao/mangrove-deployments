@@ -17,6 +17,20 @@
           ]
         }
       ]
+    },
+    "42161": {
+      "primaryAddress": "0x50793D97A0c905Ea51c1C93f37FC73aBE6D2ffCc",
+      "allAddresses": [
+        {
+          "address": "0x50793D97A0c905Ea51c1C93f37FC73aBE6D2ffCc",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0x109d9CDFA4aC534354873EF634EF63C235F93f61"
+            }
+          ]
+        }
+      ]
     }
   },
   "abi": [

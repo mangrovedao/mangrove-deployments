@@ -339,6 +339,7 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
+          "42161": [MangroveOrderRouter_v2_1_0],
           "80001": [
             MangroveOrderRouter_v2_0_1_0,
             MangroveOrderRouter_v2_0_0_b1_0,
@@ -355,6 +356,10 @@ describe("strats.ts", () => {
         expect(
           getLatestMangroveOrderRouterPerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "42161": firstVersionDeploymentsToVersionNetworkDeployment(
+            MangroveOrderRouter_v2_1_0,
+            "42161",
+          ),
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MangroveOrderRouter_v2_0_1_0,
             "80001",
@@ -398,6 +403,7 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
+          "42161": [MangroveOrder_v2_1_0],
           "80001": [
             MangroveOrder_v2_0_1_0,
             MangroveOrder_v2_0_0_b1_0,
@@ -414,6 +420,10 @@ describe("strats.ts", () => {
         expect(
           getLatestMangroveOrderPerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "42161": firstVersionDeploymentsToVersionNetworkDeployment(
+            MangroveOrder_v2_1_0,
+            "42161",
+          ),
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             MangroveOrder_v2_0_1_0,
             "80001",
@@ -456,6 +466,7 @@ describe("strats.ts", () => {
             released: undefined,
           }),
         ).to.deep.equal({
+          "42161": [RouterProxyFactory_v2_1_0],
           "80001": [
             RouterProxyFactory_v2_0_1_0,
             RouterProxyFactory_v2_0_0_b1_0,
@@ -471,6 +482,10 @@ describe("strats.ts", () => {
         expect(
           getLatestRouterProxyFactoryPerNetwork({ released: undefined }),
         ).to.deep.equal({
+          "42161": firstVersionDeploymentsToVersionNetworkDeployment(
+            RouterProxyFactory_v2_1_0,
+            "42161",
+          ),
           "80001": firstVersionDeploymentsToVersionNetworkDeployment(
             RouterProxyFactory_v2_0_1_0,
             "80001",
@@ -862,6 +877,39 @@ describe("strats.ts", () => {
       expect(
         getLatestStratContractsPerNetwork({ released: undefined }),
       ).to.deep.equal({
+        "42161": {
+          mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
+            Mangrove_v2_0_1,
+            "42161",
+          ),
+          aaveKandelSeeder: undefined,
+          aavePooledRouter: undefined,
+          kandelLib: undefined,
+          kandelSeeder: undefined,
+          mangroveOrderRouter:
+            firstVersionDeploymentsToVersionNetworkDeployment(
+              MangroveOrderRouter_v2_1_0,
+              "42161",
+            ),
+          mangroveOrder: firstVersionDeploymentsToVersionNetworkDeployment(
+            MangroveOrder_v2_1_0,
+            "42161",
+          ),
+          routerProxyFactory: firstVersionDeploymentsToVersionNetworkDeployment(
+            RouterProxyFactory_v2_1_0,
+            "42161",
+          ),
+          simpleAaveLogic: undefined,
+          mangroveAmplifier: undefined,
+          orbitLogic: undefined,
+          zeroLendLogic: undefined,
+          smartKandelSeeder: undefined,
+          uniswapV3ManagerMonoswap: undefined,
+          uniswapV3ManagerThruster: undefined,
+          uniswapV3RoutingLogicMonoswap: undefined,
+          uniswapV3RoutingLogicThruster: undefined,
+          pacFinanceLogic: undefined,
+        },
         "80001": {
           mangrove: firstVersionDeploymentsToVersionNetworkDeployment(
             Mangrove_v2_0_1,
