@@ -4,6 +4,14 @@
   "contractName": "Mangrove",
   "version": "2.0.1",
   "networkAddresses": {
+    "42161": {
+      "primaryAddress": "0x109d9CDFA4aC534354873EF634EF63C235F93f61",
+      "allAddresses": [
+        {
+          "address": "0x109d9CDFA4aC534354873EF634EF63C235F93f61"
+        }
+      ]
+    },
     "80001": {
       "primaryAddress": "0x80cd6Ef14c23dD3957FD5629141a9d7028557c39",
       "allAddresses": [

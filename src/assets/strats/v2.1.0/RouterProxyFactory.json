@@ -4,6 +4,20 @@
   "contractName": "RouterProxyFactory",
   "version": "2.1.0",
   "networkAddresses": {
+    "42161": {
+      "primaryAddress": "0x396614E1050Ffb01E16B4C985b02a7EbB377e0F1",
+      "allAddresses": [
+        {
+          "address": "0x396614E1050Ffb01E16B4C985b02a7EbB377e0F1",
+          "dependencies": [
+            {
+              "name": "Mangrove",
+              "address": "0x109d9CDFA4aC534354873EF634EF63C235F93f61"
+            }
+          ]
+        }
+      ]
+    },
     "81457": {
       "primaryAddress": "0x79C3F23F210e30F6AA9072F0ddFd2D180C8B7131",
       "allAddresses": [
