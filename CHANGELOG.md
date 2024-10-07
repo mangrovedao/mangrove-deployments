@@ -1,5 +1,7 @@
 # Next version
 
+# 2.2.4-6
+
 - Add minimal deployments for Arbitrum
 
 # 2.2.4-5
